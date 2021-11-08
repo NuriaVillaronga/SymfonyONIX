@@ -3,10 +3,11 @@
 namespace App\Entity;
 
 use App\Repository\UserRepository;
+use Doctrine\Common\Collections\ArrayCollection;
+use Doctrine\Common\Collections\Collection;
 use Doctrine\ORM\Mapping as ORM;
 use Symfony\Component\Security\Core\User\PasswordAuthenticatedUserInterface;
 use Symfony\Component\Security\Core\User\UserInterface;
-use Symfony\Component\Validator\Constraints as Assert;
 
 /**
  * @ORM\Entity(repositoryClass=UserRepository::class)
@@ -57,11 +58,14 @@ class User implements UserInterface, PasswordAuthenticatedUserInterface
     private $isDeleted;
 
     /**
-     * @ORM\Column(type="string", length=255, nullable=true)
-     * 
-     * @Assert\File(mimeTypes={"application/xml"})
+     * @ORM\OneToMany(targetEntity=File::class, mappedBy="user", orphanRemoval=true)
      */
-    private $onixFile;
+    private $files;
+
+    public function __construct()
+    {
+        $this->files = new ArrayCollection();
+    }
 
     public function getId(): ?int
     {
@@ -210,14 +214,32 @@ class User implements UserInterface, PasswordAuthenticatedUserInterface
         return $this;
     }
 
-    public function getOnixFile(): ?string
+    /**
+     * @return Collection|File[]
+     */
+    public function getFiles(): Collection
     {
-        return $this->onixFile;
+        return $this->files;
     }
 
-    public function setOnixFile(?string $onixFile): self
+    public function addFile(File $file): self
     {
-        $this->onixFile = $onixFile;
+        if (!$this->files->contains($file)) {
+            $this->files[] = $file;
+            $file->setUser($this);
+        }
+
+        return $this;
+    }
+
+    public function removeFile(File $file): self
+    {
+        if ($this->files->removeElement($file)) {
+            // set the owning side to null (unless already changed)
+            if ($file->getUser() === $this) {
+                $file->setUser(null);
+            }
+        }
 
         return $this;
     }
