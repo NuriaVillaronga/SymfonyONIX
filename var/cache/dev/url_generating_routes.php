@@ -22,7 +22,7 @@ return [
     'app_login' => [[], ['_controller' => 'App\\Controller\\SecurityController::login'], [], [['text', '/login']], [], []],
     'app_logout' => [[], ['_controller' => 'App\\Controller\\SecurityController::logout'], [], [['text', '/logout']], [], []],
     'user_update' => [['id'], ['_controller' => 'App\\Controller\\UpdateController::index'], [], [['variable', '/', '[^/]++', 'id', true], ['text', '/update']], [], []],
-    'upload_onix_file' => [['id'], ['_controller' => 'App\\Controller\\UploadOnixFileController::index'], [], [['variable', '/', '[^/]++', 'id', true], ['text', '/upload']], [], []],
+    'upload_onix' => [['id'], ['_controller' => 'App\\Controller\\UploadFileController::index'], [], [['variable', '/', '[^/]++', 'id', true], ['text', '/upload']], [], []],
     'view_file' => [['id'], ['_controller' => 'App\\Controller\\ViewFileController::view'], [], [['variable', '/', '[^/]++', 'id', true], ['text', '/view']], [], []],
     '_preview_error' => [['code', '_format'], ['_controller' => 'error_controller::preview', '_format' => 'html'], ['code' => '\\d+'], [['variable', '.', '[^/]++', '_format', true], ['variable', '/', '\\d+', 'code', true], ['text', '/_error']], [], []],
 ];

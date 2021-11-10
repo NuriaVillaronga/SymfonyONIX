@@ -236,7 +236,7 @@ class __TwigTemplate_cac26a4b6021ac5347f37f4296f232d01adf2d30478888f843525c95c4b
             <td>
               <a href=\"";
                 // line 62
-                echo twig_escape_filter($this->env, $this->extensions['Symfony\Bridge\Twig\Extension\RoutingExtension']->getPath("upload_onix_file", ["id" => twig_get_attribute($this->env, $this->source, $context["user"], "id", [], "any", false, false, false, 62)]), "html", null, true);
+                echo twig_escape_filter($this->env, $this->extensions['Symfony\Bridge\Twig\Extension\RoutingExtension']->getPath("upload_onix", ["id" => twig_get_attribute($this->env, $this->source, $context["user"], "id", [], "any", false, false, false, 62)]), "html", null, true);
                 echo "\" class=\"btn btn-sm btn-success\">upload</a>
               <a href=\"";
                 // line 63
@@ -324,11 +324,11 @@ class __TwigTemplate_cac26a4b6021ac5347f37f4296f232d01adf2d30478888f843525c95c4b
           <td>
             <a href=\"";
             // line 91
-            echo twig_escape_filter($this->env, $this->extensions['Symfony\Bridge\Twig\Extension\RoutingExtension']->getPath("upload_onix_file", ["id" => twig_get_attribute($this->env, $this->source, twig_get_attribute($this->env, $this->source, (isset($context["app"]) || array_key_exists("app", $context) ? $context["app"] : (function () { throw new RuntimeError('Variable "app" does not exist.', 91, $this->source); })()), "user", [], "any", false, false, false, 91), "id", [], "any", false, false, false, 91)]), "html", null, true);
+            echo twig_escape_filter($this->env, $this->extensions['Symfony\Bridge\Twig\Extension\RoutingExtension']->getPath("upload_onix", ["id" => twig_get_attribute($this->env, $this->source, twig_get_attribute($this->env, $this->source, (isset($context["app"]) || array_key_exists("app", $context) ? $context["app"] : (function () { throw new RuntimeError('Variable "app" does not exist.', 91, $this->source); })()), "user", [], "any", false, false, false, 91), "id", [], "any", false, false, false, 91)]), "html", null, true);
             echo "\" class=\"btn btn-sm btn-success\">upload</a>
             <a href=\"";
             // line 92
-            echo twig_escape_filter($this->env, $this->extensions['Symfony\Bridge\Twig\Extension\RoutingExtension']->getPath("view_file", ["id" => twig_get_attribute($this->env, $this->source, (isset($context["user"]) || array_key_exists("user", $context) ? $context["user"] : (function () { throw new RuntimeError('Variable "user" does not exist.', 92, $this->source); })()), "id", [], "any", false, false, false, 92)]), "html", null, true);
+            echo twig_escape_filter($this->env, $this->extensions['Symfony\Bridge\Twig\Extension\RoutingExtension']->getPath("view_file", ["id" => twig_get_attribute($this->env, $this->source, twig_get_attribute($this->env, $this->source, (isset($context["app"]) || array_key_exists("app", $context) ? $context["app"] : (function () { throw new RuntimeError('Variable "app" does not exist.', 92, $this->source); })()), "user", [], "any", false, false, false, 92), "id", [], "any", false, false, false, 92)]), "html", null, true);
             echo "\" class=\"btn btn-sm btn-info\">view files</a>
             <a id=\"update\" href=\"";
             // line 93
@@ -445,7 +445,7 @@ class __TwigTemplate_cac26a4b6021ac5347f37f4296f232d01adf2d30478888f843525c95c4b
               {% endif %} 
             </td> 
             <td>
-              <a href=\"{{ path('upload_onix_file', {'id': user.id}) }}\" class=\"btn btn-sm btn-success\">upload</a>
+              <a href=\"{{ path('upload_onix', {'id': user.id}) }}\" class=\"btn btn-sm btn-success\">upload</a>
               <a href=\"{{ path('view_file', {'id': user.id}) }}\" class=\"btn btn-sm btn-info\">view files</a>
               <a id=\"update-{{loop.index}}\" href=\"{{ path('user_update', {'id': user.id}) }}\" class=\"btn btn-sm btn-primary\">update</a>
               <a id=\"delete-{{loop.index}}\" href=\"{{ path('user_delete', {'id': user.id}) }}\" class=\"btn btn-sm btn-danger\">delete</a>
@@ -474,8 +474,8 @@ class __TwigTemplate_cac26a4b6021ac5347f37f4296f232d01adf2d30478888f843525c95c4b
               {% endif %} 
           </td>
           <td>
-            <a href=\"{{ path('upload_onix_file', {'id': app.user.id}) }}\" class=\"btn btn-sm btn-success\">upload</a>
-            <a href=\"{{ path('view_file', {'id': user.id}) }}\" class=\"btn btn-sm btn-info\">view files</a>
+            <a href=\"{{ path('upload_onix', {'id': app.user.id}) }}\" class=\"btn btn-sm btn-success\">upload</a>
+            <a href=\"{{ path('view_file', {'id': app.user.id}) }}\" class=\"btn btn-sm btn-info\">view files</a>
             <a id=\"update\" href=\"{{ path('user_update', {'id': app.user.id }) }}\" class=\"btn btn-sm btn-primary\">update</a>
           </td>
         </tr>

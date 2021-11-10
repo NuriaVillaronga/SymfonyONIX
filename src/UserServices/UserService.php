@@ -2,6 +2,7 @@
 
 namespace App\UserServices;
 
+use App\Entity\File;
 use App\Entity\User;
 use Doctrine\ORM\EntityManagerInterface;
 use Symfony\Component\Form\FormInterface;
@@ -26,6 +27,12 @@ class UserService extends CheckCredentials
     public function userUploadService(User $user, EntityManagerInterface $em)
     {
         $em->persist($user);
+        $em->flush();
+    }
+
+    public function fileUploadService(File $file, EntityManagerInterface $em)
+    {
+        $em->persist($file);
         $em->flush();
     }
 

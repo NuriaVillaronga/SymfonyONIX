@@ -59,7 +59,7 @@
               {% endif %} 
             </td> 
             <td>
-              <a href="{{ path('upload_onix_file', {'id': user.id}) }}" class="btn btn-sm btn-success">upload</a>
+              <a href="{{ path('upload_onix', {'id': user.id}) }}" class="btn btn-sm btn-success">upload</a>
               <a href="{{ path('view_file', {'id': user.id}) }}" class="btn btn-sm btn-info">view files</a>
               <a id="update-{{loop.index}}" href="{{ path('user_update', {'id': user.id}) }}" class="btn btn-sm btn-primary">update</a>
               <a id="delete-{{loop.index}}" href="{{ path('user_delete', {'id': user.id}) }}" class="btn btn-sm btn-danger">delete</a>
@@ -88,8 +88,8 @@
               {% endif %} 
           </td>
           <td>
-            <a href="{{ path('upload_onix_file', {'id': app.user.id}) }}" class="btn btn-sm btn-success">upload</a>
-            <a href="{{ path('view_file', {'id': user.id}) }}" class="btn btn-sm btn-info">view files</a>
+            <a href="{{ path('upload_onix', {'id': app.user.id}) }}" class="btn btn-sm btn-success">upload</a>
+            <a href="{{ path('view_file', {'id': app.user.id}) }}" class="btn btn-sm btn-info">view files</a>
             <a id="update" href="{{ path('user_update', {'id': app.user.id }) }}" class="btn btn-sm btn-primary">update</a>
           </td>
         </tr>

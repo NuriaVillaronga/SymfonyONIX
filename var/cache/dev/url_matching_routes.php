@@ -55,7 +55,7 @@ return [
         159 => [[['_route' => '_preview_error', '_controller' => 'error_controller::preview', '_format' => 'html'], ['code', '_format'], null, null, false, true, null]],
         184 => [[['_route' => 'user_delete', '_controller' => 'App\\Controller\\DeleteController::index'], ['id'], ['GET' => 0, 'POST' => 1], null, false, true, null]],
         211 => [[['_route' => 'user_update', '_controller' => 'App\\Controller\\UpdateController::index'], ['id'], ['GET' => 0, 'POST' => 1], null, false, true, null]],
-        232 => [[['_route' => 'upload_onix_file', '_controller' => 'App\\Controller\\UploadOnixFileController::index'], ['id'], ['GET' => 0, 'POST' => 1], null, false, true, null]],
+        232 => [[['_route' => 'upload_onix', '_controller' => 'App\\Controller\\UploadFileController::index'], ['id'], ['GET' => 0, 'POST' => 1], null, false, true, null]],
         255 => [
             [['_route' => 'view_file', '_controller' => 'App\\Controller\\ViewFileController::view'], ['id'], ['GET' => 0, 'POST' => 1], null, false, true, null],
             [null, null, null, null, false, false, 0],

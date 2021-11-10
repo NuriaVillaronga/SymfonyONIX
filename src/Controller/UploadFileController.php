@@ -13,24 +13,27 @@ use Doctrine\ORM\EntityManagerInterface;
 use Exception;
 use Symfony\Component\HttpFoundation\File\Exception\FileException;
 use Symfony\Component\String\Slugger\SluggerInterface;
+use Sensio\Bundle\FrameworkExtraBundle\Configuration\ParamConverter;
 
 
-class UploadOnixFileController extends UserService
+class UploadFileController extends UserService
 {
     /**
-     * @Route("/upload/{id}", name="upload_onix_file", methods={"GET","POST"})
+     * @Route("/upload/{id}", name="upload_onix", methods={"GET","POST"})
+     * 
+     * @ParamConverter("user", options={"id": "id"})
      */
     public function index(File $file, Request $request, User $user, EntityManagerInterface $em, SluggerInterface $slugger): Response
-    {   
+    {  
         $this->userCheckCredentials($user);
         
-        $form = $this->createForm(UploadFilesType::class, $user);
+        $form = $this->createForm(UploadFilesType::class, $file);
         
         $form->handleRequest($request);
 
         if ($form->isSubmitted() && $form->isValid()) {
 
-            $brochureFile = $form->get('onixFile')->getData();
+            $brochureFile = $form->get('files')->getData();
 
             if ($brochureFile) {
                 
@@ -57,7 +60,9 @@ class UploadOnixFileController extends UserService
                     }
 
                     // updates the 'onixFile' property to store the file instead of its contents
-                    $file->setFiles($newFilename);
+                    $onixFile = $file->setFiles($newFilename);
+                    $user->addFile($onixFile);
+                    $this->fileUploadService($file, $em);
                     $this->userUploadService($user, $em);
                     $this->addFlash('messageUpload', 'The file has been uploaded successfully');
                 }
