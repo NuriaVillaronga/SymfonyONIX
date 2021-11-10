@@ -3,10 +3,10 @@
 namespace App\Controller;
 
 use App\Entity\File;
+use App\Entity\User;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Routing\Annotation\Route;
 use Symfony\Component\HttpFoundation\Request;
-use App\Entity\User;
 use App\Form\UploadFilesType;
 use App\UserServices\UserService;
 use Doctrine\ORM\EntityManagerInterface;
@@ -23,8 +23,10 @@ class UploadFileController extends UserService
      * 
      * @ParamConverter("user", options={"id": "id"})
      */
-    public function index(File $file, Request $request, User $user, EntityManagerInterface $em, SluggerInterface $slugger): Response
-    {  
+    public function index(Request $request, User $user, EntityManagerInterface $em, SluggerInterface $slugger): Response
+    {
+        $file = new File();
+        
         $this->userCheckCredentials($user);
         
         $form = $this->createForm(UploadFilesType::class, $file);
@@ -70,6 +72,7 @@ class UploadFileController extends UserService
 
             return $this->redirectToRoute('user_list');
         }
+
         return $this->render('upload.html.twig', ['form' => $form->createView()]);
     }
 } 

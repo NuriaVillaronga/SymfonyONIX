@@ -14,7 +14,6 @@ class UploadFilesType extends AbstractType
     public function buildForm(FormBuilderInterface $builder, array $options): void
     {
         $builder
-            ->add('user')
             ->add('catalog', ChoiceType::class, [
                 'choices'  => [
                     'Tipo1' => '1',

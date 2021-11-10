@@ -15,16 +15,14 @@
             <th>Catalog</th>
             <th>Action</th>
           </tr>
-        {% for file in files %}
           <tr>
-            <td>{{ file.user }}</td>
-            <td>{{ file.files }}</td>
-            <td>{{ user.catalog }}</td>
+            <td>AA</td>
+            <td>AA</td>
+            <td>A</td>
             <td>
               <a id="delete-{{loop.index}}" href="{{ path('user_delete', {'id': user.id}) }}" class="btn btn-sm btn-danger">delete</a>
             </td>
           </tr>
-        {% endfor %}
         </table>
 
       {% else %}
@@ -34,16 +32,14 @@
             <th>Catalog</th>
             <th>Action</th>
           </tr>
-        {% for file in files %}
-          <tr>
-            <td>{{ file.user }}</td>
-            <td>{{ file.files }}</td>
-            <td>{{ user.catalog }}</td>
+        <tr>
+            <td>AA</td>
+            <td>AA</td>
+            <td>A</td>
             <td>
               <a id="delete-{{loop.index}}" href="{{ path('user_delete', {'id': user.id}) }}" class="btn btn-sm btn-danger">delete</a>
             </td>
           </tr>
-        {% endfor %}
         </table>
       {% endif %}
 

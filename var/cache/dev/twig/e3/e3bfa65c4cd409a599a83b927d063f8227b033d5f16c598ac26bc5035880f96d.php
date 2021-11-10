@@ -76,22 +76,29 @@ class __TwigTemplate_3ba54e53e4e8c37029222dbd226fd8a63799822297fe9db470405b98f76
     <div class=\"form-group\">
       ";
         // line 10
-        echo $this->env->getRuntime('Symfony\Component\Form\FormRenderer')->searchAndRenderBlock(twig_get_attribute($this->env, $this->source, (isset($context["form"]) || array_key_exists("form", $context) ? $context["form"] : (function () { throw new RuntimeError('Variable "form" does not exist.', 10, $this->source); })()), "onixFile", [], "any", false, false, false, 10), 'label');
+        echo $this->env->getRuntime('Symfony\Component\Form\FormRenderer')->searchAndRenderBlock(twig_get_attribute($this->env, $this->source, (isset($context["form"]) || array_key_exists("form", $context) ? $context["form"] : (function () { throw new RuntimeError('Variable "form" does not exist.', 10, $this->source); })()), "files", [], "any", false, false, false, 10), 'label');
         echo "
       ";
         // line 11
-        echo $this->env->getRuntime('Symfony\Component\Form\FormRenderer')->searchAndRenderBlock(twig_get_attribute($this->env, $this->source, (isset($context["form"]) || array_key_exists("form", $context) ? $context["form"] : (function () { throw new RuntimeError('Variable "form" does not exist.', 11, $this->source); })()), "onixFile", [], "any", false, false, false, 11), 'widget');
+        echo $this->env->getRuntime('Symfony\Component\Form\FormRenderer')->searchAndRenderBlock(twig_get_attribute($this->env, $this->source, (isset($context["form"]) || array_key_exists("form", $context) ? $context["form"] : (function () { throw new RuntimeError('Variable "form" does not exist.', 11, $this->source); })()), "files", [], "any", false, false, false, 11), 'widget');
         echo "
     </div>
 
+    <div class=\"form-group\">
+\t    Select the file's catalog ";
+        // line 15
+        echo $this->env->getRuntime('Symfony\Component\Form\FormRenderer')->searchAndRenderBlock(twig_get_attribute($this->env, $this->source, (isset($context["form"]) || array_key_exists("form", $context) ? $context["form"] : (function () { throw new RuntimeError('Variable "form" does not exist.', 15, $this->source); })()), "catalog", [], "any", false, false, false, 15), 'widget');
+        echo "
+\t  </div>
+
     <button class=\"btn btn-primary\" type=\"submit\">";
-        // line 14
-        echo twig_escape_filter($this->env, ((array_key_exists("button_label", $context)) ? (_twig_default_filter((isset($context["button_label"]) || array_key_exists("button_label", $context) ? $context["button_label"] : (function () { throw new RuntimeError('Variable "button_label" does not exist.', 14, $this->source); })()), "Upload")) : ("Upload")), "html", null, true);
+        // line 18
+        echo twig_escape_filter($this->env, ((array_key_exists("button_label", $context)) ? (_twig_default_filter((isset($context["button_label"]) || array_key_exists("button_label", $context) ? $context["button_label"] : (function () { throw new RuntimeError('Variable "button_label" does not exist.', 18, $this->source); })()), "Upload")) : ("Upload")), "html", null, true);
         echo "</button>
 
 ";
-        // line 16
-        echo         $this->env->getRuntime('Symfony\Component\Form\FormRenderer')->renderBlock((isset($context["form"]) || array_key_exists("form", $context) ? $context["form"] : (function () { throw new RuntimeError('Variable "form" does not exist.', 16, $this->source); })()), 'form_end');
+        // line 20
+        echo         $this->env->getRuntime('Symfony\Component\Form\FormRenderer')->renderBlock((isset($context["form"]) || array_key_exists("form", $context) ? $context["form"] : (function () { throw new RuntimeError('Variable "form" does not exist.', 20, $this->source); })()), 'form_end');
         echo "
 
 </div>
@@ -118,7 +125,7 @@ class __TwigTemplate_3ba54e53e4e8c37029222dbd226fd8a63799822297fe9db470405b98f76
 
     public function getDebugInfo()
     {
-        return array (  94 => 16,  89 => 14,  83 => 11,  79 => 10,  73 => 7,  68 => 4,  58 => 3,  35 => 1,);
+        return array (  101 => 20,  96 => 18,  90 => 15,  83 => 11,  79 => 10,  73 => 7,  68 => 4,  58 => 3,  35 => 1,);
     }
 
     public function getSourceContext()
@@ -132,9 +139,13 @@ class __TwigTemplate_3ba54e53e4e8c37029222dbd226fd8a63799822297fe9db470405b98f76
 {{ form_start(form) }}
 
     <div class=\"form-group\">
-      {{ form_label(form.onixFile) }}
-      {{ form_widget(form.onixFile) }}
+      {{ form_label(form.files) }}
+      {{ form_widget(form.files) }}
     </div>
+
+    <div class=\"form-group\">
+\t    Select the file's catalog {{ form_widget(form.catalog) }}
+\t  </div>
 
     <button class=\"btn btn-primary\" type=\"submit\">{{ button_label|default('Upload') }}</button>
 
