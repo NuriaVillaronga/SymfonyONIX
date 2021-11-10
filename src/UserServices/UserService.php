@@ -24,6 +24,12 @@ class UserService extends CheckCredentials
         $em->flush();
     }
 
+    public function fileRemoveService(File $file, EntityManagerInterface $em)
+    {
+        $em->remove($file);
+        $em->flush();
+    }
+
     public function userUploadService(User $user, EntityManagerInterface $em)
     {
         $em->persist($user);

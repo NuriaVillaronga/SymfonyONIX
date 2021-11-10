@@ -37,12 +37,15 @@ return [
                     .')'
                     .'|error/(\\d+)(?:\\.([^/]++))?(*:159)'
                 .')'
-                .'|/delete/([^/]++)(*:184)'
-                .'|/up(?'
-                    .'|date/([^/]++)(*:211)'
-                    .'|load/([^/]++)(*:232)'
+                .'|/delete/([^/]++)(?'
+                    .'|(*:187)'
+                    .'|/([^/]++)(*:204)'
                 .')'
-                .'|/view/([^/]++)(*:255)'
+                .'|/up(?'
+                    .'|date/([^/]++)(*:232)'
+                    .'|load/([^/]++)(*:253)'
+                .')'
+                .'|/view/([^/]++)(*:276)'
             .')/?$}sDu',
     ],
     [ // $dynamicRoutes
@@ -53,10 +56,11 @@ return [
         114 => [[['_route' => '_profiler_exception_css', '_controller' => 'web_profiler.controller.exception_panel::stylesheet'], ['token'], null, null, false, false, null]],
         124 => [[['_route' => '_profiler', '_controller' => 'web_profiler.controller.profiler::panelAction'], ['token'], null, null, false, true, null]],
         159 => [[['_route' => '_preview_error', '_controller' => 'error_controller::preview', '_format' => 'html'], ['code', '_format'], null, null, false, true, null]],
-        184 => [[['_route' => 'user_delete', '_controller' => 'App\\Controller\\DeleteController::index'], ['id'], ['GET' => 0, 'POST' => 1], null, false, true, null]],
-        211 => [[['_route' => 'user_update', '_controller' => 'App\\Controller\\UpdateController::index'], ['id'], ['GET' => 0, 'POST' => 1], null, false, true, null]],
-        232 => [[['_route' => 'upload_onix', '_controller' => 'App\\Controller\\UploadFileController::index'], ['id'], ['GET' => 0, 'POST' => 1], null, false, true, null]],
-        255 => [
+        187 => [[['_route' => 'user_delete', '_controller' => 'App\\Controller\\DeleteController::deleteUser'], ['id'], ['GET' => 0, 'POST' => 1], null, false, true, null]],
+        204 => [[['_route' => 'deleteFiles', '_controller' => 'App\\Controller\\DeleteController::deleteFiles'], ['user_id', 'files_id'], ['GET' => 0, 'POST' => 1], null, false, true, null]],
+        232 => [[['_route' => 'user_update', '_controller' => 'App\\Controller\\UpdateController::index'], ['id'], ['GET' => 0, 'POST' => 1], null, false, true, null]],
+        253 => [[['_route' => 'upload_onix', '_controller' => 'App\\Controller\\UploadFileController::index'], ['id'], ['GET' => 0, 'POST' => 1], null, false, true, null]],
+        276 => [
             [['_route' => 'view_file', '_controller' => 'App\\Controller\\ViewFileController::view'], ['id'], ['GET' => 0, 'POST' => 1], null, false, true, null],
             [null, null, null, null, false, false, 0],
         ],

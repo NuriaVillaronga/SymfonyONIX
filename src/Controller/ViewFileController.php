@@ -17,7 +17,7 @@ class ViewFileController extends AbstractController
         $filesUploaded = $user->getFiles();
         
         return $this->render('view.html.twig', [
-            'users' => $user,
+            'user' => $user,
             'files' => $filesUploaded
         ]);
     }

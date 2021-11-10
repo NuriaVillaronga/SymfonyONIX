@@ -16,10 +16,10 @@ class UploadFilesType extends AbstractType
         $builder
             ->add('catalog', ChoiceType::class, [
                 'choices'  => [
-                    'Tipo1' => '1',
-                    'Tipo2' => '2',
-                    'Tipo3' => '3',
-                    'Tipo4' => '4',
+                    'Tipo1' => 'Tipo 1',
+                    'Tipo2' => 'Tipo 2',
+                    'Tipo3' => 'Tipo 3',
+                    'Tipo4' => 'Tipo 4',
                 ],
             ])
             ->add('files', FileType::class, [

@@ -6379,6 +6379,14 @@
         <argument key="user" type="service_closure" id=".errored..service_locator.ch4Jgvl.App\Entity\User"/>
       </argument>
     </service>
+    <service id=".service_locator.TX.zJta" class="Symfony\Component\DependencyInjection\ServiceLocator">
+      <tag name="container.service_locator"/>
+      <argument type="collection">
+        <argument key="em" type="service_closure" id="doctrine.orm.default_entity_manager"/>
+        <argument key="file" type="service_closure" id=".errored..service_locator.TX.zJta.App\Entity\File"/>
+        <argument key="user" type="service_closure" id=".errored..service_locator.TX.zJta.App\Entity\User"/>
+      </argument>
+    </service>
     <service id=".service_locator.CWZv_5b" class="Symfony\Component\DependencyInjection\ServiceLocator">
       <tag name="container.service_locator"/>
       <argument type="collection">
@@ -6409,44 +6417,52 @@
         <argument key="user" type="service_closure" id=".errored..service_locator.N3IGag9.App\Entity\User"/>
       </argument>
     </service>
-    <service id=".service_locator.RAprdYU" class="Symfony\Component\DependencyInjection\ServiceLocator">
+    <service id=".service_locator.vF0xXMe" class="Symfony\Component\DependencyInjection\ServiceLocator">
       <tag name="container.service_locator"/>
       <argument type="collection">
+        <argument key="App\Controller\CreateController::fileRemoveService" type="service_closure" id=".service_locator.E3spfHL"/>
         <argument key="App\Controller\CreateController::fileUploadService" type="service_closure" id=".service_locator.E3spfHL"/>
         <argument key="App\Controller\CreateController::index" type="service_closure" id=".service_locator._uuLAPJ"/>
         <argument key="App\Controller\CreateController::userCheckCredentials" type="service_closure" id=".service_locator.ch4Jgvl"/>
         <argument key="App\Controller\CreateController::userCreate_Update_Service" type="service_closure" id=".service_locator.xx8TK6M"/>
         <argument key="App\Controller\CreateController::userDeleteService" type="service_closure" id=".service_locator.no630kw"/>
         <argument key="App\Controller\CreateController::userUploadService" type="service_closure" id=".service_locator.no630kw"/>
+        <argument key="App\Controller\DeleteController::deleteFiles" type="service_closure" id=".service_locator.TX.zJta"/>
+        <argument key="App\Controller\DeleteController::deleteUser" type="service_closure" id=".service_locator.no630kw"/>
+        <argument key="App\Controller\DeleteController::fileRemoveService" type="service_closure" id=".service_locator.E3spfHL"/>
         <argument key="App\Controller\DeleteController::fileUploadService" type="service_closure" id=".service_locator.E3spfHL"/>
-        <argument key="App\Controller\DeleteController::index" type="service_closure" id=".service_locator.no630kw"/>
         <argument key="App\Controller\DeleteController::userCheckCredentials" type="service_closure" id=".service_locator.ch4Jgvl"/>
         <argument key="App\Controller\DeleteController::userCreate_Update_Service" type="service_closure" id=".service_locator.xx8TK6M"/>
         <argument key="App\Controller\DeleteController::userDeleteService" type="service_closure" id=".service_locator.no630kw"/>
         <argument key="App\Controller\DeleteController::userUploadService" type="service_closure" id=".service_locator.no630kw"/>
+        <argument key="App\Controller\HomepageController::fileRemoveService" type="service_closure" id=".service_locator.E3spfHL"/>
         <argument key="App\Controller\HomepageController::fileUploadService" type="service_closure" id=".service_locator.E3spfHL"/>
         <argument key="App\Controller\HomepageController::userCheckCredentials" type="service_closure" id=".service_locator.ch4Jgvl"/>
         <argument key="App\Controller\HomepageController::userCreate_Update_Service" type="service_closure" id=".service_locator.xx8TK6M"/>
         <argument key="App\Controller\HomepageController::userDeleteService" type="service_closure" id=".service_locator.no630kw"/>
         <argument key="App\Controller\HomepageController::userUploadService" type="service_closure" id=".service_locator.no630kw"/>
+        <argument key="App\Controller\ListController::fileRemoveService" type="service_closure" id=".service_locator.E3spfHL"/>
         <argument key="App\Controller\ListController::fileUploadService" type="service_closure" id=".service_locator.E3spfHL"/>
         <argument key="App\Controller\ListController::index" type="service_closure" id=".service_locator.CWZv_5b"/>
         <argument key="App\Controller\ListController::userCheckCredentials" type="service_closure" id=".service_locator.ch4Jgvl"/>
         <argument key="App\Controller\ListController::userCreate_Update_Service" type="service_closure" id=".service_locator.xx8TK6M"/>
         <argument key="App\Controller\ListController::userDeleteService" type="service_closure" id=".service_locator.no630kw"/>
         <argument key="App\Controller\ListController::userUploadService" type="service_closure" id=".service_locator.no630kw"/>
+        <argument key="App\Controller\SecurityController::fileRemoveService" type="service_closure" id=".service_locator.E3spfHL"/>
         <argument key="App\Controller\SecurityController::fileUploadService" type="service_closure" id=".service_locator.E3spfHL"/>
         <argument key="App\Controller\SecurityController::login" type="service_closure" id=".service_locator.UDgw6Ol"/>
         <argument key="App\Controller\SecurityController::userCheckCredentials" type="service_closure" id=".service_locator.ch4Jgvl"/>
         <argument key="App\Controller\SecurityController::userCreate_Update_Service" type="service_closure" id=".service_locator.xx8TK6M"/>
         <argument key="App\Controller\SecurityController::userDeleteService" type="service_closure" id=".service_locator.no630kw"/>
         <argument key="App\Controller\SecurityController::userUploadService" type="service_closure" id=".service_locator.no630kw"/>
+        <argument key="App\Controller\UpdateController::fileRemoveService" type="service_closure" id=".service_locator.E3spfHL"/>
         <argument key="App\Controller\UpdateController::fileUploadService" type="service_closure" id=".service_locator.E3spfHL"/>
         <argument key="App\Controller\UpdateController::index" type="service_closure" id=".service_locator.3vXNkax"/>
         <argument key="App\Controller\UpdateController::userCheckCredentials" type="service_closure" id=".service_locator.ch4Jgvl"/>
         <argument key="App\Controller\UpdateController::userCreate_Update_Service" type="service_closure" id=".service_locator.xx8TK6M"/>
         <argument key="App\Controller\UpdateController::userDeleteService" type="service_closure" id=".service_locator.no630kw"/>
         <argument key="App\Controller\UpdateController::userUploadService" type="service_closure" id=".service_locator.no630kw"/>
+        <argument key="App\Controller\UploadFileController::fileRemoveService" type="service_closure" id=".service_locator.E3spfHL"/>
         <argument key="App\Controller\UploadFileController::fileUploadService" type="service_closure" id=".service_locator.E3spfHL"/>
         <argument key="App\Controller\UploadFileController::index" type="service_closure" id=".service_locator.N3IGag9"/>
         <argument key="App\Controller\UploadFileController::userCheckCredentials" type="service_closure" id=".service_locator.ch4Jgvl"/>
@@ -6458,6 +6474,7 @@
         <argument key="App\Kernel::registerContainerConfiguration" type="service_closure" id=".service_locator.KfbR3DY"/>
         <argument key="App\Kernel::terminate" type="service_closure" id=".service_locator.KfwZsne"/>
         <argument key="App\UserServices\CheckCredentials::userCheckCredentials" type="service_closure" id=".service_locator.ch4Jgvl"/>
+        <argument key="App\UserServices\UserService::fileRemoveService" type="service_closure" id=".service_locator.E3spfHL"/>
         <argument key="App\UserServices\UserService::fileUploadService" type="service_closure" id=".service_locator.E3spfHL"/>
         <argument key="App\UserServices\UserService::userCheckCredentials" type="service_closure" id=".service_locator.ch4Jgvl"/>
         <argument key="App\UserServices\UserService::userCreate_Update_Service" type="service_closure" id=".service_locator.xx8TK6M"/>
@@ -6466,41 +6483,49 @@
         <argument key="kernel::loadRoutes" type="service_closure" id=".service_locator.KfbR3DY"/>
         <argument key="kernel::registerContainerConfiguration" type="service_closure" id=".service_locator.KfbR3DY"/>
         <argument key="kernel::terminate" type="service_closure" id=".service_locator.KfwZsne"/>
+        <argument key="App\Controller\CreateController:fileRemoveService" type="service_closure" id=".service_locator.E3spfHL"/>
         <argument key="App\Controller\CreateController:fileUploadService" type="service_closure" id=".service_locator.E3spfHL"/>
         <argument key="App\Controller\CreateController:index" type="service_closure" id=".service_locator._uuLAPJ"/>
         <argument key="App\Controller\CreateController:userCheckCredentials" type="service_closure" id=".service_locator.ch4Jgvl"/>
         <argument key="App\Controller\CreateController:userCreate_Update_Service" type="service_closure" id=".service_locator.xx8TK6M"/>
         <argument key="App\Controller\CreateController:userDeleteService" type="service_closure" id=".service_locator.no630kw"/>
         <argument key="App\Controller\CreateController:userUploadService" type="service_closure" id=".service_locator.no630kw"/>
+        <argument key="App\Controller\DeleteController:deleteFiles" type="service_closure" id=".service_locator.TX.zJta"/>
+        <argument key="App\Controller\DeleteController:deleteUser" type="service_closure" id=".service_locator.no630kw"/>
+        <argument key="App\Controller\DeleteController:fileRemoveService" type="service_closure" id=".service_locator.E3spfHL"/>
         <argument key="App\Controller\DeleteController:fileUploadService" type="service_closure" id=".service_locator.E3spfHL"/>
-        <argument key="App\Controller\DeleteController:index" type="service_closure" id=".service_locator.no630kw"/>
         <argument key="App\Controller\DeleteController:userCheckCredentials" type="service_closure" id=".service_locator.ch4Jgvl"/>
         <argument key="App\Controller\DeleteController:userCreate_Update_Service" type="service_closure" id=".service_locator.xx8TK6M"/>
         <argument key="App\Controller\DeleteController:userDeleteService" type="service_closure" id=".service_locator.no630kw"/>
         <argument key="App\Controller\DeleteController:userUploadService" type="service_closure" id=".service_locator.no630kw"/>
+        <argument key="App\Controller\HomepageController:fileRemoveService" type="service_closure" id=".service_locator.E3spfHL"/>
         <argument key="App\Controller\HomepageController:fileUploadService" type="service_closure" id=".service_locator.E3spfHL"/>
         <argument key="App\Controller\HomepageController:userCheckCredentials" type="service_closure" id=".service_locator.ch4Jgvl"/>
         <argument key="App\Controller\HomepageController:userCreate_Update_Service" type="service_closure" id=".service_locator.xx8TK6M"/>
         <argument key="App\Controller\HomepageController:userDeleteService" type="service_closure" id=".service_locator.no630kw"/>
         <argument key="App\Controller\HomepageController:userUploadService" type="service_closure" id=".service_locator.no630kw"/>
+        <argument key="App\Controller\ListController:fileRemoveService" type="service_closure" id=".service_locator.E3spfHL"/>
         <argument key="App\Controller\ListController:fileUploadService" type="service_closure" id=".service_locator.E3spfHL"/>
         <argument key="App\Controller\ListController:index" type="service_closure" id=".service_locator.CWZv_5b"/>
         <argument key="App\Controller\ListController:userCheckCredentials" type="service_closure" id=".service_locator.ch4Jgvl"/>
         <argument key="App\Controller\ListController:userCreate_Update_Service" type="service_closure" id=".service_locator.xx8TK6M"/>
         <argument key="App\Controller\ListController:userDeleteService" type="service_closure" id=".service_locator.no630kw"/>
         <argument key="App\Controller\ListController:userUploadService" type="service_closure" id=".service_locator.no630kw"/>
+        <argument key="App\Controller\SecurityController:fileRemoveService" type="service_closure" id=".service_locator.E3spfHL"/>
         <argument key="App\Controller\SecurityController:fileUploadService" type="service_closure" id=".service_locator.E3spfHL"/>
         <argument key="App\Controller\SecurityController:login" type="service_closure" id=".service_locator.UDgw6Ol"/>
         <argument key="App\Controller\SecurityController:userCheckCredentials" type="service_closure" id=".service_locator.ch4Jgvl"/>
         <argument key="App\Controller\SecurityController:userCreate_Update_Service" type="service_closure" id=".service_locator.xx8TK6M"/>
         <argument key="App\Controller\SecurityController:userDeleteService" type="service_closure" id=".service_locator.no630kw"/>
         <argument key="App\Controller\SecurityController:userUploadService" type="service_closure" id=".service_locator.no630kw"/>
+        <argument key="App\Controller\UpdateController:fileRemoveService" type="service_closure" id=".service_locator.E3spfHL"/>
         <argument key="App\Controller\UpdateController:fileUploadService" type="service_closure" id=".service_locator.E3spfHL"/>
         <argument key="App\Controller\UpdateController:index" type="service_closure" id=".service_locator.3vXNkax"/>
         <argument key="App\Controller\UpdateController:userCheckCredentials" type="service_closure" id=".service_locator.ch4Jgvl"/>
         <argument key="App\Controller\UpdateController:userCreate_Update_Service" type="service_closure" id=".service_locator.xx8TK6M"/>
         <argument key="App\Controller\UpdateController:userDeleteService" type="service_closure" id=".service_locator.no630kw"/>
         <argument key="App\Controller\UpdateController:userUploadService" type="service_closure" id=".service_locator.no630kw"/>
+        <argument key="App\Controller\UploadFileController:fileRemoveService" type="service_closure" id=".service_locator.E3spfHL"/>
         <argument key="App\Controller\UploadFileController:fileUploadService" type="service_closure" id=".service_locator.E3spfHL"/>
         <argument key="App\Controller\UploadFileController:index" type="service_closure" id=".service_locator.N3IGag9"/>
         <argument key="App\Controller\UploadFileController:userCheckCredentials" type="service_closure" id=".service_locator.ch4Jgvl"/>
@@ -6509,6 +6534,7 @@
         <argument key="App\Controller\UploadFileController:userUploadService" type="service_closure" id=".service_locator.no630kw"/>
         <argument key="App\Controller\ViewFileController:view" type="service_closure" id=".service_locator.ch4Jgvl"/>
         <argument key="App\UserServices\CheckCredentials:userCheckCredentials" type="service_closure" id=".service_locator.ch4Jgvl"/>
+        <argument key="App\UserServices\UserService:fileRemoveService" type="service_closure" id=".service_locator.E3spfHL"/>
         <argument key="App\UserServices\UserService:fileUploadService" type="service_closure" id=".service_locator.E3spfHL"/>
         <argument key="App\UserServices\UserService:userCheckCredentials" type="service_closure" id=".service_locator.ch4Jgvl"/>
         <argument key="App\UserServices\UserService:userCreate_Update_Service" type="service_closure" id=".service_locator.xx8TK6M"/>
@@ -7075,12 +7101,12 @@
       <argument type="service" id="security.token_storage"/>
     </service>
     <service id="debug.argument_resolver.service.inner" class="Symfony\Component\HttpKernel\Controller\ArgumentResolver\ServiceValueResolver">
-      <argument type="service" id=".service_locator.RAprdYU"/>
+      <argument type="service" id=".service_locator.vF0xXMe"/>
     </service>
     <service id="debug.argument_resolver.default.inner" class="Symfony\Component\HttpKernel\Controller\ArgumentResolver\DefaultValueResolver"/>
     <service id="debug.argument_resolver.variadic.inner" class="Symfony\Component\HttpKernel\Controller\ArgumentResolver\VariadicValueResolver"/>
     <service id="debug.argument_resolver.not_tagged_controller.inner" class="Symfony\Component\HttpKernel\Controller\ArgumentResolver\NotTaggedControllerValueResolver">
-      <argument type="service" id=".service_locator.RAprdYU"/>
+      <argument type="service" id=".service_locator.vF0xXMe"/>
     </service>
     <service id=".debug.http_client.inner" class="Symfony\Contracts\HttpClient\HttpClientInterface">
       <argument type="collection"/>
@@ -7103,6 +7129,8 @@
     <service id=".errored..service_locator.no630kw.App\Entity\User" class="App\Entity\User"/>
     <service id=".errored..service_locator.E3spfHL.App\Entity\File" class="App\Entity\File"/>
     <service id=".errored..service_locator.ch4Jgvl.App\Entity\User" class="App\Entity\User"/>
+    <service id=".errored..service_locator.TX.zJta.App\Entity\File" class="App\Entity\File"/>
+    <service id=".errored..service_locator.TX.zJta.App\Entity\User" class="App\Entity\User"/>
     <service id=".errored..service_locator.3vXNkax.App\Entity\User" class="App\Entity\User"/>
     <service id=".errored..service_locator.N3IGag9.App\Entity\User" class="App\Entity\User"/>
     <service id=".console.command.about.lazy" class="Symfony\Component\Console\Command\LazyCommand">
@@ -7942,7 +7970,7 @@
     <service id="Knp\Component\Pager\PaginatorInterface" alias="knp_paginator"/>
     <service id="container.env_var_processors_locator" alias=".service_locator.0GV1BZZ" public="true"/>
     <service id="twig.loader.filesystem" alias="twig.loader.native_filesystem"/>
-    <service id="argument_resolver.controller_locator" alias=".service_locator.RAprdYU"/>
+    <service id="argument_resolver.controller_locator" alias=".service_locator.vF0xXMe"/>
     <service id="session" alias=".session.do-not-use" public="true">
       <deprecated package="symfony/framework-bundle" version="5.3">The "%alias_id%" service and "SessionInterface" alias are deprecated, use "$requestStack-&gt;getSession()" instead.</deprecated>
     </service>
@@ -7988,6 +8016,7 @@
     <service id=".service_locator.fX5AJMr" alias=".service_locator.no630kw"/>
     <service id=".service_locator.G2Bl2qs" alias=".service_locator.E3spfHL"/>
     <service id=".service_locator.NFoOWn0" alias=".service_locator.ch4Jgvl"/>
+    <service id=".service_locator.lNYH.iR" alias=".service_locator.TX.zJta"/>
     <service id=".service_locator.OknFEpZ" alias=".service_locator.CWZv_5b"/>
     <service id=".service_locator.kXCVHeG" alias=".service_locator.UDgw6Ol"/>
     <service id=".service_locator.oHMyUhv" alias=".service_locator.3vXNkax"/>
