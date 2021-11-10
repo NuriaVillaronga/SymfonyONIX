@@ -6417,7 +6417,7 @@
         <argument key="user" type="service_closure" id=".errored..service_locator.N3IGag9.App\Entity\User"/>
       </argument>
     </service>
-    <service id=".service_locator.vF0xXMe" class="Symfony\Component\DependencyInjection\ServiceLocator">
+    <service id=".service_locator.CWFGGxw" class="Symfony\Component\DependencyInjection\ServiceLocator">
       <tag name="container.service_locator"/>
       <argument type="collection">
         <argument key="App\Controller\CreateController::fileRemoveService" type="service_closure" id=".service_locator.E3spfHL"/>
@@ -6469,6 +6469,12 @@
         <argument key="App\Controller\UploadFileController::userCreate_Update_Service" type="service_closure" id=".service_locator.xx8TK6M"/>
         <argument key="App\Controller\UploadFileController::userDeleteService" type="service_closure" id=".service_locator.no630kw"/>
         <argument key="App\Controller\UploadFileController::userUploadService" type="service_closure" id=".service_locator.no630kw"/>
+        <argument key="App\Controller\ViewFileController::fileRemoveService" type="service_closure" id=".service_locator.E3spfHL"/>
+        <argument key="App\Controller\ViewFileController::fileUploadService" type="service_closure" id=".service_locator.E3spfHL"/>
+        <argument key="App\Controller\ViewFileController::userCheckCredentials" type="service_closure" id=".service_locator.ch4Jgvl"/>
+        <argument key="App\Controller\ViewFileController::userCreate_Update_Service" type="service_closure" id=".service_locator.xx8TK6M"/>
+        <argument key="App\Controller\ViewFileController::userDeleteService" type="service_closure" id=".service_locator.no630kw"/>
+        <argument key="App\Controller\ViewFileController::userUploadService" type="service_closure" id=".service_locator.no630kw"/>
         <argument key="App\Controller\ViewFileController::view" type="service_closure" id=".service_locator.ch4Jgvl"/>
         <argument key="App\Kernel::loadRoutes" type="service_closure" id=".service_locator.KfbR3DY"/>
         <argument key="App\Kernel::registerContainerConfiguration" type="service_closure" id=".service_locator.KfbR3DY"/>
@@ -6532,6 +6538,12 @@
         <argument key="App\Controller\UploadFileController:userCreate_Update_Service" type="service_closure" id=".service_locator.xx8TK6M"/>
         <argument key="App\Controller\UploadFileController:userDeleteService" type="service_closure" id=".service_locator.no630kw"/>
         <argument key="App\Controller\UploadFileController:userUploadService" type="service_closure" id=".service_locator.no630kw"/>
+        <argument key="App\Controller\ViewFileController:fileRemoveService" type="service_closure" id=".service_locator.E3spfHL"/>
+        <argument key="App\Controller\ViewFileController:fileUploadService" type="service_closure" id=".service_locator.E3spfHL"/>
+        <argument key="App\Controller\ViewFileController:userCheckCredentials" type="service_closure" id=".service_locator.ch4Jgvl"/>
+        <argument key="App\Controller\ViewFileController:userCreate_Update_Service" type="service_closure" id=".service_locator.xx8TK6M"/>
+        <argument key="App\Controller\ViewFileController:userDeleteService" type="service_closure" id=".service_locator.no630kw"/>
+        <argument key="App\Controller\ViewFileController:userUploadService" type="service_closure" id=".service_locator.no630kw"/>
         <argument key="App\Controller\ViewFileController:view" type="service_closure" id=".service_locator.ch4Jgvl"/>
         <argument key="App\UserServices\CheckCredentials:userCheckCredentials" type="service_closure" id=".service_locator.ch4Jgvl"/>
         <argument key="App\UserServices\UserService:fileRemoveService" type="service_closure" id=".service_locator.E3spfHL"/>
@@ -7101,12 +7113,12 @@
       <argument type="service" id="security.token_storage"/>
     </service>
     <service id="debug.argument_resolver.service.inner" class="Symfony\Component\HttpKernel\Controller\ArgumentResolver\ServiceValueResolver">
-      <argument type="service" id=".service_locator.vF0xXMe"/>
+      <argument type="service" id=".service_locator.CWFGGxw"/>
     </service>
     <service id="debug.argument_resolver.default.inner" class="Symfony\Component\HttpKernel\Controller\ArgumentResolver\DefaultValueResolver"/>
     <service id="debug.argument_resolver.variadic.inner" class="Symfony\Component\HttpKernel\Controller\ArgumentResolver\VariadicValueResolver"/>
     <service id="debug.argument_resolver.not_tagged_controller.inner" class="Symfony\Component\HttpKernel\Controller\ArgumentResolver\NotTaggedControllerValueResolver">
-      <argument type="service" id=".service_locator.vF0xXMe"/>
+      <argument type="service" id=".service_locator.CWFGGxw"/>
     </service>
     <service id=".debug.http_client.inner" class="Symfony\Contracts\HttpClient\HttpClientInterface">
       <argument type="collection"/>
@@ -7970,7 +7982,7 @@
     <service id="Knp\Component\Pager\PaginatorInterface" alias="knp_paginator"/>
     <service id="container.env_var_processors_locator" alias=".service_locator.0GV1BZZ" public="true"/>
     <service id="twig.loader.filesystem" alias="twig.loader.native_filesystem"/>
-    <service id="argument_resolver.controller_locator" alias=".service_locator.vF0xXMe"/>
+    <service id="argument_resolver.controller_locator" alias=".service_locator.CWFGGxw"/>
     <service id="session" alias=".session.do-not-use" public="true">
       <deprecated package="symfony/framework-bundle" version="5.3">The "%alias_id%" service and "SessionInterface" alias are deprecated, use "$requestStack-&gt;getSession()" instead.</deprecated>
     </service>

@@ -70,7 +70,7 @@ class UploadFileController extends UserService
                 }
             }
 
-            return $this->redirectToRoute('user_list');
+            return $this->redirectToRoute('view_file', ['id' => $user->getId()]);
         }
 
         return $this->render('upload.html.twig', ['form' => $form->createView()]);
