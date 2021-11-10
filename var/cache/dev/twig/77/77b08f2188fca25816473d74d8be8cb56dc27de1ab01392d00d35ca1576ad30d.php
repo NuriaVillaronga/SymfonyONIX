@@ -103,6 +103,19 @@ class __TwigTemplate_5a071ed67e05463918b3173c7cd6d639949a9e7b957c57716cbab7b1af9
             // line 15
             $context['_parent'] = $context;
             $context['_seq'] = twig_ensure_traversable((isset($context["files"]) || array_key_exists("files", $context) ? $context["files"] : (function () { throw new RuntimeError('Variable "files" does not exist.', 15, $this->source); })()));
+            $context['loop'] = [
+              'parent' => $context['_parent'],
+              'index0' => 0,
+              'index'  => 1,
+              'first'  => true,
+            ];
+            if (is_array($context['_seq']) || (is_object($context['_seq']) && $context['_seq'] instanceof \Countable)) {
+                $length = count($context['_seq']);
+                $context['loop']['revindex0'] = $length - 1;
+                $context['loop']['revindex'] = $length;
+                $context['loop']['length'] = $length;
+                $context['loop']['last'] = 1 === $length;
+            }
             foreach ($context['_seq'] as $context["_key"] => $context["file"]) {
                 // line 16
                 echo "      <tr>
@@ -118,12 +131,22 @@ class __TwigTemplate_5a071ed67e05463918b3173c7cd6d639949a9e7b957c57716cbab7b1af9
                 // line 19
                 echo twig_escape_filter($this->env, twig_get_attribute($this->env, $this->source, $context["file"], "files", [], "any", false, false, false, 19), "html", null, true);
                 echo "</td>
-          <td><a href=\"";
+          <td><a id=\"deleteFile-";
                 // line 20
+                echo twig_escape_filter($this->env, twig_get_attribute($this->env, $this->source, $context["loop"], "index", [], "any", false, false, false, 20), "html", null, true);
+                echo "\" href=\"";
                 echo twig_escape_filter($this->env, $this->extensions['Symfony\Bridge\Twig\Extension\RoutingExtension']->getPath("deleteFiles", ["user_id" => twig_get_attribute($this->env, $this->source, (isset($context["user"]) || array_key_exists("user", $context) ? $context["user"] : (function () { throw new RuntimeError('Variable "user" does not exist.', 20, $this->source); })()), "id", [], "any", false, false, false, 20), "files_id" => twig_get_attribute($this->env, $this->source, $context["file"], "id", [], "any", false, false, false, 20)]), "html", null, true);
                 echo "\" class=\"btn btn-sm btn-danger\">delete</a></td>
       </tr>
     ";
+                ++$context['loop']['index0'];
+                ++$context['loop']['index'];
+                $context['loop']['first'] = false;
+                if (isset($context['loop']['length'])) {
+                    --$context['loop']['revindex0'];
+                    --$context['loop']['revindex'];
+                    $context['loop']['last'] = 0 === $context['loop']['revindex0'];
+                }
             }
             $_parent = $context['_parent'];
             unset($context['_seq'], $context['_iterated'], $context['_key'], $context['file'], $context['_parent'], $context['loop']);
@@ -162,7 +185,7 @@ class __TwigTemplate_5a071ed67e05463918b3173c7cd6d639949a9e7b957c57716cbab7b1af9
 
     public function getDebugInfo()
     {
-        return array (  141 => 28,  137 => 26,  132 => 23,  123 => 20,  119 => 19,  115 => 18,  111 => 17,  108 => 16,  104 => 15,  94 => 7,  92 => 6,  88 => 4,  78 => 3,  59 => 2,  36 => 1,);
+        return array (  164 => 28,  160 => 26,  155 => 23,  136 => 20,  132 => 19,  128 => 18,  124 => 17,  121 => 16,  104 => 15,  94 => 7,  92 => 6,  88 => 4,  78 => 3,  59 => 2,  36 => 1,);
     }
 
     public function getSourceContext()
@@ -186,7 +209,7 @@ class __TwigTemplate_5a071ed67e05463918b3173c7cd6d639949a9e7b957c57716cbab7b1af9
           <td>{{ file.id }}</td>
           <td>{{ file.catalog }}</td>
           <td>{{ file.files }}</td>
-          <td><a href=\"{{ path('deleteFiles', {'user_id': user.id, 'files_id': file.id}) }}\" class=\"btn btn-sm btn-danger\">delete</a></td>
+          <td><a id=\"deleteFile-{{loop.index}}\" href=\"{{ path('deleteFiles', {'user_id': user.id, 'files_id': file.id}) }}\" class=\"btn btn-sm btn-danger\">delete</a></td>
       </tr>
     {% endfor %}
     </table>

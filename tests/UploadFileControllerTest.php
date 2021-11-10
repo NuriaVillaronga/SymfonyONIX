@@ -35,10 +35,7 @@ class UploadFileControllerTest extends PantherTestCase
         );
 
         /*
-        $client->submitForm('Upload', [
-            'form[catalog]' =>  'Tipo1',
-            'form[files]' => $uploadedFile->getFilename()
-        ]);
+        $client->clickLink('Examinar'); --> Probar con $forms individuales
 
         $this->assertEquals('http://127.0.0.1:9080/view/1', $client->getCurrentURL());
         */
