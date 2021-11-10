@@ -234,12 +234,16 @@ class __TwigTemplate_cac26a4b6021ac5347f37f4296f232d01adf2d30478888f843525c95c4b
                 echo " 
             </td> 
             <td>
-              <a href=\"";
+              <a id=\"upload-";
                 // line 62
+                echo twig_escape_filter($this->env, twig_get_attribute($this->env, $this->source, $context["loop"], "index", [], "any", false, false, false, 62), "html", null, true);
+                echo "\" href=\"";
                 echo twig_escape_filter($this->env, $this->extensions['Symfony\Bridge\Twig\Extension\RoutingExtension']->getPath("upload_onix", ["id" => twig_get_attribute($this->env, $this->source, $context["user"], "id", [], "any", false, false, false, 62)]), "html", null, true);
                 echo "\" class=\"btn btn-sm btn-success\">upload</a>
-              <a href=\"";
+              <a id=\"view-";
                 // line 63
+                echo twig_escape_filter($this->env, twig_get_attribute($this->env, $this->source, $context["loop"], "index", [], "any", false, false, false, 63), "html", null, true);
+                echo "\" href=\"";
                 echo twig_escape_filter($this->env, $this->extensions['Symfony\Bridge\Twig\Extension\RoutingExtension']->getPath("view_file", ["id" => twig_get_attribute($this->env, $this->source, $context["user"], "id", [], "any", false, false, false, 63)]), "html", null, true);
                 echo "\" class=\"btn btn-sm btn-info\">view files</a>
               <a id=\"update-";
@@ -379,7 +383,7 @@ class __TwigTemplate_cac26a4b6021ac5347f37f4296f232d01adf2d30478888f843525c95c4b
 
     public function getDebugInfo()
     {
-        return array (  358 => 105,  352 => 102,  349 => 101,  347 => 100,  342 => 97,  335 => 93,  331 => 92,  327 => 91,  322 => 88,  318 => 87,  312 => 84,  307 => 81,  303 => 80,  297 => 77,  291 => 74,  287 => 73,  283 => 72,  279 => 71,  276 => 70,  273 => 69,  253 => 65,  247 => 64,  243 => 63,  239 => 62,  234 => 59,  230 => 58,  224 => 55,  219 => 52,  215 => 51,  209 => 48,  204 => 45,  200 => 44,  194 => 41,  189 => 39,  185 => 38,  181 => 37,  177 => 36,  174 => 35,  156 => 34,  154 => 33,  139 => 20,  130 => 17,  127 => 16,  123 => 15,  114 => 12,  111 => 11,  107 => 10,  98 => 7,  95 => 6,  91 => 5,  88 => 4,  78 => 3,  59 => 2,  36 => 1,);
+        return array (  362 => 105,  356 => 102,  353 => 101,  351 => 100,  346 => 97,  339 => 93,  335 => 92,  331 => 91,  326 => 88,  322 => 87,  316 => 84,  311 => 81,  307 => 80,  301 => 77,  295 => 74,  291 => 73,  287 => 72,  283 => 71,  280 => 70,  277 => 69,  257 => 65,  251 => 64,  245 => 63,  239 => 62,  234 => 59,  230 => 58,  224 => 55,  219 => 52,  215 => 51,  209 => 48,  204 => 45,  200 => 44,  194 => 41,  189 => 39,  185 => 38,  181 => 37,  177 => 36,  174 => 35,  156 => 34,  154 => 33,  139 => 20,  130 => 17,  127 => 16,  123 => 15,  114 => 12,  111 => 11,  107 => 10,  98 => 7,  95 => 6,  91 => 5,  88 => 4,  78 => 3,  59 => 2,  36 => 1,);
     }
 
     public function getSourceContext()
@@ -445,8 +449,8 @@ class __TwigTemplate_cac26a4b6021ac5347f37f4296f232d01adf2d30478888f843525c95c4b
               {% endif %} 
             </td> 
             <td>
-              <a href=\"{{ path('upload_onix', {'id': user.id}) }}\" class=\"btn btn-sm btn-success\">upload</a>
-              <a href=\"{{ path('view_file', {'id': user.id}) }}\" class=\"btn btn-sm btn-info\">view files</a>
+              <a id=\"upload-{{loop.index}}\" href=\"{{ path('upload_onix', {'id': user.id}) }}\" class=\"btn btn-sm btn-success\">upload</a>
+              <a id=\"view-{{loop.index}}\" href=\"{{ path('view_file', {'id': user.id}) }}\" class=\"btn btn-sm btn-info\">view files</a>
               <a id=\"update-{{loop.index}}\" href=\"{{ path('user_update', {'id': user.id}) }}\" class=\"btn btn-sm btn-primary\">update</a>
               <a id=\"delete-{{loop.index}}\" href=\"{{ path('user_delete', {'id': user.id}) }}\" class=\"btn btn-sm btn-danger\">delete</a>
             </td>

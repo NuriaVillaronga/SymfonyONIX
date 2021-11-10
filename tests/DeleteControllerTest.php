@@ -2,10 +2,11 @@
 
 namespace App\Tests;
 
+use App\Entity\File;
 use App\Entity\User;
-use Symfony\Bundle\FrameworkBundle\Test\WebTestCase;
+use Symfony\Component\Panther\PantherTestCase;
 
-class DeleteControllerTest extends WebTestCase
+class DeleteControllerTest extends PantherTestCase
 {
     public function testNumUsers(): void
     {
@@ -17,218 +18,160 @@ class DeleteControllerTest extends WebTestCase
         $this->assertEquals(4, count($users));
     }
 
+    //Cambiar la X por un valor de fichero (cuando tenga ya los ficheros asignados)
     public function testNumFiles(): void
     {
         self::bootKernel();
         $container = static::getContainer();
         $entityManager = $container->get('doctrine')->getManager();
-        $users = $entityManager->getRepository(User::class)->findBy(['isDeleted'=>true]);
+        $files = $entityManager->getRepository(File::class)->findAll();
 
-        $this->assertEquals(4, count($users));
+        $this->assertEquals('X', count($files));
     }
 
     public function testDeleteFile_Admin(): void
     {
-        $client = static::createClient();
-
+        $client = static::createPantherClient();
+        
         $client->followRedirects(true);
-
-        $crawler = $client->request('GET', '/login');
         
-        $form = $crawler->filter('#sign-in')->form([
+        $client->request('GET', '/login'); 
+
+        $client->submitForm('Sign in', [
             'email' => 'nuria.villaronga@gmail.com',
-            'password' => 'nuria'
+            'password' => 'nuria',
         ]);
+
+        $client->clickLink('Users List');
+
+        $crawler = $client->clickLink('2');
         
-        $crawler = $client->submit($form);
+        $link = $crawler->filter('#view-2')->link(); 
+        $client->click($link);
 
-        $link = $crawler->filter('#create')->link();
-        $crawler = $client->click($link);
+        $link = $crawler->filter('#deleteFile-X')->link(); 
+        $client->click($link);
 
-        $this->assertEquals('http://localhost/create', $crawler->getUri());
-
-        $form1 = $crawler->filter('#save-user')->form([
-            'form[name]' => 'Sofia Villaronga',
-            'form[email]' => 'sofia.villaronga@gmail.com',
-            'form[password]' => 'sofia',
-            'form[isActive]' => 1,
-            'form[isDeleted]' => 0,
-            'form[roles]' => ["ROLE_USER"]
-        ]);
-        
-        $crawler = $client->submit($form1);
-
-        $this->assertEquals('http://localhost/list', $crawler->getUri());
+        $this->assertEquals('http://127.0.0.1:9080/view/1', $client->getCurrentURL());
     }
 
     public function testDeleteFileUser_Admin(): void
     {
-        $client = static::createClient();
-
+        $client = static::createPantherClient();
+        
         $client->followRedirects(true);
-
-        $crawler = $client->request('GET', '/login');
         
-        $form = $crawler->filter('#sign-in')->form([
+        $client->request('GET', '/login'); 
+
+        $client->submitForm('Sign in', [
             'email' => 'nuria.villaronga@gmail.com',
-            'password' => 'nuria'
+            'password' => 'nuria',
         ]);
+
+        $client->clickLink('Users List');
+
+        $crawler = $client->clickLink('1');
         
-        $crawler = $client->submit($form);
+        $link = $crawler->filter('#view-2')->link(); 
+        $client->click($link);
 
-        $link = $crawler->filter('#create')->link();
-        $crawler = $client->click($link);
+        $link = $crawler->filter('#deleteFile-X')->link(); 
+        $client->click($link);
 
-        $this->assertEquals('http://localhost/create', $crawler->getUri());
-
-        $form1 = $crawler->filter('#save-user')->form([
-            'form[name]' => 'Sofia Villaronga',
-            'form[email]' => 'sofia.villaronga@gmail.com',
-            'form[password]' => 'sofia',
-            'form[isActive]' => 1,
-            'form[isDeleted]' => 0,
-            'form[roles]' => ["ROLE_USER"]
-        ]);
-        
-        $crawler = $client->submit($form1);
-
-        $this->assertEquals('http://localhost/list', $crawler->getUri());
+        $this->assertEquals('http://127.0.0.1:9080/view/6', $client->getCurrentURL());
     }
 
     public function testDeleteFileUser_Admin_Redirect(): void
     {
-        $client = static::createClient();
-
+        $client = static::createPantherClient();
+        
         $client->followRedirects(true);
 
-        $crawler = $client->request('GET', '/login');
+        $client->clickLink('Logout');
         
-        $form = $crawler->filter('#sign-in')->form([
+        $client->request('GET', '/delete/X/3'); 
+
+        $client->submitForm('Sign in', [
             'email' => 'nuria.villaronga@gmail.com',
-            'password' => 'nuria'
+            'password' => 'nuria',
         ]);
-        
-        $crawler = $client->submit($form);
 
-        $link = $crawler->filter('#create')->link();
-        $crawler = $client->click($link);
-
-        $this->assertEquals('http://localhost/create', $crawler->getUri());
-
-        $form1 = $crawler->filter('#save-user')->form([
-            'form[name]' => 'Sofia Villaronga',
-            'form[email]' => 'sofia.villaronga@gmail.com',
-            'form[password]' => 'sofia',
-            'form[isActive]' => 1,
-            'form[isDeleted]' => 0,
-            'form[roles]' => ["ROLE_USER"]
-        ]);
-        
-        $crawler = $client->submit($form1);
-
-        $this->assertEquals('http://localhost/list', $crawler->getUri());
+        $this->assertEquals('http://127.0.0.1:9080/view/3', $client->getCurrentURL());
     }
     
     public function testDeleteFile_UserAutenticated(): void
     {
-        $client = static::createClient();
-
+        $client = static::createPantherClient();
+        
         $client->followRedirects(true);
-
-        $crawler = $client->request('GET', '/login');
         
-        $form = $crawler->filter('#sign-in')->form([
-            'email' => 'nuria.villaronga@gmail.com',
-            'password' => 'nuria'
+        $client->request('GET', '/login'); 
+
+        $client->submitForm('Sign in', [
+            'email' => 'juana.villaronga@gmail.com',
+            'password' => 'juana',
         ]);
+
+        $client->clickLink('Users List');
+        $client->clickLink('view files');
+        $client->clickLink('delete');
+
+        $this->assertEquals('http://127.0.0.1:9080/view/3', $client->getCurrentURL());
+    }
+
+    public function testDeleteNoFiles_UserAutenticated(): void
+    {
+        $client = static::createPantherClient();
         
-        $crawler = $client->submit($form);
+        $client->followRedirects(true);
+        
+        $client->request('GET', '/login'); 
 
-        $link = $crawler->filter('#create')->link();
-        $crawler = $client->click($link);
-
-        $this->assertEquals('http://localhost/create', $crawler->getUri());
-
-        $form1 = $crawler->filter('#save-user')->form([
-            'form[name]' => 'Sofia Villaronga',
-            'form[email]' => 'sofia.villaronga@gmail.com',
-            'form[password]' => 'sofia',
-            'form[isActive]' => 1,
-            'form[isDeleted]' => 0,
-            'form[roles]' => ["ROLE_USER"]
+        $client->submitForm('Sign in', [
+            'email' => 'juana.villaronga@gmail.com',
+            'password' => 'juana',
         ]);
-        
-        $crawler = $client->submit($form1);
 
-        $this->assertEquals('http://localhost/list', $crawler->getUri());
+        $client->clickLink('Users List');
+        $client->clickLink('view files');
+        
+        $this->assertSelectorTextContains('div', 'No files uploaded yet');
     }
 
     public function testDeleteFile_UserAutenticated_CorrectRedirect(): void
     {
-        $client = static::createClient();
-
+        $client = static::createPantherClient();
+        
         $client->followRedirects(true);
 
-        $crawler = $client->request('GET', '/login');
+        $client->clickLink('Logout');
         
-        $form = $crawler->filter('#sign-in')->form([
-            'email' => 'nuria.villaronga@gmail.com',
-            'password' => 'nuria'
+        $client->request('GET', '/delete/X/4'); 
+
+        $client->submitForm('Sign in', [
+            'email' => 'dalila.villaronga@gmail.com',
+            'password' => 'dalila',
         ]);
-        
-        $crawler = $client->submit($form);
 
-        $link = $crawler->filter('#create')->link();
-        $crawler = $client->click($link);
-
-        $this->assertEquals('http://localhost/create', $crawler->getUri());
-
-        $form1 = $crawler->filter('#save-user')->form([
-            'form[name]' => 'Sofia Villaronga',
-            'form[email]' => 'sofia.villaronga@gmail.com',
-            'form[password]' => 'sofia',
-            'form[isActive]' => 1,
-            'form[isDeleted]' => 0,
-            'form[roles]' => ["ROLE_USER"]
-        ]);
-        
-        $crawler = $client->submit($form1);
-
-        $this->assertEquals('http://localhost/list', $crawler->getUri());
+        $this->assertEquals('http://127.0.0.1:9080/view/4', $client->getCurrentURL());
     }
 
     public function testDeleteFile_UserAutenticated_InorrectRedirect(): void
     {
-        $client = static::createClient();
-
+        $client = static::createPantherClient();
+        
         $client->followRedirects(true);
 
-        $crawler = $client->request('GET', '/login');
+        $client->clickLink('Logout');
         
-        $form = $crawler->filter('#sign-in')->form([
-            'email' => 'nuria.villaronga@gmail.com',
-            'password' => 'nuria'
+        $client->request('GET', '/delete/X/6'); 
+
+        $client->submitForm('Sign in', [
+            'email' => 'dalila.villaronga@gmail.com',
+            'password' => 'dalila',
         ]);
-        
-        $crawler = $client->submit($form);
 
-        $link = $crawler->filter('#create')->link();
-        $crawler = $client->click($link);
-
-        $this->assertEquals('http://localhost/create', $crawler->getUri());
-
-        $form1 = $crawler->filter('#save-user')->form([
-            'form[name]' => 'Sofia Villaronga',
-            'form[email]' => 'sofia.villaronga@gmail.com',
-            'form[password]' => 'sofia',
-            'form[isActive]' => 1,
-            'form[isDeleted]' => 0,
-            'form[roles]' => ["ROLE_USER"]
-        ]);
-        
-        $crawler = $client->submit($form1);
-
-        $this->assertEquals('http://localhost/list', $crawler->getUri());
+        $this->assertEquals('http://127.0.0.1:9080/homepage', $client->getCurrentURL());
     }
     
 }

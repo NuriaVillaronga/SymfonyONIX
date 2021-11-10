@@ -12,15 +12,21 @@ class ViewFileControllerTest extends PantherTestCase
         
         $client->followRedirects(true);
         
-        $client->request('GET', '/update/6'); 
+        $client->request('GET', '/login'); 
 
         $client->submitForm('Sign in', [
-            'email' => 'juana.villaronga@gmail.com',
-            'password' => 'juana',
+            'email' => 'nuria.villaronga@gmail.com',
+            'password' => 'nuria',
         ]);
 
-        $this->assertEquals('http://127.0.0.1:9080/homepage', $client->getCurrentURL());
+        $client->clickLink('Users List');
 
+        $crawler = $client->clickLink('2');
+        
+        $link = $crawler->filter('#view-2')->link(); 
+        $client->click($link);
+
+        $this->assertEquals('http://127.0.0.1:9080/view/1', $client->getCurrentURL());
     }
     
     public function testViewFilesUser_Admin(): void
@@ -29,25 +35,21 @@ class ViewFileControllerTest extends PantherTestCase
         
         $client->followRedirects(true);
         
-        $client->request('GET', '/update/6'); 
+        $client->request('GET', '/login'); 
 
         $client->submitForm('Sign in', [
             'email' => 'nuria.villaronga@gmail.com',
             'password' => 'nuria',
         ]);
 
-        $this->assertEquals('http://127.0.0.1:9080/update/6', $client->getCurrentURL());
+        $client->clickLink('Users List');
 
-        $client->submitForm('Save edited', [
-            'form[name]'=>'Xura Villaronga Guillán', 
-            'form[email]' => 'xura.villaronga@gmail.com',
-            'form[password]' => 'xura',
-            'form[isActive]' => 1,
-            'form[isDeleted]' => 0,
-            'form[roles]' => ["ROLE_USER"]
-        ]);
+        $crawler = $client->clickLink('1');
+        
+        $link = $crawler->filter('#view-3')->link(); 
+        $client->click($link);
 
-        $this->assertEquals('http://127.0.0.1:9080/list', $client->getCurrentURL());
+        $this->assertEquals('http://127.0.0.1:9080/view/5', $client->getCurrentURL());
     }
 
     public function testViewFilesUser_Admin_Redirect(): void
@@ -55,26 +57,17 @@ class ViewFileControllerTest extends PantherTestCase
         $client = static::createPantherClient();
         
         $client->followRedirects(true);
+
+        $client->clickLink('Logout');
         
-        $client->request('GET', '/update/6'); 
+        $client->request('GET', '/view/2'); 
 
         $client->submitForm('Sign in', [
             'email' => 'nuria.villaronga@gmail.com',
             'password' => 'nuria',
         ]);
 
-        $this->assertEquals('http://127.0.0.1:9080/update/6', $client->getCurrentURL());
-
-        $client->submitForm('Save edited', [
-            'form[name]'=>'Xura Villaronga Guillán', 
-            'form[email]' => 'xura.villaronga@gmail.com',
-            'form[password]' => 'xura',
-            'form[isActive]' => 1,
-            'form[isDeleted]' => 0,
-            'form[roles]' => ["ROLE_USER"]
-        ]);
-
-        $this->assertEquals('http://127.0.0.1:9080/list', $client->getCurrentURL());
+        $this->assertEquals('http://127.0.0.1:9080/view/2', $client->getCurrentURL());
     }
 
     public function testViewFiles_UserAutenticated(): void
@@ -86,28 +79,15 @@ class ViewFileControllerTest extends PantherTestCase
         $client->request('GET', '/login'); 
 
         $client->submitForm('Sign in', [
-            'email' => 'nuria.villaronga@gmail.com',
-            'password' => 'nuria',
+            'email' => 'juana.villaronga@gmail.com',
+            'password' => 'juana',
         ]);
 
         $client->clickLink('Users List');
+        
+        $client->clickLink('view files');
 
-        $crawler = $client->clickLink('1'); //por defecto ya está en la pagina 1, pero necesito crear un cliente crawler
-        $link = $crawler->filter('#update-1')->link(); 
-
-        $client->click($link);
-        $this->assertEquals('http://127.0.0.1:9080/update/7', $client->getCurrentURL());
-
-        $client->submitForm('Save edited', [
-            'form[name]'=>'Xose Villaronga Guillán', 
-            'form[email]' => 'xose.villaronga@gmail.com',
-            'form[password]' => 'abc',
-            'form[isActive]' => 0,
-            'form[isDeleted]' => 1,
-            'form[roles]' => ["ROLE_USER","ROLE_ADMIN"],
-        ]);
-
-        $this->assertEquals('http://127.0.0.1:9080/list', $client->getCurrentURL());
+        $this->assertEquals('http://127.0.0.1:9080/view/3', $client->getCurrentURL());
     }
     
     public function testViewFiles_UserAutenticated_CorrectRedirect(): void
@@ -115,25 +95,17 @@ class ViewFileControllerTest extends PantherTestCase
         $client = static::createPantherClient();
         
         $client->followRedirects(true);
+
+        $client->clickLink('Logout');
         
-        $client->request('GET', '/login'); //Otra opcion sería: http://127.0.0.1:9080/login
+        $client->request('GET', '/view/4'); 
 
         $client->submitForm('Sign in', [
             'email' => 'dalila.villaronga@gmail.com',
             'password' => 'dalila',
         ]);
 
-        $client->clickLink('Users List');
-        $client->clickLink('update');
-        $this->assertEquals('http://127.0.0.1:9080/update/4', $client->getCurrentURL());
-
-        $client->submitForm('Save edited', [
-            'form[name]'=>'Dalila Villaronga Guillán', 
-            'form[email]' => 'dalila.villaronga@gmail.com',
-            'form[password]' => 'dalila',
-        ]);
-
-        $this->assertEquals('http://127.0.0.1:9080/list', $client->getCurrentURL());
+        $this->assertEquals('http://127.0.0.1:9080/view/4', $client->getCurrentURL());
     }
 
     public function testViewFiles_UserAutenticated_IncorrectRedirect(): void
@@ -141,25 +113,17 @@ class ViewFileControllerTest extends PantherTestCase
         $client = static::createPantherClient();
         
         $client->followRedirects(true);
+
+        $client->clickLink('Logout');
         
-        $client->request('GET', '/login'); //Otra opcion sería: http://127.0.0.1:9080/login
+        $client->request('GET', '/view/7'); 
 
         $client->submitForm('Sign in', [
             'email' => 'dalila.villaronga@gmail.com',
             'password' => 'dalila',
         ]);
 
-        $client->clickLink('Users List');
-        $client->clickLink('update');
-        $this->assertEquals('http://127.0.0.1:9080/update/4', $client->getCurrentURL());
-
-        $client->submitForm('Save edited', [
-            'form[name]'=>'Dalila Villaronga Guillán', 
-            'form[email]' => 'dalila.villaronga@gmail.com',
-            'form[password]' => 'dalila',
-        ]);
-
-        $this->assertEquals('http://127.0.0.1:9080/list', $client->getCurrentURL());
+        $this->assertEquals('http://127.0.0.1:9080/homepage', $client->getCurrentURL());
     }
 
     public function testViewFiles_UserNoAutenticated(): void
@@ -168,33 +132,15 @@ class ViewFileControllerTest extends PantherTestCase
         
         $client->followRedirects(true);
         
-        $client->request('GET', '/login'); 
+        $client->clickLink('Logout');
+        
+        $client->request('GET', '/view/6'); 
 
         $client->submitForm('Sign in', [
-            'email' => 'nuria.villaronga@gmail.com',
-            'password' => 'nuria',
+            'email' => 'xura.villaronga@gmail.com',
+            'password' => 'xura',
         ]);
 
-        $client->clickLink('Users List');
-        
-        //$client->clickLink('Next »'); Deberia funcionar tb, pero este nombre no le gusta
-
-        $crawler = $client->clickLink('2');
-        $link = $crawler->filter('#update-2')->link(); 
-
-        $client->click($link);
-        $this->assertEquals('http://127.0.0.1:9080/update/1', $client->getCurrentURL());
-
-        $client->submitForm('Save edited', [
-            'form[name]'=>'Nuria Villaronga Guillán', 
-            'form[email]' => 'nuria.villaronga@gmail.com',
-            'form[password]' => 'nuria',
-            'form[isActive]' => 1,
-            'form[isDeleted]' => 0,
-            'form[roles]' => ["ROLE_USER","ROLE_ADMIN"],
-        ]);
-
-        $this->assertEquals('http://127.0.0.1:9080/list', $client->getCurrentURL());
-        
+        $this->assertEquals('http://127.0.0.1:9080/login', $client->getCurrentURL());
     }
 }

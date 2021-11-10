@@ -2,245 +2,264 @@
 
 namespace App\Tests;
 
-use Symfony\Bundle\FrameworkBundle\Test\WebTestCase;
+use Symfony\Component\HttpFoundation\File\UploadedFile;
+use Symfony\Component\Panther\PantherTestCase;
 
-class UploadFileControllerTest extends WebTestCase
+class UploadFileControllerTest extends PantherTestCase
 {
     public function testUploadFile_Admin(): void
     {
-        $client = static::createClient();
-
+        $client = static::createPantherClient();
+        
         $client->followRedirects(true);
-
-        $crawler = $client->request('GET', '/login');
         
-        $form = $crawler->filter('#sign-in')->form([
+        $client->request('GET', '/login'); 
+
+        $client->submitForm('Sign in', [
             'email' => 'nuria.villaronga@gmail.com',
-            'password' => 'nuria'
+            'password' => 'nuria',
         ]);
+
+        $client->clickLink('Users List');
+
+        $crawler = $client->clickLink('2');
         
-        $crawler = $client->submit($form);
+        $link = $crawler->filter('#upload-2')->link(); 
+        $client->click($link);
 
-        $link = $crawler->filter('#create')->link();
-        $crawler = $client->click($link);
+        $this->assertEquals('http://127.0.0.1:9080/upload/1', $client->getCurrentURL());
 
-        $this->assertEquals('http://localhost/create', $crawler->getUri());
+        $uploadedFile = new UploadedFile(
+            __DIR__.'/onixTest/grupo_planeta_20210330234509_1.onix',
+            'grupo_planeta_20210330234509_1.onix'
+        );
 
-        $form1 = $crawler->filter('#save-user')->form([
-            'form[name]' => 'Sofia Villaronga',
-            'form[email]' => 'sofia.villaronga@gmail.com',
-            'form[password]' => 'sofia',
-            'form[isActive]' => 1,
-            'form[isDeleted]' => 0,
-            'form[roles]' => ["ROLE_USER"]
+        /*
+        $client->submitForm('Upload', [
+            'form[catalog]' =>  'Tipo1',
+            'form[files]' => $uploadedFile->getFilename()
         ]);
-        
-        $crawler = $client->submit($form1);
 
-        $this->assertEquals('http://localhost/list', $crawler->getUri());
+        $this->assertEquals('http://127.0.0.1:9080/view/1', $client->getCurrentURL());
+        */
     }
 
     public function testUploadFileUser_Admin(): void
     {
-        $client = static::createClient();
-
+        $client = static::createPantherClient();
+        
         $client->followRedirects(true);
-
-        $crawler = $client->request('GET', '/login');
         
-        $form = $crawler->filter('#sign-in')->form([
+        $client->request('GET', '/login'); 
+
+        $client->submitForm('Sign in', [
             'email' => 'nuria.villaronga@gmail.com',
-            'password' => 'nuria'
+            'password' => 'nuria',
         ]);
+
+        $client->clickLink('Users List');
+
+        $crawler = $client->clickLink('1');
         
-        $crawler = $client->submit($form);
+        $link = $crawler->filter('#upload-3')->link(); 
+        $client->click($link);
 
-        $link = $crawler->filter('#create')->link();
-        $crawler = $client->click($link);
+        $this->assertEquals('http://127.0.0.1:9080/upload/5', $client->getCurrentURL());
 
-        $this->assertEquals('http://localhost/create', $crawler->getUri());
+        $uploadedFile = new UploadedFile(
+            __DIR__.'/onixTest/grupo_planeta_20210330234509_1.onix',
+            'grupo_planeta_20210330234509_1.onix'
+        );
 
-        $form1 = $crawler->filter('#save-user')->form([
-            'form[name]' => 'Sofia Villaronga',
-            'form[email]' => 'sofia.villaronga@gmail.com',
-            'form[password]' => 'sofia',
-            'form[isActive]' => 1,
-            'form[isDeleted]' => 0,
-            'form[roles]' => ["ROLE_USER"]
+        /*
+        $client->submitForm('Upload', [
+            'form[catalog]' =>  'Tipo1',
+            'form[files]' => $uploadedFile->getFilename()
         ]);
-        
-        $crawler = $client->submit($form1);
 
-        $this->assertEquals('http://localhost/list', $crawler->getUri());
+        $this->assertEquals('http://127.0.0.1:9080/view/1', $client->getCurrentURL());
+        */
     }
 
     public function testUploadFileUser_Admin_Redirect(): void
     {
-        $client = static::createClient();
-
+        $client = static::createPantherClient();
+        
         $client->followRedirects(true);
 
-        $crawler = $client->request('GET', '/login');
+        $client->clickLink('Logout');
         
-        $form = $crawler->filter('#sign-in')->form([
+        $client->request('GET', '/upload/5'); 
+
+        $client->submitForm('Sign in', [
             'email' => 'nuria.villaronga@gmail.com',
-            'password' => 'nuria'
+            'password' => 'nuria',
         ]);
-        
-        $crawler = $client->submit($form);
 
-        $link = $crawler->filter('#create')->link();
-        $crawler = $client->click($link);
+        $this->assertEquals('http://127.0.0.1:9080/upload/5', $client->getCurrentURL());
 
-        $this->assertEquals('http://localhost/create', $crawler->getUri());
+        $uploadedFile = new UploadedFile(
+            __DIR__.'/onixTest/grupo_planeta_20210330234509_1.onix',
+            'grupo_planeta_20210330234509_1.onix'
+        );
 
-        $form1 = $crawler->filter('#save-user')->form([
-            'form[name]' => 'Sofia Villaronga',
-            'form[email]' => 'sofia.villaronga@gmail.com',
-            'form[password]' => 'sofia',
-            'form[isActive]' => 1,
-            'form[isDeleted]' => 0,
-            'form[roles]' => ["ROLE_USER"]
+        /*
+        $client->submitForm('Upload', [
+            'form[catalog]' =>  'Tipo1',
+            'form[files]' => $uploadedFile->getFilename()
         ]);
-        
-        $crawler = $client->submit($form1);
 
-        $this->assertEquals('http://localhost/list', $crawler->getUri());
+        $this->assertEquals('http://127.0.0.1:9080/view/1', $client->getCurrentURL());
+        */
     }
-    
+ 
     public function testUploadFile_UserAutenticated(): void
     {
-        $client = static::createClient();
-
+        $client = static::createPantherClient();
+        
         $client->followRedirects(true);
-
-        $crawler = $client->request('GET', '/login');
         
-        $form = $crawler->filter('#sign-in')->form([
-            'email' => 'nuria.villaronga@gmail.com',
-            'password' => 'nuria'
+        $client->request('GET', '/login'); 
+
+        $client->submitForm('Sign in', [
+            'email' => 'juana.villaronga@gmail.com',
+            'password' => 'juana',
         ]);
+
+        $client->clickLink('Users List');
         
-        $crawler = $client->submit($form);
+        $client->clickLink('upload');
 
-        $link = $crawler->filter('#create')->link();
-        $crawler = $client->click($link);
+        $this->assertEquals('http://127.0.0.1:9080/upload/3', $client->getCurrentURL());
 
-        $this->assertEquals('http://localhost/create', $crawler->getUri());
+        $uploadedFile = new UploadedFile(
+            __DIR__.'/onixTest/grupo_planeta_20210330234509_1.onix',
+            'grupo_planeta_20210330234509_1.onix'
+        );
 
-        $form1 = $crawler->filter('#save-user')->form([
-            'form[name]' => 'Sofia Villaronga',
-            'form[email]' => 'sofia.villaronga@gmail.com',
-            'form[password]' => 'sofia',
-            'form[isActive]' => 1,
-            'form[isDeleted]' => 0,
-            'form[roles]' => ["ROLE_USER"]
+        /*
+        $client->submitForm('Upload', [
+            'form[catalog]' =>  'Tipo1',
+            'form[files]' => $uploadedFile->getFilename()
         ]);
-        
-        $crawler = $client->submit($form1);
 
-        $this->assertEquals('http://localhost/list', $crawler->getUri());
+        $this->assertEquals('http://127.0.0.1:9080/view/1', $client->getCurrentURL());
+        */
     }
 
     public function testUploadFile_UserAutenticated_CorrectRedirect(): void
     {
-        $client = static::createClient();
-
+        $client = static::createPantherClient();
+        
         $client->followRedirects(true);
 
-        $crawler = $client->request('GET', '/login');
+        $client->clickLink('Logout');
         
-        $form = $crawler->filter('#sign-in')->form([
-            'email' => 'nuria.villaronga@gmail.com',
-            'password' => 'nuria'
+        $client->request('GET', '/upload/4'); 
+
+        $client->submitForm('Sign in', [
+            'email' => 'dalila.villaronga@gmail.com',
+            'password' => 'dalila',
         ]);
-        
-        $crawler = $client->submit($form);
 
-        $link = $crawler->filter('#create')->link();
-        $crawler = $client->click($link);
+        $this->assertEquals('http://127.0.0.1:9080/upload/4', $client->getCurrentURL());
 
-        $this->assertEquals('http://localhost/create', $crawler->getUri());
+        $uploadedFile = new UploadedFile(
+            __DIR__.'/onixTest/grupo_planeta_20210330234509_1.onix',
+            'grupo_planeta_20210330234509_1.onix'
+        );
 
-        $form1 = $crawler->filter('#save-user')->form([
-            'form[name]' => 'Sofia Villaronga',
-            'form[email]' => 'sofia.villaronga@gmail.com',
-            'form[password]' => 'sofia',
-            'form[isActive]' => 1,
-            'form[isDeleted]' => 0,
-            'form[roles]' => ["ROLE_USER"]
+        /*
+        $client->submitForm('Upload', [
+            'form[catalog]' =>  'Tipo1',
+            'form[files]' => $uploadedFile->getFilename()
         ]);
-        
-        $crawler = $client->submit($form1);
 
-        $this->assertEquals('http://localhost/list', $crawler->getUri());
+        $this->assertEquals('http://127.0.0.1:9080/view/1', $client->getCurrentURL());
+        */
     }
 
     public function testUploadFile_UserAutenticated_InorrectRedirect(): void
     {
-        $client = static::createClient();
-
+        $client = static::createPantherClient();
+        
         $client->followRedirects(true);
 
-        $crawler = $client->request('GET', '/login');
+        $client->clickLink('Logout');
         
-        $form = $crawler->filter('#sign-in')->form([
-            'email' => 'nuria.villaronga@gmail.com',
-            'password' => 'nuria'
+        $client->request('GET', '/upload/6'); 
+
+        $client->submitForm('Sign in', [
+            'email' => 'juana.villaronga@gmail.com',
+            'password' => 'juana',
         ]);
-        
-        $crawler = $client->submit($form);
 
-        $link = $crawler->filter('#create')->link();
-        $crawler = $client->click($link);
+        $this->assertEquals('http://127.0.0.1:9080/homepage', $client->getCurrentURL());
 
-        $this->assertEquals('http://localhost/create', $crawler->getUri());
+        $uploadedFile = new UploadedFile(
+            __DIR__.'/onixTest/grupo_planeta_20210330234509_1.onix',
+            'grupo_planeta_20210330234509_1.onix'
+        );
 
-        $form1 = $crawler->filter('#save-user')->form([
-            'form[name]' => 'Sofia Villaronga',
-            'form[email]' => 'sofia.villaronga@gmail.com',
-            'form[password]' => 'sofia',
-            'form[isActive]' => 1,
-            'form[isDeleted]' => 0,
-            'form[roles]' => ["ROLE_USER"]
+        /*
+        $client->submitForm('Upload', [
+            'form[catalog]' =>  'Tipo1',
+            'form[files]' => $uploadedFile->getFilename()
         ]);
-        
-        $crawler = $client->submit($form1);
 
-        $this->assertEquals('http://localhost/list', $crawler->getUri());
+        $this->assertEquals('http://127.0.0.1:9080/view/1', $client->getCurrentURL());
+        */
     }
 
     public function testUploadFile_UserNoAutenticated(): void
     {
-        $client = static::createClient();
-
+        $client = static::createPantherClient();
+        
         $client->followRedirects(true);
-
-        $crawler = $client->request('GET', '/login');
+         
+        $client->clickLink('Logout');
         
-        $form = $crawler->filter('#sign-in')->form([
-            'email' => 'nuria.villaronga@gmail.com',
-            'password' => 'nuria'
+        $client->request('GET', '/upload/6'); 
+
+        $client->submitForm('Sign in', [
+            'email' => 'xura.villaronga@gmail.com',
+            'password' => 'xura',
         ]);
+
+        $this->assertEquals('http://127.0.0.1:9080/login', $client->getCurrentURL());
+    }
+
+    public function testUploadNoOnixFile_UserAutenticated(): void
+    {
+        $client = static::createPantherClient();
         
-        $crawler = $client->submit($form);
+        $client->followRedirects(true);
+        
+        $client->request('GET', '/login'); 
 
-        $link = $crawler->filter('#create')->link();
-        $crawler = $client->click($link);
-
-        $this->assertEquals('http://localhost/create', $crawler->getUri());
-
-        $form1 = $crawler->filter('#save-user')->form([
-            'form[name]' => 'Sofia Villaronga',
-            'form[email]' => 'sofia.villaronga@gmail.com',
-            'form[password]' => 'sofia',
-            'form[isActive]' => 1,
-            'form[isDeleted]' => 0,
-            'form[roles]' => ["ROLE_USER"]
+        $client->submitForm('Sign in', [
+            'email' => 'juana.villaronga@gmail.com',
+            'password' => 'juana',
         ]);
-        
-        $crawler = $client->submit($form1);
 
-        $this->assertEquals('http://localhost/list', $crawler->getUri());
+        $client->clickLink('Users List');
+        
+        $client->clickLink('upload');
+
+        $this->assertEquals('http://127.0.0.1:9080/upload/3', $client->getCurrentURL());
+
+        $uploadedFile = new UploadedFile(
+            __DIR__.'/onixTest/bootstrap-4.0.0-dist.zip',
+            'bootstrap-4.0.0-dist.zip'
+        );
+
+        /*
+        $client->submitForm('Upload', [
+            'form[catalog]' =>  'Tipo1',
+            'form[files]' => $uploadedFile->getFilename()
+        ]);
+
+        $this->assertEquals('http://127.0.0.1:9080/view/1', $client->getCurrentURL());
+        */
     }
 }

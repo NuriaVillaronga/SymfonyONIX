@@ -28,6 +28,8 @@ class UpdateControllerTest extends PantherTestCase
         $client = static::createPantherClient();
         
         $client->followRedirects(true);
+
+        $client->clickLink('Logout');
         
         $client->request('GET', '/update/6'); 
 
