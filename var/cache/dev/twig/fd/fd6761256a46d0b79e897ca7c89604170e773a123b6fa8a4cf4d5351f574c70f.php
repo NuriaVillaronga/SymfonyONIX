@@ -330,6 +330,6 @@ class __TwigTemplate_fd62cf85d74499fcdd33bbbffbfdc3c444736e75be28fd5444d09d6adfa
         </ul>
     </nav>
 {% endif %}
-", "@KnpPaginator/Pagination/twitter_bootstrap_v4_pagination.html.twig", "/home/nuria/onixProject/vendor/knplabs/knp-paginator-bundle/templates/Pagination/twitter_bootstrap_v4_pagination.html.twig");
+", "@KnpPaginator/Pagination/twitter_bootstrap_v4_pagination.html.twig", "/home/nuria/SymfonyONIX/vendor/knplabs/knp-paginator-bundle/templates/Pagination/twitter_bootstrap_v4_pagination.html.twig");
     }
 }

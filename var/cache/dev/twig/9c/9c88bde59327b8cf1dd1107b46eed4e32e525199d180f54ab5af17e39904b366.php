@@ -285,6 +285,6 @@ class __TwigTemplate_be449c0ea0f4666f6f808f43bbab89bde840292f08c5cb512bca5738763
         {% endif %}
     </ul>
 {% endif %}
-", "@KnpPaginator/Pagination/materialize_pagination.html.twig", "/home/nuria/onixProject/vendor/knplabs/knp-paginator-bundle/templates/Pagination/materialize_pagination.html.twig");
+", "@KnpPaginator/Pagination/materialize_pagination.html.twig", "/home/nuria/SymfonyONIX/vendor/knplabs/knp-paginator-bundle/templates/Pagination/materialize_pagination.html.twig");
     }
 }

@@ -182,6 +182,6 @@ class __TwigTemplate_b6ea1003ea6bed35b4a92c7d1859adabc8c30a4d2a17205ffc8444931cb
 
 </form>
 {% endblock %}
-", "security/login.html.twig", "/home/nuria/onixProject/templates/security/login.html.twig");
+", "security/login.html.twig", "/home/nuria/SymfonyONIX/templates/security/login.html.twig");
     }
 }

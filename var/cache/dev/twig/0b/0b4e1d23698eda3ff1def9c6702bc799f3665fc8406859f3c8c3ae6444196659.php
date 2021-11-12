@@ -193,6 +193,6 @@ class __TwigTemplate_a9285bfce728e715cbb8cbbaf6cd835e8097efe81f3859cecdb707c9f00
         {% block body '' %}
     </body>
 </html>
-", "@WebProfiler/Profiler/base.html.twig", "/home/nuria/onixProject/vendor/symfony/web-profiler-bundle/Resources/views/Profiler/base.html.twig");
+", "@WebProfiler/Profiler/base.html.twig", "/home/nuria/SymfonyONIX/vendor/symfony/web-profiler-bundle/Resources/views/Profiler/base.html.twig");
     }
 }

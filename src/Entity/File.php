@@ -19,60 +19,43 @@ class File
     private $id;
 
     /**
-     * @ORM\Column(type="string", length=255, nullable=true)
-     */
-    private $catalog;
-
-    /**
-     * @ORM\Column(type="string", length=255, nullable=true)
+     * @ORM\Column(type="string", length=255)
      * 
      * @Assert\File(mimeTypes={"application/xml"})
      */
-    private $files;
+    private $file;
 
     /**
-     * @ORM\ManyToOne(targetEntity=User::class, inversedBy="files")
+     * @ORM\ManyToOne(targetEntity=Catalog::class, inversedBy="files")
      * @ORM\JoinColumn(nullable=false)
      */
-    private $user;
+    private $catalogs;
 
     public function getId(): ?int
     {
         return $this->id;
     }
 
-    public function getCatalog(): ?string
+    public function getFile(): ?string
     {
-        return $this->catalog;
+        return $this->file;
     }
 
-    public function setCatalog(?string $catalog): self
+    public function setFile(string $file): self
     {
-        $this->catalog = $catalog;
+        $this->file = $file;
 
         return $this;
     }
 
-    public function getFiles(): ?string
+    public function getCatalogs(): ?Catalog
     {
-        return $this->files;
+        return $this->catalogs;
     }
 
-    public function setFiles(?string $files): self
+    public function setCatalogs(?Catalog $catalogs): self
     {
-        $this->files = $files;
-
-        return $this;
-    }
-
-    public function getUser(): ?User
-    {
-        return $this->user;
-    }
-
-    public function setUser(?User $user): self
-    {
-        $this->user = $user;
+        $this->catalogs = $catalogs;
 
         return $this;
     }

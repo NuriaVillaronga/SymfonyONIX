@@ -129,6 +129,6 @@ class __TwigTemplate_b60c3efa46a71663e4e3484afce604670588ab32ff41177696df9aaafe9
     Hola {{ app.user.name }}
   </div>
   
-{% endblock %} ", "homepage.html.twig", "/home/nuria/onixProject/templates/homepage.html.twig");
+{% endblock %} ", "homepage.html.twig", "/home/nuria/SymfonyONIX/templates/homepage.html.twig");
     }
 }

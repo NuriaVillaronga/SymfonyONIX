@@ -155,6 +155,6 @@ class __TwigTemplate_3ba54e53e4e8c37029222dbd226fd8a63799822297fe9db470405b98f76
 
 
 {% endblock %}
-", "upload.html.twig", "/home/nuria/onixProject/templates/upload.html.twig");
+", "upload.html.twig", "/home/nuria/SymfonyONIX/templates/upload.html.twig");
     }
 }

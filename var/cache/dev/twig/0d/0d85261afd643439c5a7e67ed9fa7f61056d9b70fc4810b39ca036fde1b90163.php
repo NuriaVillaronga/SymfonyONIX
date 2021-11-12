@@ -319,6 +319,6 @@ class __TwigTemplate_67530e4be056a40d87bc9020b26ab85980c6a17c307501c3080fd44de44
 </div>
 
 
-{% endblock %}", "update.html.twig", "/home/nuria/onixProject/templates/update.html.twig");
+{% endblock %}", "update.html.twig", "/home/nuria/SymfonyONIX/templates/update.html.twig");
     }
 }

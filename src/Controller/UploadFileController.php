@@ -2,6 +2,7 @@
 
 namespace App\Controller;
 
+use App\Entity\Catalog;
 use App\Entity\File;
 use App\Entity\User;
 use Symfony\Component\HttpFoundation\Response;
@@ -19,11 +20,12 @@ use Sensio\Bundle\FrameworkExtraBundle\Configuration\ParamConverter;
 class UploadFileController extends UserService
 {
     /**
-     * @Route("/upload/{id}", name="upload_onix", methods={"GET","POST"})
+     * @Route("/upload/{id}/{name}", name="upload_onix", methods={"GET","POST"})
      * 
      * @ParamConverter("user", options={"id": "id"})
+     * @ParamConverter("catalog", options={"name": "name"})
      */
-    public function index(Request $request, User $user, EntityManagerInterface $em, SluggerInterface $slugger): Response
+    public function index(Request $request, User $user, Catalog $catalog, EntityManagerInterface $em, SluggerInterface $slugger): Response
     {
         $file = new File();
         
@@ -62,15 +64,15 @@ class UploadFileController extends UserService
                     }
 
                     // updates the 'onixFile' property to store the file instead of its contents
-                    $onixFile = $file->setFiles($newFilename);
-                    $user->addFile($onixFile);
+                    $onixFile = $file->setFile($newFilename);
+                    $catalog->addFile($onixFile);
                     $this->fileUploadService($file, $em);
-                    $this->userUploadService($user, $em);
+                    $this->catalogService($catalog, $em);
                     $this->addFlash('messageUpload', 'The file has been uploaded successfully');
                 }
             }
 
-            return $this->redirectToRoute('view_file', ['id' => $user->getId()]);
+            //return $this->redirectToRoute('view_file', ['id' => $user->getId()]);
         }
 
         return $this->render('upload.html.twig', ['form' => $form->createView()]);

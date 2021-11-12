@@ -220,6 +220,6 @@ class __TwigTemplate_5a071ed67e05463918b3173c7cd6d639949a9e7b957c57716cbab7b1af9
 
 </div>
 
-{% endblock %}", "view.html.twig", "/home/nuria/onixProject/templates/view.html.twig");
+{% endblock %}", "view.html.twig", "/home/nuria/SymfonyONIX/templates/view.html.twig");
     }
 }

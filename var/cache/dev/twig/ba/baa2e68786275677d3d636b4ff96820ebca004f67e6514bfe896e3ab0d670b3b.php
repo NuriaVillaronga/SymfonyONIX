@@ -81,6 +81,6 @@ class __TwigTemplate_a429960b9cbac27518a77c1f029cbce27ed8c1f645b29405187183acf9c
  */
 #}
 {% extends '@KnpPaginator/Pagination/twitter_bootstrap_v4_pagination.html.twig' %}
-", "@KnpPaginator/Pagination/bootstrap_v5_pagination.html.twig", "/home/nuria/onixProject/vendor/knplabs/knp-paginator-bundle/templates/Pagination/bootstrap_v5_pagination.html.twig");
+", "@KnpPaginator/Pagination/bootstrap_v5_pagination.html.twig", "/home/nuria/SymfonyONIX/vendor/knplabs/knp-paginator-bundle/templates/Pagination/bootstrap_v5_pagination.html.twig");
     }
 }

@@ -155,6 +155,6 @@ class __TwigTemplate_6fc76a72c65d896ba6838ff11872ccae75ab7f3536439dd0759e37cc3d9
 {% block panel %}
     {{ render(controller('web_profiler.controller.router::panelAction', { token: token })) }}
 {% endblock %}
-", "@WebProfiler/Collector/router.html.twig", "/home/nuria/onixProject/vendor/symfony/web-profiler-bundle/Resources/views/Collector/router.html.twig");
+", "@WebProfiler/Collector/router.html.twig", "/home/nuria/SymfonyONIX/vendor/symfony/web-profiler-bundle/Resources/views/Collector/router.html.twig");
     }
 }

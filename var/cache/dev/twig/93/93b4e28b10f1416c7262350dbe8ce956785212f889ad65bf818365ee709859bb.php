@@ -413,6 +413,6 @@ class __TwigTemplate_f40892116a4234adccc80efaf5717edf0de3b3f9ff7da1f81e912e1a8c4
         </div>
     {% endfor %}
 {% endblock %}
-", "@Debug/Profiler/dump.html.twig", "/home/nuria/onixProject/vendor/symfony/debug-bundle/Resources/views/Profiler/dump.html.twig");
+", "@Debug/Profiler/dump.html.twig", "/home/nuria/SymfonyONIX/vendor/symfony/debug-bundle/Resources/views/Profiler/dump.html.twig");
     }
 }

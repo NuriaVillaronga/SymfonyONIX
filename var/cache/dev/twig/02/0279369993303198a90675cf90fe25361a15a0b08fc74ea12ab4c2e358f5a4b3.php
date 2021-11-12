@@ -132,6 +132,6 @@ class __TwigTemplate_01b8a0693e41b9eef3c461cf04e4171dbc4623dd9f2b165f560a6ff9ab5
     </span>
     {{ title }}
 </a>
-", "@KnpPaginator/Pagination/bootstrap_v5_md_sortable_link.html.twig", "/home/nuria/onixProject/vendor/knplabs/knp-paginator-bundle/templates/Pagination/bootstrap_v5_md_sortable_link.html.twig");
+", "@KnpPaginator/Pagination/bootstrap_v5_md_sortable_link.html.twig", "/home/nuria/SymfonyONIX/vendor/knplabs/knp-paginator-bundle/templates/Pagination/bootstrap_v5_md_sortable_link.html.twig");
     }
 }

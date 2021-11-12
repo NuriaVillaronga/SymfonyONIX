@@ -2,6 +2,7 @@
 
 namespace App\UserServices;
 
+use App\Entity\Catalog;
 use App\Entity\File;
 use App\Entity\User;
 use Doctrine\ORM\EntityManagerInterface;
@@ -24,13 +25,25 @@ class UserService extends CheckCredentials
         $em->flush();
     }
 
+    public function catalogService(Catalog $catalog, EntityManagerInterface $em)
+    {
+        $em->persist($catalog);
+        $em->flush();
+    }
+
+    public function catalogRemoveService(Catalog $catalog, EntityManagerInterface $em)
+    {
+        $em->remove($catalog);
+        $em->flush();
+    }
+
     public function fileRemoveService(File $file, EntityManagerInterface $em)
     {
         $em->remove($file);
         $em->flush();
     }
 
-    public function userUploadService(User $user, EntityManagerInterface $em)
+    public function userService(User $user, EntityManagerInterface $em)
     {
         $em->persist($user);
         $em->flush();

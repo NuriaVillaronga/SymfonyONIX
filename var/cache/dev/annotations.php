@@ -112,31 +112,7 @@ return [[
 '[C]App%5CController%5CViewFileController' => 1,
 'App%5CController%5CViewFileController%23view' => 11,
 '[C]App%5CController%5CViewFileController%23view' => 1,
-'App%5CEntity%5CFile' => 12,
-'[C]App%5CEntity%5CFile' => 1,
-'App%5CEntity%5CFile%23getId' => 0,
-'[C]App%5CEntity%5CFile%23getId' => 1,
-'App%5CEntity%5CFile%23getCatalog' => 0,
-'[C]App%5CEntity%5CFile%23getCatalog' => 1,
-'App%5CEntity%5CFile%23setCatalog' => 0,
-'[C]App%5CEntity%5CFile%23setCatalog' => 1,
-'App%5CEntity%5CFile%23getFiles' => 0,
-'[C]App%5CEntity%5CFile%23getFiles' => 1,
-'App%5CEntity%5CFile%23setFiles' => 0,
-'[C]App%5CEntity%5CFile%23setFiles' => 1,
-'App%5CEntity%5CFile%23getUser' => 0,
-'[C]App%5CEntity%5CFile%23getUser' => 1,
-'App%5CEntity%5CFile%23setUser' => 0,
-'[C]App%5CEntity%5CFile%23setUser' => 1,
-'App%5CEntity%5CFile%24id' => 13,
-'[C]App%5CEntity%5CFile%24id' => 1,
-'App%5CEntity%5CFile%24catalog' => 14,
-'[C]App%5CEntity%5CFile%24catalog' => 1,
-'App%5CEntity%5CFile%24files' => 15,
-'[C]App%5CEntity%5CFile%24files' => 1,
-'App%5CEntity%5CFile%24user' => 16,
-'[C]App%5CEntity%5CFile%24user' => 1,
-'App%5CEntity%5CUser' => 17,
+'App%5CEntity%5CUser' => 12,
 '[C]App%5CEntity%5CUser' => 1,
 'App%5CEntity%5CUser%23__construct' => 0,
 '[C]App%5CEntity%5CUser%23__construct' => 1,
@@ -190,21 +166,21 @@ return [[
 '[C]App%5CEntity%5CUser%23removeFile' => 1,
 'App%5CEntity%5CUser%24id' => 13,
 '[C]App%5CEntity%5CUser%24id' => 1,
-'App%5CEntity%5CUser%24email' => 18,
+'App%5CEntity%5CUser%24email' => 14,
 '[C]App%5CEntity%5CUser%24email' => 1,
-'App%5CEntity%5CUser%24roles' => 19,
+'App%5CEntity%5CUser%24roles' => 15,
 '[C]App%5CEntity%5CUser%24roles' => 1,
-'App%5CEntity%5CUser%24password' => 20,
+'App%5CEntity%5CUser%24password' => 16,
 '[C]App%5CEntity%5CUser%24password' => 1,
-'App%5CEntity%5CUser%24isActive' => 21,
+'App%5CEntity%5CUser%24isActive' => 17,
 '[C]App%5CEntity%5CUser%24isActive' => 1,
-'App%5CEntity%5CUser%24name' => 22,
+'App%5CEntity%5CUser%24name' => 18,
 '[C]App%5CEntity%5CUser%24name' => 1,
-'App%5CEntity%5CUser%24lastLogin' => 23,
+'App%5CEntity%5CUser%24lastLogin' => 19,
 '[C]App%5CEntity%5CUser%24lastLogin' => 1,
-'App%5CEntity%5CUser%24isDeleted' => 21,
+'App%5CEntity%5CUser%24isDeleted' => 17,
 '[C]App%5CEntity%5CUser%24isDeleted' => 1,
-'App%5CEntity%5CUser%24files' => 24,
+'App%5CEntity%5CUser%24files' => 20,
 '[C]App%5CEntity%5CUser%24files' => 1,
 'Doctrine%5CBundle%5CDoctrineBundle%5CController%5CProfilerController' => 0,
 '[C]Doctrine%5CBundle%5CDoctrineBundle%5CController%5CProfilerController' => 1,
@@ -750,7 +726,7 @@ return [[
 ], [
 
 0 => [],
-1 => 1636549002,
+1 => 1636718504,
 2 => static function () {
     return \Symfony\Component\VarExporter\Internal\Hydrator::hydrate(
         $o = [
@@ -1050,7 +1026,7 @@ return [[
         [
             'stdClass' => [
                 'repositoryClass' => [
-                    'App\\Repository\\FileRepository',
+                    'App\\Repository\\UserRepository',
                 ],
             ],
         ],
@@ -1101,126 +1077,6 @@ return [[
                     'string',
                 ],
                 'length' => [
-                    255,
-                ],
-                'precision' => [
-                    null,
-                ],
-                'scale' => [
-                    null,
-                ],
-                'nullable' => [
-                    true,
-                ],
-            ],
-        ],
-        [
-            $o[0],
-        ],
-        []
-    );
-},
-15 => static function () {
-    return \Symfony\Component\VarExporter\Internal\Hydrator::hydrate(
-        $o = [
-            clone (($p = &\Symfony\Component\VarExporter\Internal\Registry::$prototypes)['Doctrine\\ORM\\Mapping\\Column'] ?? \Symfony\Component\VarExporter\Internal\Registry::p('Doctrine\\ORM\\Mapping\\Column')),
-            clone ($p['Symfony\\Component\\Validator\\Constraints\\File'] ?? \Symfony\Component\VarExporter\Internal\Registry::p('Symfony\\Component\\Validator\\Constraints\\File')),
-        ],
-        null,
-        [
-            'stdClass' => [
-                'type' => [
-                    'string',
-                ],
-                'length' => [
-                    255,
-                ],
-                'precision' => [
-                    null,
-                ],
-                'scale' => [
-                    null,
-                ],
-                'nullable' => [
-                    true,
-                ],
-                'mimeTypes' => [
-                    1 => [
-                        'application/xml',
-                    ],
-                ],
-                'groups' => [
-                    1 => [
-                        'Default',
-                    ],
-                ],
-            ],
-        ],
-        [
-            $o[0],
-            $o[1],
-        ],
-        []
-    );
-},
-16 => static function () {
-    return \Symfony\Component\VarExporter\Internal\Hydrator::hydrate(
-        $o = [
-            clone (($p = &\Symfony\Component\VarExporter\Internal\Registry::$prototypes)['Doctrine\\ORM\\Mapping\\ManyToOne'] ?? \Symfony\Component\VarExporter\Internal\Registry::p('Doctrine\\ORM\\Mapping\\ManyToOne')),
-            clone ($p['Doctrine\\ORM\\Mapping\\JoinColumn'] ?? \Symfony\Component\VarExporter\Internal\Registry::p('Doctrine\\ORM\\Mapping\\JoinColumn')),
-        ],
-        null,
-        [
-            'stdClass' => [
-                'targetEntity' => [
-                    'App\\Entity\\User',
-                ],
-                'inversedBy' => [
-                    'files',
-                ],
-                'nullable' => [
-                    1 => false,
-                ],
-            ],
-        ],
-        [
-            $o[0],
-            $o[1],
-        ],
-        []
-    );
-},
-17 => static function () {
-    return \Symfony\Component\VarExporter\Internal\Hydrator::hydrate(
-        $o = [
-            clone (\Symfony\Component\VarExporter\Internal\Registry::$prototypes['Doctrine\\ORM\\Mapping\\Entity'] ?? \Symfony\Component\VarExporter\Internal\Registry::p('Doctrine\\ORM\\Mapping\\Entity')),
-        ],
-        null,
-        [
-            'stdClass' => [
-                'repositoryClass' => [
-                    'App\\Repository\\UserRepository',
-                ],
-            ],
-        ],
-        [
-            $o[0],
-        ],
-        []
-    );
-},
-18 => static function () {
-    return \Symfony\Component\VarExporter\Internal\Hydrator::hydrate(
-        $o = [
-            clone (\Symfony\Component\VarExporter\Internal\Registry::$prototypes['Doctrine\\ORM\\Mapping\\Column'] ?? \Symfony\Component\VarExporter\Internal\Registry::p('Doctrine\\ORM\\Mapping\\Column')),
-        ],
-        null,
-        [
-            'stdClass' => [
-                'type' => [
-                    'string',
-                ],
-                'length' => [
                     180,
                 ],
                 'precision' => [
@@ -1240,7 +1096,7 @@ return [[
         []
     );
 },
-19 => static function () {
+15 => static function () {
     return \Symfony\Component\VarExporter\Internal\Hydrator::hydrate(
         $o = [
             clone (\Symfony\Component\VarExporter\Internal\Registry::$prototypes['Doctrine\\ORM\\Mapping\\Column'] ?? \Symfony\Component\VarExporter\Internal\Registry::p('Doctrine\\ORM\\Mapping\\Column')),
@@ -1265,7 +1121,7 @@ return [[
         []
     );
 },
-20 => static function () {
+16 => static function () {
     return \Symfony\Component\VarExporter\Internal\Hydrator::hydrate(
         $o = [
             clone (\Symfony\Component\VarExporter\Internal\Registry::$prototypes['Doctrine\\ORM\\Mapping\\Column'] ?? \Symfony\Component\VarExporter\Internal\Registry::p('Doctrine\\ORM\\Mapping\\Column')),
@@ -1290,7 +1146,7 @@ return [[
         []
     );
 },
-21 => static function () {
+17 => static function () {
     return \Symfony\Component\VarExporter\Internal\Hydrator::hydrate(
         $o = [
             clone (\Symfony\Component\VarExporter\Internal\Registry::$prototypes['Doctrine\\ORM\\Mapping\\Column'] ?? \Symfony\Component\VarExporter\Internal\Registry::p('Doctrine\\ORM\\Mapping\\Column')),
@@ -1315,7 +1171,7 @@ return [[
         []
     );
 },
-22 => static function () {
+18 => static function () {
     return \Symfony\Component\VarExporter\Internal\Hydrator::hydrate(
         $o = [
             clone (\Symfony\Component\VarExporter\Internal\Registry::$prototypes['Doctrine\\ORM\\Mapping\\Column'] ?? \Symfony\Component\VarExporter\Internal\Registry::p('Doctrine\\ORM\\Mapping\\Column')),
@@ -1343,7 +1199,7 @@ return [[
         []
     );
 },
-23 => static function () {
+19 => static function () {
     return \Symfony\Component\VarExporter\Internal\Hydrator::hydrate(
         $o = [
             clone (\Symfony\Component\VarExporter\Internal\Registry::$prototypes['Doctrine\\ORM\\Mapping\\Column'] ?? \Symfony\Component\VarExporter\Internal\Registry::p('Doctrine\\ORM\\Mapping\\Column')),
@@ -1371,7 +1227,7 @@ return [[
         []
     );
 },
-24 => static function () {
+20 => static function () {
     return \Symfony\Component\VarExporter\Internal\Hydrator::hydrate(
         $o = [
             clone (\Symfony\Component\VarExporter\Internal\Registry::$prototypes['Doctrine\\ORM\\Mapping\\OneToMany'] ?? \Symfony\Component\VarExporter\Internal\Registry::p('Doctrine\\ORM\\Mapping\\OneToMany')),
@@ -1383,7 +1239,7 @@ return [[
                     'user',
                 ],
                 'targetEntity' => [
-                    'App\\Entity\\File',
+                    'File',
                 ],
                 'orphanRemoval' => [
                     true,

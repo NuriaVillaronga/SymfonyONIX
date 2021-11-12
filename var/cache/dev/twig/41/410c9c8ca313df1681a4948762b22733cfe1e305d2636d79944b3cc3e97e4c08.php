@@ -900,6 +900,6 @@ class __TwigTemplate_706c0340b3c629029783781e672f8a189dc817f8aa35ba1f049eb41868b
         {% endautoescape %}</script>
     </div>
 {% endmacro %}
-", "@WebProfiler/Collector/time.html.twig", "/home/nuria/onixProject/vendor/symfony/web-profiler-bundle/Resources/views/Collector/time.html.twig");
+", "@WebProfiler/Collector/time.html.twig", "/home/nuria/SymfonyONIX/vendor/symfony/web-profiler-bundle/Resources/views/Collector/time.html.twig");
     }
 }

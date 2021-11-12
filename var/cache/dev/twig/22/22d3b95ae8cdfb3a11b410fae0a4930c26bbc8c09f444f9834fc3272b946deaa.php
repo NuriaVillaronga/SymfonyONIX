@@ -479,6 +479,6 @@ class __TwigTemplate_b7465313ef6c2dfec1713a5c5e2b41a0643b3394dd57eeedc6fd1ca72de
         </div>
     {% endfor %}
 {% endblock %}
-", "@WebProfiler/Collector/validator.html.twig", "/home/nuria/onixProject/vendor/symfony/web-profiler-bundle/Resources/views/Collector/validator.html.twig");
+", "@WebProfiler/Collector/validator.html.twig", "/home/nuria/SymfonyONIX/vendor/symfony/web-profiler-bundle/Resources/views/Collector/validator.html.twig");
     }
 }

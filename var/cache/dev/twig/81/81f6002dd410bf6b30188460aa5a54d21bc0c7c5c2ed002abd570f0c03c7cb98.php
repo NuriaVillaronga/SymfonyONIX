@@ -2080,6 +2080,6 @@ class __TwigTemplate_75ca342ab2436a17c4d01840ef5e8ce32cb277f91cb84111a10cbb98cc8
         {{ tree.form_tree_details(childName, childData, forms_by_hash) }}
     {% endfor %}
 {% endmacro %}
-", "@WebProfiler/Collector/form.html.twig", "/home/nuria/onixProject/vendor/symfony/web-profiler-bundle/Resources/views/Collector/form.html.twig");
+", "@WebProfiler/Collector/form.html.twig", "/home/nuria/SymfonyONIX/vendor/symfony/web-profiler-bundle/Resources/views/Collector/form.html.twig");
     }
 }

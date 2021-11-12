@@ -37,15 +37,16 @@ return [
                     .')'
                     .'|error/(\\d+)(?:\\.([^/]++))?(*:159)'
                 .')'
+                .'|/create/catalog/([^/]++)(*:192)'
                 .'|/delete/([^/]++)(?'
-                    .'|(*:187)'
-                    .'|/([^/]++)(*:204)'
+                    .'|(*:219)'
+                    .'|/([^/]++)(*:236)'
                 .')'
                 .'|/up(?'
-                    .'|date/([^/]++)(*:232)'
-                    .'|load/([^/]++)(*:253)'
+                    .'|date/([^/]++)(*:264)'
+                    .'|load/([^/]++)/([^/]++)(*:294)'
                 .')'
-                .'|/view/([^/]++)(*:276)'
+                .'|/view/catalog/([^/]++)(*:325)'
             .')/?$}sDu',
     ],
     [ // $dynamicRoutes
@@ -56,12 +57,13 @@ return [
         114 => [[['_route' => '_profiler_exception_css', '_controller' => 'web_profiler.controller.exception_panel::stylesheet'], ['token'], null, null, false, false, null]],
         124 => [[['_route' => '_profiler', '_controller' => 'web_profiler.controller.profiler::panelAction'], ['token'], null, null, false, true, null]],
         159 => [[['_route' => '_preview_error', '_controller' => 'error_controller::preview', '_format' => 'html'], ['code', '_format'], null, null, false, true, null]],
-        187 => [[['_route' => 'user_delete', '_controller' => 'App\\Controller\\DeleteController::deleteUser'], ['id'], ['GET' => 0, 'POST' => 1], null, false, true, null]],
-        204 => [[['_route' => 'deleteFiles', '_controller' => 'App\\Controller\\DeleteController::deleteFiles'], ['user_id', 'files_id'], ['GET' => 0, 'POST' => 1], null, false, true, null]],
-        232 => [[['_route' => 'user_update', '_controller' => 'App\\Controller\\UpdateController::index'], ['id'], ['GET' => 0, 'POST' => 1], null, false, true, null]],
-        253 => [[['_route' => 'upload_onix', '_controller' => 'App\\Controller\\UploadFileController::index'], ['id'], ['GET' => 0, 'POST' => 1], null, false, true, null]],
-        276 => [
-            [['_route' => 'view_file', '_controller' => 'App\\Controller\\ViewFileController::view'], ['id'], ['GET' => 0, 'POST' => 1], null, false, true, null],
+        192 => [[['_route' => 'create_catalog', '_controller' => 'App\\Controller\\CreateCatalogController::index'], ['id'], ['GET' => 0, 'POST' => 1], null, false, true, null]],
+        219 => [[['_route' => 'user_delete', '_controller' => 'App\\Controller\\DeleteController::deleteUser'], ['id'], ['GET' => 0, 'POST' => 1], null, false, true, null]],
+        236 => [[['_route' => 'deleteCatalog', '_controller' => 'App\\Controller\\DeleteController::deleteCatalog'], ['id', 'name'], ['GET' => 0, 'POST' => 1], null, false, true, null]],
+        264 => [[['_route' => 'user_update', '_controller' => 'App\\Controller\\UpdateController::index'], ['id'], ['GET' => 0, 'POST' => 1], null, false, true, null]],
+        294 => [[['_route' => 'upload_onix', '_controller' => 'App\\Controller\\UploadFileController::index'], ['id', 'name'], ['GET' => 0, 'POST' => 1], null, false, true, null]],
+        325 => [
+            [['_route' => 'view_catalog', '_controller' => 'App\\Controller\\ViewCatalogController::view'], ['id'], ['GET' => 0, 'POST' => 1], null, false, true, null],
             [null, null, null, null, false, false, 0],
         ],
     ],

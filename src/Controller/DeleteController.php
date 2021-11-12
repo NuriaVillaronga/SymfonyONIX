@@ -2,7 +2,7 @@
 
 namespace App\Controller;
 
-use App\Entity\File;
+use App\Entity\Catalog;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Routing\Annotation\Route;
 use App\Entity\User;
@@ -25,18 +25,21 @@ class DeleteController extends UserService
     }
 
     /**
-     * @Route("/delete/{user_id}/{files_id}", name="deleteFiles", methods={"GET","POST"})
+     * @Route("/delete/{id}/{name}", name="deleteCatalog", methods={"GET","POST"})
      * 
-     * @ParamConverter("user", options={"id" = "user_id"})
-     * @ParamConverter("file", options={"id" = "files_id"})
+     * @ParamConverter("user", options={"id" = "id"})
+     * @ParamConverter("catalog", options={"name" = "name"})
      */
-    public function deleteFiles(File $file, User $user, EntityManagerInterface $em): Response
+    public function deleteCatalog(Catalog $catalog, User $user, EntityManagerInterface $em): Response
     {
+        var_dump("Hola");
+        die();
+
         $this->userCheckCredentials($user);
 
-        $this->fileRemoveService($file, $em);
+        $this->catalogRemoveService($catalog, $em);
 
-        return $this->redirectToRoute('view_file', ['id' => $user->getId()]);
+        return $this->redirectToRoute('view_catalog', ['id' => $user->getId()]);
     }
 
 } 
