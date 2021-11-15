@@ -3,6 +3,7 @@
 namespace App\Controller;
 
 use App\Entity\Catalog;
+use App\Entity\File;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Routing\Annotation\Route;
 use App\Entity\User;
@@ -25,21 +26,34 @@ class DeleteController extends UserService
     }
 
     /**
-     * @Route("/delete/{id}/{name}", name="deleteCatalog", methods={"GET","POST"})
+     * @Route("/delete/{user_id}/catalog/{id}", name="delete_catalog", methods={"GET","POST"})
      * 
-     * @ParamConverter("user", options={"id" = "id"})
-     * @ParamConverter("catalog", options={"name" = "name"})
+     * @ParamConverter("user", options={"id" = "user_id"})
+     * @ParamConverter("catalog", options={"id" = "id"})
      */
-    public function deleteCatalog(Catalog $catalog, User $user, EntityManagerInterface $em): Response
+    public function deleteCatalog(User $user, Catalog $catalog, EntityManagerInterface $em): Response
     {
-        var_dump("Hola");
-        die();
-
         $this->userCheckCredentials($user);
 
         $this->catalogRemoveService($catalog, $em);
 
-        return $this->redirectToRoute('view_catalog', ['id' => $user->getId()]);
+        return $this->redirectToRoute('view_catalog', ['id' => $catalog->getId(), 'user_id'=> $user->getId()]);
+    }
+
+    /**
+     * @Route("/delete/{id_user}/catalog/{id_catalog}/file/{id}", name="delete_file", methods={"GET","POST"})
+     * 
+     * @ParamConverter("user", options={"id" = "id_user"})
+     * @ParamConverter("catalog", options={"id" = "id_catalog"})
+     * @ParamConverter("file", options={"id" = "id"})
+     */
+    public function deleteFile(Catalog $catalog, File $file, User $user, EntityManagerInterface $em): Response
+    {
+        $this->userCheckCredentials($user);
+        
+        $this->fileRemoveService($file, $em);
+
+        return $this->redirectToRoute('view_file', ['id_user' => $user->getId(), 'id' => $catalog->getId()]);
     }
 
 } 

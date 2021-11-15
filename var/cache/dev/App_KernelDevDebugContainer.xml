@@ -415,6 +415,13 @@
         <argument type="service" id=".service_locator.W9y3dzm.App\Controller\ViewCatalogController"/>
       </call>
     </service>
+    <service id="App\Controller\ViewFileController" class="App\Controller\ViewFileController" public="true" autowire="true" autoconfigure="true">
+      <tag name="controller.service_arguments"/>
+      <tag name="container.service_subscriber"/>
+      <call method="setContainer">
+        <argument type="service" id=".service_locator.W9y3dzm.App\Controller\ViewFileController"/>
+      </call>
+    </service>
     <service id="App\DataFixtures\AppFixtures" class="App\DataFixtures\AppFixtures" autowire="true" autoconfigure="true">
       <tag name="doctrine.fixture.orm"/>
     </service>
@@ -6028,6 +6035,9 @@
     <service id=".instanceof.Symfony\Contracts\Service\ServiceSubscriberInterface.0.App\Controller\ViewCatalogController" class="App\Controller\ViewCatalogController" autowire="true" abstract="true"/>
     <service id=".instanceof.Symfony\Bundle\FrameworkBundle\Controller\AbstractController.0.App\Controller\ViewCatalogController" class="App\Controller\ViewCatalogController" autowire="true" abstract="true"/>
     <service id=".abstract.instanceof.App\Controller\ViewCatalogController" class="App\Controller\ViewCatalogController" autowire="true" autoconfigure="true" abstract="true"/>
+    <service id=".instanceof.Symfony\Contracts\Service\ServiceSubscriberInterface.0.App\Controller\ViewFileController" class="App\Controller\ViewFileController" autowire="true" abstract="true"/>
+    <service id=".instanceof.Symfony\Bundle\FrameworkBundle\Controller\AbstractController.0.App\Controller\ViewFileController" class="App\Controller\ViewFileController" autowire="true" abstract="true"/>
+    <service id=".abstract.instanceof.App\Controller\ViewFileController" class="App\Controller\ViewFileController" autowire="true" autoconfigure="true" abstract="true"/>
     <service id=".instanceof.Doctrine\Bundle\FixturesBundle\ORMFixtureInterface.0.App\DataFixtures\AppFixtures" class="App\DataFixtures\AppFixtures" autowire="true" abstract="true"/>
     <service id=".abstract.instanceof.App\DataFixtures\AppFixtures" class="App\DataFixtures\AppFixtures" autowire="true" autoconfigure="true" abstract="true"/>
     <service id=".instanceof.Doctrine\Bundle\FixturesBundle\ORMFixtureInterface.0.App\DataFixtures\UserFixtures" class="App\DataFixtures\UserFixtures" autowire="true" abstract="true"/>
@@ -6416,6 +6426,15 @@
         <argument key="user" type="service_closure" id=".errored..service_locator.9roP677.App\Entity\User"/>
       </argument>
     </service>
+    <service id=".service_locator.aRElXBA" class="Symfony\Component\DependencyInjection\ServiceLocator">
+      <tag name="container.service_locator"/>
+      <argument type="collection">
+        <argument key="catalog" type="service_closure" id=".errored..service_locator.aRElXBA.App\Entity\Catalog"/>
+        <argument key="em" type="service_closure" id="doctrine.orm.default_entity_manager"/>
+        <argument key="file" type="service_closure" id=".errored..service_locator.aRElXBA.App\Entity\File"/>
+        <argument key="user" type="service_closure" id=".errored..service_locator.aRElXBA.App\Entity\User"/>
+      </argument>
+    </service>
     <service id=".service_locator.CWZv_5b" class="Symfony\Component\DependencyInjection\ServiceLocator">
       <tag name="container.service_locator"/>
       <argument type="collection">
@@ -6447,7 +6466,14 @@
         <argument key="user" type="service_closure" id=".errored..service_locator.kIdRpHK.App\Entity\User"/>
       </argument>
     </service>
-    <service id=".service_locator.j8zB8Lk" class="Symfony\Component\DependencyInjection\ServiceLocator">
+    <service id=".service_locator.EJAYC0Z" class="Symfony\Component\DependencyInjection\ServiceLocator">
+      <tag name="container.service_locator"/>
+      <argument type="collection">
+        <argument key="catalog" type="service_closure" id=".errored..service_locator.EJAYC0Z.App\Entity\Catalog"/>
+        <argument key="user" type="service_closure" id=".errored..service_locator.EJAYC0Z.App\Entity\User"/>
+      </argument>
+    </service>
+    <service id=".service_locator.W5sh0zd" class="Symfony\Component\DependencyInjection\ServiceLocator">
       <tag name="container.service_locator"/>
       <argument type="collection">
         <argument key="App\Controller\CreateCatalogController::catalogRemoveService" type="service_closure" id=".service_locator.D3hcD5z"/>
@@ -6471,6 +6497,7 @@
         <argument key="App\Controller\DeleteController::catalogRemoveService" type="service_closure" id=".service_locator.D3hcD5z"/>
         <argument key="App\Controller\DeleteController::catalogService" type="service_closure" id=".service_locator.D3hcD5z"/>
         <argument key="App\Controller\DeleteController::deleteCatalog" type="service_closure" id=".service_locator.9roP677"/>
+        <argument key="App\Controller\DeleteController::deleteFile" type="service_closure" id=".service_locator.aRElXBA"/>
         <argument key="App\Controller\DeleteController::deleteUser" type="service_closure" id=".service_locator.no630kw"/>
         <argument key="App\Controller\DeleteController::fileRemoveService" type="service_closure" id=".service_locator.E3spfHL"/>
         <argument key="App\Controller\DeleteController::fileUploadService" type="service_closure" id=".service_locator.E3spfHL"/>
@@ -6531,6 +6558,15 @@
         <argument key="App\Controller\ViewCatalogController::userDeleteService" type="service_closure" id=".service_locator.no630kw"/>
         <argument key="App\Controller\ViewCatalogController::userService" type="service_closure" id=".service_locator.no630kw"/>
         <argument key="App\Controller\ViewCatalogController::view" type="service_closure" id=".service_locator.ch4Jgvl"/>
+        <argument key="App\Controller\ViewFileController::catalogRemoveService" type="service_closure" id=".service_locator.D3hcD5z"/>
+        <argument key="App\Controller\ViewFileController::catalogService" type="service_closure" id=".service_locator.D3hcD5z"/>
+        <argument key="App\Controller\ViewFileController::fileRemoveService" type="service_closure" id=".service_locator.E3spfHL"/>
+        <argument key="App\Controller\ViewFileController::fileUploadService" type="service_closure" id=".service_locator.E3spfHL"/>
+        <argument key="App\Controller\ViewFileController::userCheckCredentials" type="service_closure" id=".service_locator.ch4Jgvl"/>
+        <argument key="App\Controller\ViewFileController::userCreate_Update_Service" type="service_closure" id=".service_locator.xx8TK6M"/>
+        <argument key="App\Controller\ViewFileController::userDeleteService" type="service_closure" id=".service_locator.no630kw"/>
+        <argument key="App\Controller\ViewFileController::userService" type="service_closure" id=".service_locator.no630kw"/>
+        <argument key="App\Controller\ViewFileController::viewFile" type="service_closure" id=".service_locator.EJAYC0Z"/>
         <argument key="App\Kernel::loadRoutes" type="service_closure" id=".service_locator.KfbR3DY"/>
         <argument key="App\Kernel::registerContainerConfiguration" type="service_closure" id=".service_locator.KfbR3DY"/>
         <argument key="App\Kernel::terminate" type="service_closure" id=".service_locator.KfwZsne"/>
@@ -6567,6 +6603,7 @@
         <argument key="App\Controller\DeleteController:catalogRemoveService" type="service_closure" id=".service_locator.D3hcD5z"/>
         <argument key="App\Controller\DeleteController:catalogService" type="service_closure" id=".service_locator.D3hcD5z"/>
         <argument key="App\Controller\DeleteController:deleteCatalog" type="service_closure" id=".service_locator.9roP677"/>
+        <argument key="App\Controller\DeleteController:deleteFile" type="service_closure" id=".service_locator.aRElXBA"/>
         <argument key="App\Controller\DeleteController:deleteUser" type="service_closure" id=".service_locator.no630kw"/>
         <argument key="App\Controller\DeleteController:fileRemoveService" type="service_closure" id=".service_locator.E3spfHL"/>
         <argument key="App\Controller\DeleteController:fileUploadService" type="service_closure" id=".service_locator.E3spfHL"/>
@@ -6627,6 +6664,15 @@
         <argument key="App\Controller\ViewCatalogController:userDeleteService" type="service_closure" id=".service_locator.no630kw"/>
         <argument key="App\Controller\ViewCatalogController:userService" type="service_closure" id=".service_locator.no630kw"/>
         <argument key="App\Controller\ViewCatalogController:view" type="service_closure" id=".service_locator.ch4Jgvl"/>
+        <argument key="App\Controller\ViewFileController:catalogRemoveService" type="service_closure" id=".service_locator.D3hcD5z"/>
+        <argument key="App\Controller\ViewFileController:catalogService" type="service_closure" id=".service_locator.D3hcD5z"/>
+        <argument key="App\Controller\ViewFileController:fileRemoveService" type="service_closure" id=".service_locator.E3spfHL"/>
+        <argument key="App\Controller\ViewFileController:fileUploadService" type="service_closure" id=".service_locator.E3spfHL"/>
+        <argument key="App\Controller\ViewFileController:userCheckCredentials" type="service_closure" id=".service_locator.ch4Jgvl"/>
+        <argument key="App\Controller\ViewFileController:userCreate_Update_Service" type="service_closure" id=".service_locator.xx8TK6M"/>
+        <argument key="App\Controller\ViewFileController:userDeleteService" type="service_closure" id=".service_locator.no630kw"/>
+        <argument key="App\Controller\ViewFileController:userService" type="service_closure" id=".service_locator.no630kw"/>
+        <argument key="App\Controller\ViewFileController:viewFile" type="service_closure" id=".service_locator.EJAYC0Z"/>
         <argument key="App\UserServices\CheckCredentials:userCheckCredentials" type="service_closure" id=".service_locator.ch4Jgvl"/>
         <argument key="App\UserServices\UserService:catalogRemoveService" type="service_closure" id=".service_locator.D3hcD5z"/>
         <argument key="App\UserServices\UserService:catalogService" type="service_closure" id=".service_locator.D3hcD5z"/>
@@ -7026,6 +7072,12 @@
       <argument type="service" id="service_container"/>
       <factory service=".service_locator.W9y3dzm" method="withContext"/>
     </service>
+    <service id=".service_locator.W9y3dzm.App\Controller\ViewFileController" class="Symfony\Component\DependencyInjection\ServiceLocator">
+      <tag name="container.service_locator_context" id="App\Controller\ViewFileController"/>
+      <argument>App\Controller\ViewFileController</argument>
+      <argument type="service" id="service_container"/>
+      <factory service=".service_locator.W9y3dzm" method="withContext"/>
+    </service>
     <service id=".service_locator.W9y3dzm.App\UserServices\CheckCredentials" class="Symfony\Component\DependencyInjection\ServiceLocator">
       <tag name="container.service_locator_context" id="App\UserServices\CheckCredentials"/>
       <argument>App\UserServices\CheckCredentials</argument>
@@ -7205,12 +7257,12 @@
       <argument type="service" id="security.token_storage"/>
     </service>
     <service id="debug.argument_resolver.service.inner" class="Symfony\Component\HttpKernel\Controller\ArgumentResolver\ServiceValueResolver">
-      <argument type="service" id=".service_locator.j8zB8Lk"/>
+      <argument type="service" id=".service_locator.W5sh0zd"/>
     </service>
     <service id="debug.argument_resolver.default.inner" class="Symfony\Component\HttpKernel\Controller\ArgumentResolver\DefaultValueResolver"/>
     <service id="debug.argument_resolver.variadic.inner" class="Symfony\Component\HttpKernel\Controller\ArgumentResolver\VariadicValueResolver"/>
     <service id="debug.argument_resolver.not_tagged_controller.inner" class="Symfony\Component\HttpKernel\Controller\ArgumentResolver\NotTaggedControllerValueResolver">
-      <argument type="service" id=".service_locator.j8zB8Lk"/>
+      <argument type="service" id=".service_locator.W5sh0zd"/>
     </service>
     <service id=".debug.http_client.inner" class="Symfony\Contracts\HttpClient\HttpClientInterface">
       <argument type="collection"/>
@@ -7236,9 +7288,14 @@
     <service id=".errored..service_locator.ch4Jgvl.App\Entity\User" class="App\Entity\User"/>
     <service id=".errored..service_locator.9roP677.App\Entity\Catalog" class="App\Entity\Catalog"/>
     <service id=".errored..service_locator.9roP677.App\Entity\User" class="App\Entity\User"/>
+    <service id=".errored..service_locator.aRElXBA.App\Entity\Catalog" class="App\Entity\Catalog"/>
+    <service id=".errored..service_locator.aRElXBA.App\Entity\File" class="App\Entity\File"/>
+    <service id=".errored..service_locator.aRElXBA.App\Entity\User" class="App\Entity\User"/>
     <service id=".errored..service_locator.3vXNkax.App\Entity\User" class="App\Entity\User"/>
     <service id=".errored..service_locator.kIdRpHK.App\Entity\Catalog" class="App\Entity\Catalog"/>
     <service id=".errored..service_locator.kIdRpHK.App\Entity\User" class="App\Entity\User"/>
+    <service id=".errored..service_locator.EJAYC0Z.App\Entity\Catalog" class="App\Entity\Catalog"/>
+    <service id=".errored..service_locator.EJAYC0Z.App\Entity\User" class="App\Entity\User"/>
     <service id=".console.command.about.lazy" class="Symfony\Component\Console\Command\LazyCommand">
       <argument>about</argument>
       <argument type="collection"/>
@@ -8076,7 +8133,7 @@
     <service id="Knp\Component\Pager\PaginatorInterface" alias="knp_paginator"/>
     <service id="container.env_var_processors_locator" alias=".service_locator.0GV1BZZ" public="true"/>
     <service id="twig.loader.filesystem" alias="twig.loader.native_filesystem"/>
-    <service id="argument_resolver.controller_locator" alias=".service_locator.j8zB8Lk"/>
+    <service id="argument_resolver.controller_locator" alias=".service_locator.W5sh0zd"/>
     <service id="session" alias=".session.do-not-use" public="true">
       <deprecated package="symfony/framework-bundle" version="5.3">The "%alias_id%" service and "SessionInterface" alias are deprecated, use "$requestStack-&gt;getSession()" instead.</deprecated>
     </service>
@@ -8124,10 +8181,12 @@
     <service id=".service_locator.NFoOWn0" alias=".service_locator.ch4Jgvl"/>
     <service id=".service_locator.sMjywYv" alias=".service_locator._uuLAPJ"/>
     <service id=".service_locator.Qdqt7.h" alias=".service_locator.9roP677"/>
+    <service id=".service_locator.DaD1_BD" alias=".service_locator.aRElXBA"/>
     <service id=".service_locator.OknFEpZ" alias=".service_locator.CWZv_5b"/>
     <service id=".service_locator.kXCVHeG" alias=".service_locator.UDgw6Ol"/>
     <service id=".service_locator.oHMyUhv" alias=".service_locator.3vXNkax"/>
     <service id=".service_locator.os6lXPg" alias=".service_locator.kIdRpHK"/>
+    <service id=".service_locator.DAQ0caT" alias=".service_locator.EJAYC0Z"/>
     <service id=".service_locator.NK827YO" alias=".service_locator.W9y3dzm"/>
   </services>
 </container>

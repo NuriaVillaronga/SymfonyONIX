@@ -7,6 +7,7 @@ use App\Entity\User;
 use App\Form\CatalogFormType;
 use App\UserServices\UserService;
 use Doctrine\ORM\EntityManagerInterface;
+use Sensio\Bundle\FrameworkExtraBundle\Configuration\ParamConverter;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Routing\Annotation\Route;
@@ -15,6 +16,8 @@ class CreateCatalogController extends UserService
 {
     /**
      * @Route("/create/catalog/{id}", name="create_catalog", methods={"GET","POST"})
+     * 
+     * @ParamConverter("user", options={"id": "id"})
      */
     public function index(Request $request, EntityManagerInterface $em, User $user): Response
     {

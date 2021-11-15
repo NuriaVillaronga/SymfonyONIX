@@ -61,7 +61,7 @@
             </td> 
             <td>
               <a href="{{ path('create_catalog', {'id': user.id}) }}" class="btn btn-sm btn-success">create</a>
-              <a href="{{ path('view_catalog', {'id': user.id}) }}" class="btn btn-sm btn-info">view</a>
+              <a href="{{ path('view_catalog', {'user_id': user.id}) }}" class="btn btn-sm btn-info">view</a>
             </td>
             <td>
               <a id="update-{{loop.index}}" href="{{ path('user_update', {'id': user.id}) }}" class="btn btn-sm btn-primary">update</a>

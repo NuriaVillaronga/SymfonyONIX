@@ -20,16 +20,30 @@ use Sensio\Bundle\FrameworkExtraBundle\Configuration\ParamConverter;
 class UploadFileController extends UserService
 {
     /**
-     * @Route("/upload/{id}/{name}", name="upload_onix", methods={"GET","POST"})
+     * @Route("/upload/{user_id}/catalog/{id}", name="upload_onix", methods={"GET","POST"})
      * 
-     * @ParamConverter("user", options={"id": "id"})
-     * @ParamConverter("catalog", options={"name": "name"})
+     * @ParamConverter("user", options={"id": "user_id"})
+     * @ParamConverter("catalog", options={"id": "id"})
      */
-    public function index(Request $request, User $user, Catalog $catalog, EntityManagerInterface $em, SluggerInterface $slugger): Response
+    public function index(Catalog $catalog, Request $request, User $user, EntityManagerInterface $em, SluggerInterface $slugger): Response
     {
         $file = new File();
         
         $this->userCheckCredentials($user);
+
+        /* --> Si no se pasase como parametro $catalog
+        $arrayCatalogs = $user->getCatalogs();
+
+        $catalogIdRoute = $request->get('id');
+
+        $catalog=null;
+        
+        foreach ($arrayCatalogs as $catalogo) {
+            if ($catalogo->getId() == $catalogIdRoute) {
+                $catalog = $catalogo;
+            }
+        }
+        */
         
         $form = $this->createForm(UploadFilesType::class, $file);
         
@@ -72,7 +86,7 @@ class UploadFileController extends UserService
                 }
             }
 
-            //return $this->redirectToRoute('view_file', ['id' => $user->getId()]);
+            return $this->redirectToRoute('view_file', ['id_user' => $user->getId(), 'id' => $catalog->getId()]);
         }
 
         return $this->render('upload.html.twig', ['form' => $form->createView()]);

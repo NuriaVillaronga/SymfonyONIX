@@ -10,10 +10,10 @@ return [PHP_INT_MAX, static function () { return \Symfony\Component\VarExporter\
     [
         'Symfony\\Component\\Routing\\Annotation\\Route' => [
             'path' => [
-                '/delete/{id}/{name}',
+                '/delete/{user_id}/catalog/{id}',
             ],
             'name' => [
-                'deleteCatalog',
+                'delete_catalog',
             ],
             'methods' => [
                 [
@@ -29,10 +29,10 @@ return [PHP_INT_MAX, static function () { return \Symfony\Component\VarExporter\
             ],
             'options' => [
                 1 => [
-                    'id' => 'id',
+                    'id' => 'user_id',
                 ],
                 [
-                    'name' => 'name',
+                    'id' => 'id',
                 ],
             ],
         ],

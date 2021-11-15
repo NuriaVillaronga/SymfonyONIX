@@ -241,7 +241,7 @@ class __TwigTemplate_cac26a4b6021ac5347f37f4296f232d01adf2d30478888f843525c95c4b
                 echo "\" class=\"btn btn-sm btn-success\">create</a>
               <a href=\"";
                 // line 64
-                echo twig_escape_filter($this->env, $this->extensions['Symfony\Bridge\Twig\Extension\RoutingExtension']->getPath("view_catalog", ["id" => twig_get_attribute($this->env, $this->source, $context["user"], "id", [], "any", false, false, false, 64)]), "html", null, true);
+                echo twig_escape_filter($this->env, $this->extensions['Symfony\Bridge\Twig\Extension\RoutingExtension']->getPath("view_catalog", ["user_id" => twig_get_attribute($this->env, $this->source, $context["user"], "id", [], "any", false, false, false, 64)]), "html", null, true);
                 echo "\" class=\"btn btn-sm btn-info\">view</a>
             </td>
             <td>
@@ -452,7 +452,7 @@ class __TwigTemplate_cac26a4b6021ac5347f37f4296f232d01adf2d30478888f843525c95c4b
             </td> 
             <td>
               <a href=\"{{ path('create_catalog', {'id': user.id}) }}\" class=\"btn btn-sm btn-success\">create</a>
-              <a href=\"{{ path('view_catalog', {'id': user.id}) }}\" class=\"btn btn-sm btn-info\">view</a>
+              <a href=\"{{ path('view_catalog', {'user_id': user.id}) }}\" class=\"btn btn-sm btn-info\">view</a>
             </td>
             <td>
               <a id=\"update-{{loop.index}}\" href=\"{{ path('user_update', {'id': user.id}) }}\" class=\"btn btn-sm btn-primary\">update</a>

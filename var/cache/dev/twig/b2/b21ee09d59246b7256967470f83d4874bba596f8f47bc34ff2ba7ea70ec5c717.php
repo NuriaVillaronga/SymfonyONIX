@@ -83,7 +83,7 @@ class __TwigTemplate_5c228071e7d3285337080eea7eb01647991ae8475c71e74760072b8f74c
         </p>
         </div>
 
-        <button id=\"save-user\" class=\"btn btn-primary\">";
+        <button class=\"btn btn-primary\">";
         // line 16
         echo twig_escape_filter($this->env, ((array_key_exists("button_label", $context)) ? (_twig_default_filter((isset($context["button_label"]) || array_key_exists("button_label", $context) ? $context["button_label"] : (function () { throw new RuntimeError('Variable "button_label" does not exist.', 16, $this->source); })()), "Save catalog")) : ("Save catalog")), "html", null, true);
         echo "</button>
@@ -136,7 +136,7 @@ class __TwigTemplate_5c228071e7d3285337080eea7eb01647991ae8475c71e74760072b8f74c
         </p>
         </div>
 
-        <button id=\"save-user\" class=\"btn btn-primary\">{{ button_label|default('Save catalog') }}</button>
+        <button class=\"btn btn-primary\">{{ button_label|default('Save catalog') }}</button>
 
     {{ form_end(form) }}
     

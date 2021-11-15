@@ -29,7 +29,7 @@ class File
      * @ORM\ManyToOne(targetEntity=Catalog::class, inversedBy="files")
      * @ORM\JoinColumn(nullable=false)
      */
-    private $catalogs;
+    private $catalog;
 
     public function getId(): ?int
     {
@@ -48,14 +48,14 @@ class File
         return $this;
     }
 
-    public function getCatalogs(): ?Catalog
+    public function getCatalog(): ?Catalog
     {
-        return $this->catalogs;
+        return $this->catalog;
     }
 
-    public function setCatalogs(?Catalog $catalogs): self
+    public function setCatalog(?Catalog $catalog): self
     {
-        $this->catalogs = $catalogs;
+        $this->catalog = $catalog;
 
         return $this;
     }
