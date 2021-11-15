@@ -115,6 +115,9 @@
     "laminas/laminas-code": {
         "version": "4.4.3"
     },
+    "library_onix/onix": {
+        "version": "1.0"
+    },
     "monolog/monolog": {
         "version": "2.3.5"
     },

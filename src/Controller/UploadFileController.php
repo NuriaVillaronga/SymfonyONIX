@@ -19,6 +19,8 @@ use Sensio\Bundle\FrameworkExtraBundle\Configuration\ParamConverter;
 
 class UploadFileController extends UserService
 {
+    private const file_type = "application/xml";
+    
     /**
      * @Route("/upload/{user_id}/catalog/{id}", name="upload_onix", methods={"GET","POST"})
      * 
@@ -57,7 +59,9 @@ class UploadFileController extends UserService
                 
                 $fileExtension = pathinfo($brochureFile->getClientOriginalName(), PATHINFO_EXTENSION);
 
-                if ($fileExtension !== "onix") {
+                //Problema con el mime_content_type
+
+                if ($fileExtension !== "onix" && $fileExtension !== "xml") {
                     throw new Exception("The file extension is not onix");
                 }
                 else {
