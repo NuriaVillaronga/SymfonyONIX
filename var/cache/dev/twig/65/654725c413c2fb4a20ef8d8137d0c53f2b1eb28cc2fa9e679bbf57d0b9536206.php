@@ -96,33 +96,36 @@ class __TwigTemplate_9ebc6e0ba0b440ca2c0afe3ba26e4e73856ef360fd91b305b6664329d0d
       <tr class=\"table-dark\">
           <th>Catalog</th>
           <th>Files</th>
+          <th>Products</th>
           <th>Action</th>
       </tr>
     ";
-            // line 14
+            // line 15
             $context['_parent'] = $context;
-            $context['_seq'] = twig_ensure_traversable((isset($context["catalogs"]) || array_key_exists("catalogs", $context) ? $context["catalogs"] : (function () { throw new RuntimeError('Variable "catalogs" does not exist.', 14, $this->source); })()));
+            $context['_seq'] = twig_ensure_traversable((isset($context["catalogs"]) || array_key_exists("catalogs", $context) ? $context["catalogs"] : (function () { throw new RuntimeError('Variable "catalogs" does not exist.', 15, $this->source); })()));
             foreach ($context['_seq'] as $context["_key"] => $context["catalog"]) {
-                // line 15
+                // line 16
                 echo "      <tr>
         <td>";
-                // line 16
-                echo twig_escape_filter($this->env, twig_get_attribute($this->env, $this->source, $context["catalog"], "name", [], "any", false, false, false, 16), "html", null, true);
+                // line 17
+                echo twig_escape_filter($this->env, twig_get_attribute($this->env, $this->source, $context["catalog"], "name", [], "any", false, false, false, 17), "html", null, true);
                 echo "</td>
         <td>
             <a href=\"";
-                // line 18
-                echo twig_escape_filter($this->env, $this->extensions['Symfony\Bridge\Twig\Extension\RoutingExtension']->getPath("upload_onix", ["user_id" => twig_get_attribute($this->env, $this->source, (isset($context["user"]) || array_key_exists("user", $context) ? $context["user"] : (function () { throw new RuntimeError('Variable "user" does not exist.', 18, $this->source); })()), "id", [], "any", false, false, false, 18), "id" => twig_get_attribute($this->env, $this->source, $context["catalog"], "id", [], "any", false, false, false, 18)]), "html", null, true);
-                echo "\" class=\"btn btn-sm btn-primary\">upload</a>
-            <a href=\"";
                 // line 19
-                echo twig_escape_filter($this->env, $this->extensions['Symfony\Bridge\Twig\Extension\RoutingExtension']->getPath("view_file", ["id_user" => twig_get_attribute($this->env, $this->source, (isset($context["user"]) || array_key_exists("user", $context) ? $context["user"] : (function () { throw new RuntimeError('Variable "user" does not exist.', 19, $this->source); })()), "id", [], "any", false, false, false, 19), "id" => twig_get_attribute($this->env, $this->source, $context["catalog"], "id", [], "any", false, false, false, 19)]), "html", null, true);
-                echo "\" class=\"btn btn-sm btn-info\">view files</a>
+                echo twig_escape_filter($this->env, $this->extensions['Symfony\Bridge\Twig\Extension\RoutingExtension']->getPath("upload_onix", ["user_id" => twig_get_attribute($this->env, $this->source, (isset($context["user"]) || array_key_exists("user", $context) ? $context["user"] : (function () { throw new RuntimeError('Variable "user" does not exist.', 19, $this->source); })()), "id", [], "any", false, false, false, 19), "id" => twig_get_attribute($this->env, $this->source, $context["catalog"], "id", [], "any", false, false, false, 19)]), "html", null, true);
+                echo "\" class=\"btn btn-sm btn-primary\">upload</a>
         </td>
         <td>
             <a href=\"";
                 // line 22
-                echo twig_escape_filter($this->env, $this->extensions['Symfony\Bridge\Twig\Extension\RoutingExtension']->getPath("delete_catalog", ["user_id" => twig_get_attribute($this->env, $this->source, (isset($context["user"]) || array_key_exists("user", $context) ? $context["user"] : (function () { throw new RuntimeError('Variable "user" does not exist.', 22, $this->source); })()), "id", [], "any", false, false, false, 22), "id" => twig_get_attribute($this->env, $this->source, $context["catalog"], "id", [], "any", false, false, false, 22)]), "html", null, true);
+                echo twig_escape_filter($this->env, $this->extensions['Symfony\Bridge\Twig\Extension\RoutingExtension']->getPath("view_product", ["id_user" => twig_get_attribute($this->env, $this->source, (isset($context["user"]) || array_key_exists("user", $context) ? $context["user"] : (function () { throw new RuntimeError('Variable "user" does not exist.', 22, $this->source); })()), "id", [], "any", false, false, false, 22), "id" => twig_get_attribute($this->env, $this->source, $context["catalog"], "id", [], "any", false, false, false, 22)]), "html", null, true);
+                echo "\" class=\"btn btn-sm btn-info\">view products</a>
+        </td>
+        <td>
+            <a href=\"";
+                // line 25
+                echo twig_escape_filter($this->env, $this->extensions['Symfony\Bridge\Twig\Extension\RoutingExtension']->getPath("delete_catalog", ["user_id" => twig_get_attribute($this->env, $this->source, (isset($context["user"]) || array_key_exists("user", $context) ? $context["user"] : (function () { throw new RuntimeError('Variable "user" does not exist.', 25, $this->source); })()), "id", [], "any", false, false, false, 25), "id" => twig_get_attribute($this->env, $this->source, $context["catalog"], "id", [], "any", false, false, false, 25)]), "html", null, true);
                 echo "\" class=\"btn btn-sm btn-danger\">delete</a>
         </td>
       </tr>
@@ -131,16 +134,16 @@ class __TwigTemplate_9ebc6e0ba0b440ca2c0afe3ba26e4e73856ef360fd91b305b6664329d0d
             $_parent = $context['_parent'];
             unset($context['_seq'], $context['_iterated'], $context['_key'], $context['catalog'], $context['_parent'], $context['loop']);
             $context = array_intersect_key($context, $_parent) + $_parent;
-            // line 26
+            // line 29
             echo "    </table>
 
   ";
         } else {
-            // line 29
+            // line 32
             echo "    <div>No catalogs created yet</div>
   ";
         }
-        // line 31
+        // line 34
         echo "
 </div>
 
@@ -165,7 +168,7 @@ class __TwigTemplate_9ebc6e0ba0b440ca2c0afe3ba26e4e73856ef360fd91b305b6664329d0d
 
     public function getDebugInfo()
     {
-        return array (  144 => 31,  140 => 29,  135 => 26,  125 => 22,  119 => 19,  115 => 18,  110 => 16,  107 => 15,  103 => 14,  94 => 7,  92 => 6,  88 => 4,  78 => 3,  59 => 2,  36 => 1,);
+        return array (  147 => 34,  143 => 32,  138 => 29,  128 => 25,  122 => 22,  116 => 19,  111 => 17,  108 => 16,  104 => 15,  94 => 7,  92 => 6,  88 => 4,  78 => 3,  59 => 2,  36 => 1,);
     }
 
     public function getSourceContext()
@@ -181,6 +184,7 @@ class __TwigTemplate_9ebc6e0ba0b440ca2c0afe3ba26e4e73856ef360fd91b305b6664329d0d
       <tr class=\"table-dark\">
           <th>Catalog</th>
           <th>Files</th>
+          <th>Products</th>
           <th>Action</th>
       </tr>
     {% for catalog in catalogs %}
@@ -188,7 +192,9 @@ class __TwigTemplate_9ebc6e0ba0b440ca2c0afe3ba26e4e73856ef360fd91b305b6664329d0d
         <td>{{ catalog.name }}</td>
         <td>
             <a href=\"{{ path('upload_onix', {'user_id': user.id, 'id': catalog.id}) }}\" class=\"btn btn-sm btn-primary\">upload</a>
-            <a href=\"{{ path('view_file', {'id_user': user.id, 'id': catalog.id}) }}\" class=\"btn btn-sm btn-info\">view files</a>
+        </td>
+        <td>
+            <a href=\"{{ path('view_product', {'id_user': user.id, 'id': catalog.id}) }}\" class=\"btn btn-sm btn-info\">view products</a>
         </td>
         <td>
             <a href=\"{{ path('delete_catalog', {'user_id': user.id, 'id': catalog.id}) }}\" class=\"btn btn-sm btn-danger\">delete</a>

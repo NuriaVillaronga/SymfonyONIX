@@ -43,7 +43,7 @@
         "symfony/yaml": "5.3.*",
         "twig/extra-bundle": "^2.12|^3.0",
         "twig/twig": "^2.12|^3.0",
-        "library_onix/onix": "^1.0"
+        "library_onix/onix": "dev-master"
     },
     "repositories": [{
         "type": "vcs",

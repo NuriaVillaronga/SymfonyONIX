@@ -1,0 +1,58 @@
+<?php //App%255CController%255CDeleteController%2523deleteProduct
+
+return [PHP_INT_MAX, static function () { return \Symfony\Component\VarExporter\Internal\Hydrator::hydrate(
+    $o = [
+        clone (($p = &\Symfony\Component\VarExporter\Internal\Registry::$prototypes)['Symfony\\Component\\Routing\\Annotation\\Route'] ?? \Symfony\Component\VarExporter\Internal\Registry::p('Symfony\\Component\\Routing\\Annotation\\Route')),
+        clone ($p['Sensio\\Bundle\\FrameworkExtraBundle\\Configuration\\ParamConverter'] ?? \Symfony\Component\VarExporter\Internal\Registry::p('Sensio\\Bundle\\FrameworkExtraBundle\\Configuration\\ParamConverter')),
+        clone $p['Sensio\\Bundle\\FrameworkExtraBundle\\Configuration\\ParamConverter'],
+        clone $p['Sensio\\Bundle\\FrameworkExtraBundle\\Configuration\\ParamConverter'],
+        clone $p['Sensio\\Bundle\\FrameworkExtraBundle\\Configuration\\ParamConverter'],
+    ],
+    null,
+    [
+        'Symfony\\Component\\Routing\\Annotation\\Route' => [
+            'path' => [
+                '/delete/{id_user}/catalog/{id_catalog}/file/{id_file}/product/{id}',
+            ],
+            'name' => [
+                'delete_product',
+            ],
+            'methods' => [
+                [
+                    'GET',
+                    'POST',
+                ],
+            ],
+        ],
+        'Sensio\\Bundle\\FrameworkExtraBundle\\Configuration\\ParamConverter' => [
+            'name' => [
+                1 => 'user',
+                'catalog',
+                'file',
+                'product',
+            ],
+            'options' => [
+                1 => [
+                    'id' => 'id_user',
+                ],
+                [
+                    'id' => 'id_catalog',
+                ],
+                [
+                    'id' => 'id_file',
+                ],
+                [
+                    'id' => 'id_product',
+                ],
+            ],
+        ],
+    ],
+    [
+        $o[0],
+        $o[1],
+        $o[2],
+        $o[3],
+        $o[4],
+    ],
+    []
+); }];

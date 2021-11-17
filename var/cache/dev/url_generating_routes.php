@@ -18,7 +18,7 @@ return [
     'user_create' => [[], ['_controller' => 'App\\Controller\\CreateController::index'], [], [['text', '/create']], [], []],
     'user_delete' => [['id'], ['_controller' => 'App\\Controller\\DeleteController::deleteUser'], [], [['variable', '/', '[^/]++', 'id', true], ['text', '/delete']], [], []],
     'delete_catalog' => [['user_id', 'id'], ['_controller' => 'App\\Controller\\DeleteController::deleteCatalog'], [], [['variable', '/', '[^/]++', 'id', true], ['text', '/catalog'], ['variable', '/', '[^/]++', 'user_id', true], ['text', '/delete']], [], []],
-    'delete_file' => [['id_user', 'id_catalog', 'id'], ['_controller' => 'App\\Controller\\DeleteController::deleteFile'], [], [['variable', '/', '[^/]++', 'id', true], ['text', '/file'], ['variable', '/', '[^/]++', 'id_catalog', true], ['text', '/catalog'], ['variable', '/', '[^/]++', 'id_user', true], ['text', '/delete']], [], []],
+    'delete_product' => [['id_user', 'id_catalog', 'id_file', 'id'], ['_controller' => 'App\\Controller\\DeleteController::deleteProduct'], [], [['variable', '/', '[^/]++', 'id', true], ['text', '/product'], ['variable', '/', '[^/]++', 'id_file', true], ['text', '/file'], ['variable', '/', '[^/]++', 'id_catalog', true], ['text', '/catalog'], ['variable', '/', '[^/]++', 'id_user', true], ['text', '/delete']], [], []],
     'default' => [[], ['_controller' => 'App\\Controller\\HomepageController::index'], [], [['text', '/']], [], []],
     'user_homepage' => [[], ['_controller' => 'App\\Controller\\HomepageController::index'], [], [['text', '/homepage']], [], []],
     'user_list' => [[], ['_controller' => 'App\\Controller\\ListController::index'], [], [['text', '/list']], [], []],
@@ -27,6 +27,6 @@ return [
     'user_update' => [['id'], ['_controller' => 'App\\Controller\\UpdateController::index'], [], [['variable', '/', '[^/]++', 'id', true], ['text', '/update']], [], []],
     'upload_onix' => [['user_id', 'id'], ['_controller' => 'App\\Controller\\UploadFileController::index'], [], [['variable', '/', '[^/]++', 'id', true], ['text', '/catalog'], ['variable', '/', '[^/]++', 'user_id', true], ['text', '/upload']], [], []],
     'view_catalog' => [['user_id'], ['_controller' => 'App\\Controller\\ViewCatalogController::view'], [], [['text', '/catalogs'], ['variable', '/', '[^/]++', 'user_id', true], ['text', '/view']], [], []],
-    'view_file' => [['id_user', 'id'], ['_controller' => 'App\\Controller\\ViewFileController::viewFile'], [], [['text', '/files'], ['variable', '/', '[^/]++', 'id', true], ['text', '/catalog'], ['variable', '/', '[^/]++', 'id_user', true], ['text', '/view']], [], []],
+    'view_product' => [['id_user', 'id'], ['_controller' => 'App\\Controller\\ViewProductsController::viewFile'], [], [['text', '/products'], ['variable', '/', '[^/]++', 'id', true], ['text', '/catalog'], ['variable', '/', '[^/]++', 'id_user', true], ['text', '/view']], [], []],
     '_preview_error' => [['code', '_format'], ['_controller' => 'error_controller::preview', '_format' => 'html'], ['code' => '\\d+'], [['variable', '.', '[^/]++', '_format', true], ['variable', '/', '\\d+', 'code', true], ['text', '/_error']], [], []],
 ];

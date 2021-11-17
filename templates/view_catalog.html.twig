@@ -9,6 +9,7 @@
       <tr class="table-dark">
           <th>Catalog</th>
           <th>Files</th>
+          <th>Products</th>
           <th>Action</th>
       </tr>
     {% for catalog in catalogs %}
@@ -16,7 +17,9 @@
         <td>{{ catalog.name }}</td>
         <td>
             <a href="{{ path('upload_onix', {'user_id': user.id, 'id': catalog.id}) }}" class="btn btn-sm btn-primary">upload</a>
-            <a href="{{ path('view_file', {'id_user': user.id, 'id': catalog.id}) }}" class="btn btn-sm btn-info">view files</a>
+        </td>
+        <td>
+            <a href="{{ path('view_product', {'id_user': user.id, 'id': catalog.id}) }}" class="btn btn-sm btn-info">view products</a>
         </td>
         <td>
             <a href="{{ path('delete_catalog', {'user_id': user.id, 'id': catalog.id}) }}" class="btn btn-sm btn-danger">delete</a>

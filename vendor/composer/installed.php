@@ -5,7 +5,7 @@
         'type' => 'project',
         'install_path' => __DIR__ . '/../../',
         'aliases' => array(),
-        'reference' => '35733e8718f1cba5da0cc5ed736f40bfa86bed4b',
+        'reference' => '9a095e7b238c44abc544c7ff456a41ccaf71f335',
         'name' => '__root__',
         'dev' => true,
     ),
@@ -16,7 +16,7 @@
             'type' => 'project',
             'install_path' => __DIR__ . '/../../',
             'aliases' => array(),
-            'reference' => '35733e8718f1cba5da0cc5ed736f40bfa86bed4b',
+            'reference' => '9a095e7b238c44abc544c7ff456a41ccaf71f335',
             'dev_requirement' => false,
         ),
         'composer/package-versions-deprecated' => array(
@@ -83,12 +83,12 @@
             'dev_requirement' => true,
         ),
         'doctrine/dbal' => array(
-            'pretty_version' => '3.1.3',
-            'version' => '3.1.3.0',
+            'pretty_version' => '3.1.4',
+            'version' => '3.1.4.0',
             'type' => 'library',
             'install_path' => __DIR__ . '/../doctrine/dbal',
             'aliases' => array(),
-            'reference' => '96b0053775a544b4a6ab47654dac0621be8b4cf8',
+            'reference' => '821b4f01a36ce63ed36c090ea74767b72db367e9',
             'dev_requirement' => false,
         ),
         'doctrine/deprecations' => array(
@@ -251,12 +251,14 @@
             'dev_requirement' => false,
         ),
         'library_onix/onix' => array(
-            'pretty_version' => '1.0',
-            'version' => '1.0.0.0',
+            'pretty_version' => 'dev-master',
+            'version' => 'dev-master',
             'type' => 'library',
             'install_path' => __DIR__ . '/../library_onix/onix',
-            'aliases' => array(),
-            'reference' => '4ef8853953c9afd4c24d3f2e12f3eac54dbae269',
+            'aliases' => array(
+                0 => '9999999-dev',
+            ),
+            'reference' => '74f0289abf582ca315828b70fd4d3ca207d9004c',
             'dev_requirement' => false,
         ),
         'monolog/monolog' => array(
@@ -942,12 +944,12 @@
             'dev_requirement' => false,
         ),
         'symfony/maker-bundle' => array(
-            'pretty_version' => 'v1.35.0',
-            'version' => '1.35.0.0',
+            'pretty_version' => 'v1.36.1',
+            'version' => '1.36.1.0',
             'type' => 'symfony-bundle',
             'install_path' => __DIR__ . '/../symfony/maker-bundle',
             'aliases' => array(),
-            'reference' => '25058310408bb045772d2ec0ff7a3b6460fea2dd',
+            'reference' => 'ca4d157527028afa46cb90a7cffd710b53c7b878',
             'dev_requirement' => true,
         ),
         'symfony/mime' => array(
