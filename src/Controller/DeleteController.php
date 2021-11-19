@@ -42,19 +42,20 @@ class DeleteController extends UserService
     }
 
     /**
-     * @Route("/delete/{id_user}/catalog/{id_catalog}/file/{id_file}/product/{id}", name="delete_product", methods={"GET","POST"})
+     * @Route("/delete/{id_user}/catalog/{id_catalog}/file/{id_file}/product/{id_product}", name="delete_product", methods={"GET","POST"})
      * 
      * @ParamConverter("user", options={"id" = "id_user"})
      * @ParamConverter("catalog", options={"id" = "id_catalog"})
      * @ParamConverter("product", options={"id" = "id_product"})
+     * @ParamConverter("file", options={"id" = "id_file"})
      */
-    public function deleteProduct(Catalog $catalog, Product $product, User $user, EntityManagerInterface $em): Response
+    public function deleteProduct(Catalog $catalog, File $file, Product $product, User $user, EntityManagerInterface $em): Response
     {
         $this->userCheckCredentials($user);
         
         $this->deleteProductService($product, $em);
 
-        return $this->redirectToRoute('view_product', ['id_user' => $user->getId(), 'id_catalog' => $catalog->getId(), 'id_product' => $product->getId()]);
+        return $this->redirectToRoute('view_product', ['id_user' => $user->getId(), 'id_catalog' => $catalog->getId(),'id_file' =>$file->getId(), 'id_product' => $product->getId()]);
     }
 
 } 

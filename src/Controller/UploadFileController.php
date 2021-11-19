@@ -22,10 +22,10 @@ class UploadFileController extends UserService
     private const file_type = "application/xml";
     
     /**
-     * @Route("/upload/{user_id}/catalog/{id}", name="upload_onix", methods={"GET","POST"})
+     * @Route("/upload/{id_user}/catalog/{id_catalog}", name="upload_onix", methods={"GET","POST"})
      * 
-     * @ParamConverter("user", options={"id": "user_id"})
-     * @ParamConverter("catalog", options={"id": "id"})
+     * @ParamConverter("user", options={"id": "id_user"})
+     * @ParamConverter("catalog", options={"id": "id_catalog"})
      */
     public function index(Catalog $catalog, Request $request, User $user, EntityManagerInterface $em, SluggerInterface $slugger): Response
     {
@@ -90,7 +90,7 @@ class UploadFileController extends UserService
                 }
             }
 
-            return $this->redirectToRoute('view_file', ['id_user' => $user->getId(), 'id' => $catalog->getId()]);
+            return $this->redirectToRoute('view_product', ['id_user' => $user->getId(), 'id_catalog' => $catalog->getId()]);
         }
 
         return $this->render('upload.html.twig', ['form' => $form->createView()]);

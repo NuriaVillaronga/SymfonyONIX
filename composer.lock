@@ -1819,12 +1819,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/NuriaVillaronga/LibraryOnix.git",
-                "reference": "74f0289abf582ca315828b70fd4d3ca207d9004c"
+                "reference": "9660ee2d0067bb7afce164211300b1142539ab53"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/NuriaVillaronga/LibraryOnix/zipball/74f0289abf582ca315828b70fd4d3ca207d9004c",
-                "reference": "74f0289abf582ca315828b70fd4d3ca207d9004c",
+                "url": "https://api.github.com/repos/NuriaVillaronga/LibraryOnix/zipball/9660ee2d0067bb7afce164211300b1142539ab53",
+                "reference": "9660ee2d0067bb7afce164211300b1142539ab53",
                 "shasum": ""
             },
             "require": {
@@ -1860,7 +1860,7 @@
                 "source": "https://github.com/NuriaVillaronga/LibraryOnix/tree/master",
                 "issues": "https://github.com/NuriaVillaronga/LibraryOnix/issues"
             },
-            "time": "2021-11-17T09:57:40+00:00"
+            "time": "2021-11-19T16:07:58+00:00"
         },
         {
             "name": "monolog/monolog",
@@ -8423,16 +8423,16 @@
         },
         {
             "name": "phpunit/php-code-coverage",
-            "version": "9.2.8",
+            "version": "9.2.9",
             "source": {
                 "type": "git",
                 "url": "https://github.com/sebastianbergmann/php-code-coverage.git",
-                "reference": "cf04e88a2e3c56fc1a65488afd493325b4c1bc3e"
+                "reference": "f301eb1453c9e7a1bc912ee8b0ea9db22c60223b"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/sebastianbergmann/php-code-coverage/zipball/cf04e88a2e3c56fc1a65488afd493325b4c1bc3e",
-                "reference": "cf04e88a2e3c56fc1a65488afd493325b4c1bc3e",
+                "url": "https://api.github.com/repos/sebastianbergmann/php-code-coverage/zipball/f301eb1453c9e7a1bc912ee8b0ea9db22c60223b",
+                "reference": "f301eb1453c9e7a1bc912ee8b0ea9db22c60223b",
                 "shasum": ""
             },
             "require": {
@@ -8488,7 +8488,7 @@
             ],
             "support": {
                 "issues": "https://github.com/sebastianbergmann/php-code-coverage/issues",
-                "source": "https://github.com/sebastianbergmann/php-code-coverage/tree/9.2.8"
+                "source": "https://github.com/sebastianbergmann/php-code-coverage/tree/9.2.9"
             },
             "funding": [
                 {
@@ -8496,7 +8496,7 @@
                     "type": "github"
                 }
             ],
-            "time": "2021-10-30T08:01:38+00:00"
+            "time": "2021-11-19T15:21:02+00:00"
         },
         {
             "name": "phpunit/php-file-iterator",

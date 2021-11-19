@@ -110,21 +110,21 @@ class __TwigTemplate_7901113b6f8f0f9d4413ee20aa84ea87efd94ad88dab3b96751db0ca388
                 // line 19
                 echo "        ";
                 $context['_parent'] = $context;
-                $context['_seq'] = twig_ensure_traversable((isset($context["products"]) || array_key_exists("products", $context) ? $context["products"] : (function () { throw new RuntimeError('Variable "products" does not exist.', 19, $this->source); })()));
+                $context['_seq'] = twig_ensure_traversable((isset($context["pagination"]) || array_key_exists("pagination", $context) ? $context["pagination"] : (function () { throw new RuntimeError('Variable "pagination" does not exist.', 19, $this->source); })()));
                 foreach ($context['_seq'] as $context["_key"] => $context["product"]) {
                     // line 20
                     echo "            <tr>
                 <td>";
                     // line 21
-                    echo twig_escape_filter($this->env, twig_get_attribute($this->env, $this->source, $context["product"], "isbnDetail", [], "any", false, false, false, 21), "html", null, true);
+                    echo twig_escape_filter($this->env, twig_get_attribute($this->env, $this->source, $context["product"], "recordReference", [], "any", false, false, false, 21), "html", null, true);
                     echo "</td>
                 <td>";
                     // line 22
-                    echo twig_escape_filter($this->env, twig_get_attribute($this->env, $this->source, $context["product"], "title", [], "any", false, false, false, 22), "html", null, true);
+                    echo twig_escape_filter($this->env, twig_get_attribute($this->env, $this->source, $context["product"], "titleText", [], "any", false, false, false, 22), "html", null, true);
                     echo "</td>
                 <td>";
                     // line 23
-                    echo twig_escape_filter($this->env, twig_get_attribute($this->env, $this->source, $context["product"], "isbnType", [], "any", false, false, false, 23), "html", null, true);
+                    echo twig_escape_filter($this->env, twig_get_attribute($this->env, $this->source, $context["product"], "productIDType", [], "any", false, false, false, 23), "html", null, true);
                     echo "</td>
                 <td>";
                     // line 24
@@ -136,13 +136,17 @@ class __TwigTemplate_7901113b6f8f0f9d4413ee20aa84ea87efd94ad88dab3b96751db0ca388
                     echo "</td>
                 <td>";
                     // line 26
-                    echo twig_escape_filter($this->env, twig_get_attribute($this->env, $this->source, $context["product"], "subjectTitle", [], "any", false, false, false, 26), "html", null, true);
+                    echo twig_escape_filter($this->env, twig_get_attribute($this->env, $this->source, $context["product"], "subjectHeadingText", [], "any", false, false, false, 26), "html", null, true);
                     echo "</td>
                 <td>
                     <a href=\"";
                     // line 28
-                    echo twig_escape_filter($this->env, $this->extensions['Symfony\Bridge\Twig\Extension\RoutingExtension']->getPath("delete_product", ["id_user" => twig_get_attribute($this->env, $this->source, (isset($context["user"]) || array_key_exists("user", $context) ? $context["user"] : (function () { throw new RuntimeError('Variable "user" does not exist.', 28, $this->source); })()), "id", [], "any", false, false, false, 28), "id_catalog" => twig_get_attribute($this->env, $this->source, (isset($context["catalog"]) || array_key_exists("catalog", $context) ? $context["catalog"] : (function () { throw new RuntimeError('Variable "catalog" does not exist.', 28, $this->source); })()), "id", [], "any", false, false, false, 28), "id" => twig_get_attribute($this->env, $this->source, $context["product"], "id", [], "any", false, false, false, 28), "id_file" => twig_get_attribute($this->env, $this->source, $context["file"], "id", [], "any", false, false, false, 28)]), "html", null, true);
+                    echo twig_escape_filter($this->env, $this->extensions['Symfony\Bridge\Twig\Extension\RoutingExtension']->getPath("delete_product", ["id_user" => twig_get_attribute($this->env, $this->source, (isset($context["user"]) || array_key_exists("user", $context) ? $context["user"] : (function () { throw new RuntimeError('Variable "user" does not exist.', 28, $this->source); })()), "id", [], "any", false, false, false, 28), "id_catalog" => twig_get_attribute($this->env, $this->source, (isset($context["catalog"]) || array_key_exists("catalog", $context) ? $context["catalog"] : (function () { throw new RuntimeError('Variable "catalog" does not exist.', 28, $this->source); })()), "id", [], "any", false, false, false, 28), "id_file" => twig_get_attribute($this->env, $this->source, $context["file"], "id", [], "any", false, false, false, 28), "id_product" => twig_get_attribute($this->env, $this->source, $context["product"], "id", [], "any", false, false, false, 28)]), "html", null, true);
                     echo "\" class=\"btn btn-sm btn-danger\">delete</a>
+                    <a href=\"";
+                    // line 29
+                    echo twig_escape_filter($this->env, $this->extensions['Symfony\Bridge\Twig\Extension\RoutingExtension']->getPath("update_product", ["id_user" => twig_get_attribute($this->env, $this->source, (isset($context["user"]) || array_key_exists("user", $context) ? $context["user"] : (function () { throw new RuntimeError('Variable "user" does not exist.', 29, $this->source); })()), "id", [], "any", false, false, false, 29), "id_catalog" => twig_get_attribute($this->env, $this->source, (isset($context["catalog"]) || array_key_exists("catalog", $context) ? $context["catalog"] : (function () { throw new RuntimeError('Variable "catalog" does not exist.', 29, $this->source); })()), "id", [], "any", false, false, false, 29), "id_product" => twig_get_attribute($this->env, $this->source, $context["product"], "id", [], "any", false, false, false, 29)]), "html", null, true);
+                    echo "\" class=\"btn btn-sm btn-primary\">update</a>
                 </td>
             </tr>
         ";
@@ -150,22 +154,29 @@ class __TwigTemplate_7901113b6f8f0f9d4413ee20aa84ea87efd94ad88dab3b96751db0ca388
                 $_parent = $context['_parent'];
                 unset($context['_seq'], $context['_iterated'], $context['_key'], $context['product'], $context['_parent'], $context['loop']);
                 $context = array_intersect_key($context, $_parent) + $_parent;
-                // line 32
+                // line 33
                 echo "    ";
             }
             $_parent = $context['_parent'];
             unset($context['_seq'], $context['_iterated'], $context['_key'], $context['file'], $context['_parent'], $context['loop']);
             $context = array_intersect_key($context, $_parent) + $_parent;
-            // line 33
+            // line 34
             echo "    </table>
+
+    <div class=\"navigation\">
+      ";
+            // line 37
+            echo $this->extensions['Knp\Bundle\PaginatorBundle\Twig\Extension\PaginationExtension']->render($this->env, (isset($context["pagination"]) || array_key_exists("pagination", $context) ? $context["pagination"] : (function () { throw new RuntimeError('Variable "pagination" does not exist.', 37, $this->source); })()));
+            echo "
+    </div>
 
   ";
         } else {
-            // line 36
+            // line 41
             echo "    <div>No products loaded yet</div>
   ";
         }
-        // line 38
+        // line 43
         echo "
 </div>
 ";
@@ -189,7 +200,7 @@ class __TwigTemplate_7901113b6f8f0f9d4413ee20aa84ea87efd94ad88dab3b96751db0ca388
 
     public function getDebugInfo()
     {
-        return array (  169 => 38,  165 => 36,  160 => 33,  154 => 32,  144 => 28,  139 => 26,  135 => 25,  131 => 24,  127 => 23,  123 => 22,  119 => 21,  116 => 20,  111 => 19,  107 => 18,  94 => 7,  92 => 6,  88 => 4,  78 => 3,  59 => 2,  36 => 1,);
+        return array (  180 => 43,  176 => 41,  169 => 37,  164 => 34,  158 => 33,  148 => 29,  144 => 28,  139 => 26,  135 => 25,  131 => 24,  127 => 23,  123 => 22,  119 => 21,  116 => 20,  111 => 19,  107 => 18,  94 => 7,  92 => 6,  88 => 4,  78 => 3,  59 => 2,  36 => 1,);
     }
 
     public function getSourceContext()
@@ -212,21 +223,26 @@ class __TwigTemplate_7901113b6f8f0f9d4413ee20aa84ea87efd94ad88dab3b96751db0ca388
           <th>Actions</th>
       </tr>
     {% for file in files %}
-        {% for product in products %}
+        {% for product in pagination %}
             <tr>
-                <td>{{ product.isbnDetail }}</td>
-                <td>{{ product.title }}</td>
-                <td>{{ product.isbnType }}</td>
+                <td>{{ product.recordReference }}</td>
+                <td>{{ product.titleText }}</td>
+                <td>{{ product.productIDType }}</td>
                 <td>{{ product.productForm }}</td>
                 <td>{{ product.personName }}</td>
-                <td>{{ product.subjectTitle }}</td>
+                <td>{{ product.subjectHeadingText }}</td>
                 <td>
-                    <a href=\"{{ path('delete_product', {'id_user': user.id, 'id_catalog': catalog.id, 'id': product.id, 'id_file': file.id}) }}\" class=\"btn btn-sm btn-danger\">delete</a>
+                    <a href=\"{{ path('delete_product', {'id_user': user.id, 'id_catalog': catalog.id, 'id_file': file.id, 'id_product': product.id}) }}\" class=\"btn btn-sm btn-danger\">delete</a>
+                    <a href=\"{{ path('update_product', {'id_user': user.id, 'id_catalog': catalog.id, 'id_product': product.id}) }}\" class=\"btn btn-sm btn-primary\">update</a>
                 </td>
             </tr>
         {% endfor %}
     {% endfor %}
     </table>
+
+    <div class=\"navigation\">
+      {{ knp_pagination_render(pagination) }}
+    </div>
 
   {% else %}
     <div>No products loaded yet</div>

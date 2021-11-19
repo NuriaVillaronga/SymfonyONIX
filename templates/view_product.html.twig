@@ -16,21 +16,26 @@
           <th>Actions</th>
       </tr>
     {% for file in files %}
-        {% for product in products %}
+        {% for product in pagination %}
             <tr>
-                <td>{{ product.isbnDetail }}</td>
-                <td>{{ product.title }}</td>
-                <td>{{ product.isbnType }}</td>
+                <td>{{ product.recordReference }}</td>
+                <td>{{ product.titleText }}</td>
+                <td>{{ product.productIDType }}</td>
                 <td>{{ product.productForm }}</td>
                 <td>{{ product.personName }}</td>
-                <td>{{ product.subjectTitle }}</td>
+                <td>{{ product.subjectHeadingText }}</td>
                 <td>
-                    <a href="{{ path('delete_product', {'id_user': user.id, 'id_catalog': catalog.id, 'id_product': product.id}) }}" class="btn btn-sm btn-danger">delete</a>
+                    <a href="{{ path('delete_product', {'id_user': user.id, 'id_catalog': catalog.id, 'id_file': file.id, 'id_product': product.id}) }}" class="btn btn-sm btn-danger">delete</a>
+                    <a href="{{ path('update_product', {'id_user': user.id, 'id_catalog': catalog.id, 'id_product': product.id}) }}" class="btn btn-sm btn-primary">update</a>
                 </td>
             </tr>
         {% endfor %}
     {% endfor %}
     </table>
+
+    <div class="navigation">
+      {{ knp_pagination_render(pagination) }}
+    </div>
 
   {% else %}
     <div>No products loaded yet</div>

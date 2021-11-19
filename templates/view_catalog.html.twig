@@ -16,10 +16,10 @@
       <tr>
         <td>{{ catalog.name }}</td>
         <td>
-            <a href="{{ path('upload_onix', {'user_id': user.id, 'id': catalog.id}) }}" class="btn btn-sm btn-primary">upload</a>
+            <a href="{{ path('upload_onix', {'id_user': user.id, 'id_catalog': catalog.id}) }}" class="btn btn-sm btn-primary">upload</a>
         </td>
         <td>
-            <a href="{{ path('view_product', {'id_user': user.id, 'id': catalog.id}) }}" class="btn btn-sm btn-info">view products</a>
+            <a href="{{ path('view_product', {'id_user': user.id, 'id_catalog': catalog.id}) }}" class="btn btn-sm btn-info">view products</a>
         </td>
         <td>
             <a href="{{ path('delete_catalog', {'user_id': user.id, 'id': catalog.id}) }}" class="btn btn-sm btn-danger">delete</a>

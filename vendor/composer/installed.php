@@ -5,7 +5,7 @@
         'type' => 'project',
         'install_path' => __DIR__ . '/../../',
         'aliases' => array(),
-        'reference' => '9a095e7b238c44abc544c7ff456a41ccaf71f335',
+        'reference' => 'd5e1938dfb3415ef284f8f5309fbc63ce0fbda6b',
         'name' => '__root__',
         'dev' => true,
     ),
@@ -16,7 +16,7 @@
             'type' => 'project',
             'install_path' => __DIR__ . '/../../',
             'aliases' => array(),
-            'reference' => '9a095e7b238c44abc544c7ff456a41ccaf71f335',
+            'reference' => 'd5e1938dfb3415ef284f8f5309fbc63ce0fbda6b',
             'dev_requirement' => false,
         ),
         'composer/package-versions-deprecated' => array(
@@ -258,7 +258,7 @@
             'aliases' => array(
                 0 => '9999999-dev',
             ),
-            'reference' => '74f0289abf582ca315828b70fd4d3ca207d9004c',
+            'reference' => '9660ee2d0067bb7afce164211300b1142539ab53',
             'dev_requirement' => false,
         ),
         'monolog/monolog' => array(
@@ -379,12 +379,12 @@
             'dev_requirement' => true,
         ),
         'phpunit/php-code-coverage' => array(
-            'pretty_version' => '9.2.8',
-            'version' => '9.2.8.0',
+            'pretty_version' => '9.2.9',
+            'version' => '9.2.9.0',
             'type' => 'library',
             'install_path' => __DIR__ . '/../phpunit/php-code-coverage',
             'aliases' => array(),
-            'reference' => 'cf04e88a2e3c56fc1a65488afd493325b4c1bc3e',
+            'reference' => 'f301eb1453c9e7a1bc912ee8b0ea9db22c60223b',
             'dev_requirement' => true,
         ),
         'phpunit/php-file-iterator' => array(
