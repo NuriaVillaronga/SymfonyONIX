@@ -7,14 +7,14 @@ use Doctrine\Common\Collections\ArrayCollection;
 use Doctrine\Common\Collections\Collection;
 use Doctrine\ORM\Mapping as ORM;
 use Symfony\Bridge\Doctrine\Validator\Constraints\UniqueEntity;
-
+use Symfony\Component\Validator\Constraints as Assert;
 
 /**
  * @ORM\Entity(repositoryClass=CatalogRepository::class)
  * @UniqueEntity(
  *     fields={"user", "name"},
  *     errorPath="name",
- *     message="This catalog already exists."
+ *     message="This catalog name already exists in your list."
  * )
  */
 class Catalog
@@ -28,11 +28,13 @@ class Catalog
     private $id;
 
     /**
+     * @Assert\NotBlank()
      * @ORM\Column(type="string", length=255)
      */
     private $name;
 
     /**
+     * @Assert\NotNull()
      * @ORM\ManyToOne(targetEntity=User::class, inversedBy="catalogs")
      * @ORM\JoinColumn(nullable=false)
      */
@@ -43,9 +45,10 @@ class Catalog
      */
     private $files;
 
-    public function __construct()
+    public function __construct(User $user)
     {
         $this->files = new ArrayCollection();
+        $this->user  = $user;
     }
 
     public function getId(): ?int

@@ -21,9 +21,8 @@ class CreateCatalogController extends UserService
      */
     public function index(Request $request, EntityManagerInterface $em, User $user): Response
     {
-        $catalog = new Catalog();
-
         $this->userCheckCredentials($user);
+        $catalog = new Catalog($user);
 
         $form = $this->createForm(CatalogFormType::class, $catalog);
         
@@ -31,9 +30,9 @@ class CreateCatalogController extends UserService
 
         if ($form->isSubmitted() && $form->isValid()) {
 
-            $user->addCatalog($catalog);
+//            $user->addCatalog($catalog);
             $this->catalogService($catalog, $em);
-            $this->userService($user, $em);
+//            $this->userService($user, $em);
 
             $this->addFlash('messageCatalog', 'The catalog has been created successfully');
 

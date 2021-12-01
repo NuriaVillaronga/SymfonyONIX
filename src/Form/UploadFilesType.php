@@ -2,11 +2,12 @@
 
 namespace App\Form;
 
-use App\Entity\File;
 use Symfony\Component\Form\AbstractType;
 use Symfony\Component\Form\Extension\Core\Type\FileType;
 use Symfony\Component\Form\FormBuilderInterface;
 use Symfony\Component\OptionsResolver\OptionsResolver;
+use Symfony\Component\Validator\Constraints\File as ConstraintsFile;
+use App\Entity\File;
 
 class UploadFilesType extends AbstractType
 {
@@ -15,8 +16,17 @@ class UploadFilesType extends AbstractType
         $builder
             ->add('files', FileType::class, [
                 'label' => 'Upload a Onix file', 
-                'mapped' => false, 
-                'required' => false
+                'mapped' => false,
+                'required' => true,
+                'constraints' => [
+                    new ConstraintsFile([
+                        'maxSize' => '4000000',
+                        'mimeTypes' => [
+                            'application/xml',
+                        ],
+                        'mimeTypesMessage' => 'Please upload a valid XML File. '
+                    ])
+                ]
             ])
         ;
     }
