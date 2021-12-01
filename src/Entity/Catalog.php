@@ -8,6 +8,7 @@ use Doctrine\Common\Collections\Collection;
 use Doctrine\ORM\Mapping as ORM;
 use Symfony\Bridge\Doctrine\Validator\Constraints\UniqueEntity;
 use Symfony\Component\Validator\Constraints as Assert;
+use Doctrine\ORM\Mapping\UniqueConstraint;
 
 /**
  * @ORM\Entity(repositoryClass=CatalogRepository::class)
@@ -15,6 +16,12 @@ use Symfony\Component\Validator\Constraints as Assert;
  *     fields={"user", "name"},
  *     errorPath="name",
  *     message="This catalog name already exists in your list."
+ * )
+ * @ORM\Table(name="Catalog",
+ *    uniqueConstraints={
+ *        @UniqueConstraint(name="document_user_site_unique",
+ *            columns={"user_id", "name"})
+ *    }
  * )
  */
 class Catalog
