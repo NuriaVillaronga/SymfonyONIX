@@ -16,9 +16,11 @@ class AccessDeniedEventListener
             $response = new RedirectResponse('/homepage');
             $event->setResponse($response);
         }
+        /*
         else {
             $response = new RedirectResponse('/homepage');
             $event->setResponse($response);
         }
+        */
     }
 }

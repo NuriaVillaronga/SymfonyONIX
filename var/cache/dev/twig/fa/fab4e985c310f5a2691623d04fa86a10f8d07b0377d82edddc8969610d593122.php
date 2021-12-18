@@ -417,6 +417,6 @@ class __TwigTemplate_223b4dae72deb636a98761e7f6edfe5434019e7864005dc307ccddf9bb2
     });
 })();
 </script>
-", "@WebProfiler/Profiler/settings.html.twig", "/home/nuria/onixProject/vendor/symfony/web-profiler-bundle/Resources/views/Profiler/settings.html.twig");
+", "@WebProfiler/Profiler/settings.html.twig", "/home/nuria/SymfonyONIX/vendor/symfony/web-profiler-bundle/Resources/views/Profiler/settings.html.twig");
     }
 }

@@ -1349,6 +1349,6 @@ class __TwigTemplate_977f6f154079b2fbbdb773f53e8653a79fec426fc4e4f6e391e3fbafef1
         <span>{{ route|default(controller) }}</span>
     {%- endif %}
 {% endmacro %}
-", "@WebProfiler/Collector/request.html.twig", "/home/nuria/onixProject/vendor/symfony/web-profiler-bundle/Resources/views/Collector/request.html.twig");
+", "@WebProfiler/Collector/request.html.twig", "/home/nuria/SymfonyONIX/vendor/symfony/web-profiler-bundle/Resources/views/Collector/request.html.twig");
     }
 }

@@ -2,6 +2,7 @@
 
 namespace App\Controller;
 
+use App\Entity\Catalog;
 use App\Entity\File;
 use App\Entity\User;
 use Symfony\Component\HttpFoundation\Response;
@@ -18,16 +19,33 @@ use Sensio\Bundle\FrameworkExtraBundle\Configuration\ParamConverter;
 
 class UploadFileController extends UserService
 {
+    private const file_type = "application/xml";
+    
     /**
-     * @Route("/upload/{id}", name="upload_onix", methods={"GET","POST"})
+     * @Route("/upload/{id_user}/catalog/{id_catalog}", name="upload_onix", methods={"GET","POST"})
      * 
-     * @ParamConverter("user", options={"id": "id"})
+     * @ParamConverter("user", options={"id": "id_user"})
+     * @ParamConverter("catalog", options={"id": "id_catalog"})
      */
-    public function index(Request $request, User $user, EntityManagerInterface $em, SluggerInterface $slugger): Response
+    public function index(Catalog $catalog, Request $request, User $user, EntityManagerInterface $em, SluggerInterface $slugger): Response
     {
         $file = new File();
         
         $this->userCheckCredentials($user);
+
+        /* --> Si no se pasase como parametro $catalog
+        $arrayCatalogs = $user->getCatalogs();
+
+        $catalogIdRoute = $request->get('id');
+
+        $catalog=null;
+        
+        foreach ($arrayCatalogs as $catalogo) {
+            if ($catalogo->getId() == $catalogIdRoute) {
+                $catalog = $catalogo;
+            }
+        }
+        */
         
         $form = $this->createForm(UploadFilesType::class, $file);
         
@@ -41,7 +59,9 @@ class UploadFileController extends UserService
                 
                 $fileExtension = pathinfo($brochureFile->getClientOriginalName(), PATHINFO_EXTENSION);
 
-                if ($fileExtension !== "onix") {
+                //Problema con el mime_content_type
+
+                if ($fileExtension !== "onix" && $fileExtension !== "xml") {
                     throw new Exception("The file extension is not onix");
                 }
                 else {
@@ -62,15 +82,15 @@ class UploadFileController extends UserService
                     }
 
                     // updates the 'onixFile' property to store the file instead of its contents
-                    $onixFile = $file->setFiles($newFilename);
-                    $user->addFile($onixFile);
+                    $onixFile = $file->setFile($newFilename);
+                    $catalog->addFile($onixFile);
                     $this->fileUploadService($file, $em);
-                    $this->userUploadService($user, $em);
+                    $this->catalogService($catalog, $em);
                     $this->addFlash('messageUpload', 'The file has been uploaded successfully');
                 }
             }
 
-            return $this->redirectToRoute('view_file', ['id' => $user->getId()]);
+            return $this->redirectToRoute('view_product', ['id_user' => $user->getId(), 'id_catalog' => $catalog->getId()]);
         }
 
         return $this->render('upload.html.twig', ['form' => $form->createView()]);

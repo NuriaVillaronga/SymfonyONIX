@@ -691,6 +691,6 @@ class __TwigTemplate_fc30ba293a26a1c39975610b6851de6fe926d1ad4e912f56573774d5017
 {% block form_group_class -%}
     col-sm-10
 {%- endblock form_group_class %}
-", "bootstrap_5_horizontal_layout.html.twig", "/home/nuria/onixProject/vendor/symfony/twig-bridge/Resources/views/Form/bootstrap_5_horizontal_layout.html.twig");
+", "bootstrap_5_horizontal_layout.html.twig", "/home/nuria/SymfonyONIX/vendor/symfony/twig-bridge/Resources/views/Form/bootstrap_5_horizontal_layout.html.twig");
     }
 }

@@ -12,7 +12,7 @@
         {{ message }}
     </div>
 {% endfor %}
-{% for message in app.flashes('messageUpload') %}
+{% for message in app.flashes('messageCatalog') %}
     <div class="alert alert-success" role="alert" style="width:50%; text-align:center; margin-left:23.5%; margin-top:1.5%;">
         {{ message }}
     </div>
@@ -28,6 +28,7 @@
         <th>Role</th> 
         <th>Active</th>
         <th>Deleted</th>
+        <th>Catalog</th>
         <th>Actions</th>
     </tr>
       {% if is_granted('ROLE_ADMIN') %}
@@ -59,8 +60,10 @@
               {% endif %} 
             </td> 
             <td>
-              <a id="upload-{{loop.index}}" href="{{ path('upload_onix', {'id': user.id}) }}" class="btn btn-sm btn-success">upload</a>
-              <a id="view-{{loop.index}}" href="{{ path('view_file', {'id': user.id}) }}" class="btn btn-sm btn-info">view files</a>
+              <a href="{{ path('create_catalog', {'id': user.id}) }}" class="btn btn-sm btn-success">create</a>
+              <a href="{{ path('view_catalog', {'user_id': user.id}) }}" class="btn btn-sm btn-info">view</a>
+            </td>
+            <td>
               <a id="update-{{loop.index}}" href="{{ path('user_update', {'id': user.id}) }}" class="btn btn-sm btn-primary">update</a>
               <a id="delete-{{loop.index}}" href="{{ path('user_delete', {'id': user.id}) }}" class="btn btn-sm btn-danger">delete</a>
             </td>
@@ -88,8 +91,10 @@
               {% endif %} 
           </td>
           <td>
-            <a href="{{ path('upload_onix', {'id': app.user.id}) }}" class="btn btn-sm btn-success">upload</a>
-            <a href="{{ path('view_file', {'id': app.user.id}) }}" class="btn btn-sm btn-info">view files</a>
+            <a href="{{ path('create_catalog', {'id': user.id}) }}" class="btn btn-sm btn-success">create</a>
+            <a href="{{ path('view_catalog', {'id': user.id}) }}" class="btn btn-sm btn-info">view</a>
+          </td>
+          <td>
             <a id="update" href="{{ path('user_update', {'id': app.user.id }) }}" class="btn btn-sm btn-primary">update</a>
           </td>
         </tr>

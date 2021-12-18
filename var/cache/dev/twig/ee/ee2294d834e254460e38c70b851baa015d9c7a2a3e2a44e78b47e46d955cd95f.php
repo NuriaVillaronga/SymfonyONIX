@@ -121,7 +121,7 @@ class __TwigTemplate_cac26a4b6021ac5347f37f4296f232d01adf2d30478888f843525c95c4b
         $context = array_intersect_key($context, $_parent) + $_parent;
         // line 15
         $context['_parent'] = $context;
-        $context['_seq'] = twig_ensure_traversable(twig_get_attribute($this->env, $this->source, (isset($context["app"]) || array_key_exists("app", $context) ? $context["app"] : (function () { throw new RuntimeError('Variable "app" does not exist.', 15, $this->source); })()), "flashes", [0 => "messageUpload"], "method", false, false, false, 15));
+        $context['_seq'] = twig_ensure_traversable(twig_get_attribute($this->env, $this->source, (isset($context["app"]) || array_key_exists("app", $context) ? $context["app"] : (function () { throw new RuntimeError('Variable "app" does not exist.', 15, $this->source); })()), "flashes", [0 => "messageCatalog"], "method", false, false, false, 15));
         foreach ($context['_seq'] as $context["_key"] => $context["message"]) {
             // line 16
             echo "    <div class=\"alert alert-success\" role=\"alert\" style=\"width:50%; text-align:center; margin-left:23.5%; margin-top:1.5%;\">
@@ -147,15 +147,16 @@ class __TwigTemplate_cac26a4b6021ac5347f37f4296f232d01adf2d30478888f843525c95c4b
         <th>Role</th> 
         <th>Active</th>
         <th>Deleted</th>
+        <th>Catalog</th>
         <th>Actions</th>
     </tr>
       ";
-        // line 33
+        // line 34
         if ($this->extensions['Symfony\Bridge\Twig\Extension\SecurityExtension']->isGranted("ROLE_ADMIN")) {
-            // line 34
+            // line 35
             echo "        ";
             $context['_parent'] = $context;
-            $context['_seq'] = twig_ensure_traversable((isset($context["pagination"]) || array_key_exists("pagination", $context) ? $context["pagination"] : (function () { throw new RuntimeError('Variable "pagination" does not exist.', 34, $this->source); })()));
+            $context['_seq'] = twig_ensure_traversable((isset($context["pagination"]) || array_key_exists("pagination", $context) ? $context["pagination"] : (function () { throw new RuntimeError('Variable "pagination" does not exist.', 35, $this->source); })()));
             $context['loop'] = [
               'parent' => $context['_parent'],
               'index0' => 0,
@@ -170,93 +171,91 @@ class __TwigTemplate_cac26a4b6021ac5347f37f4296f232d01adf2d30478888f843525c95c4b
                 $context['loop']['last'] = 1 === $length;
             }
             foreach ($context['_seq'] as $context["_key"] => $context["user"]) {
-                // line 35
+                // line 36
                 echo "          <tr>
             <td>";
-                // line 36
-                echo twig_escape_filter($this->env, twig_get_attribute($this->env, $this->source, $context["user"], "id", [], "any", false, false, false, 36), "html", null, true);
-                echo "</td>
-            <td>";
                 // line 37
-                echo twig_escape_filter($this->env, twig_get_attribute($this->env, $this->source, $context["user"], "name", [], "any", false, false, false, 37), "html", null, true);
+                echo twig_escape_filter($this->env, twig_get_attribute($this->env, $this->source, $context["user"], "id", [], "any", false, false, false, 37), "html", null, true);
                 echo "</td>
             <td>";
                 // line 38
-                echo twig_escape_filter($this->env, twig_get_attribute($this->env, $this->source, $context["user"], "email", [], "any", false, false, false, 38), "html", null, true);
+                echo twig_escape_filter($this->env, twig_get_attribute($this->env, $this->source, $context["user"], "name", [], "any", false, false, false, 38), "html", null, true);
                 echo "</td>
             <td>";
                 // line 39
-                echo twig_escape_filter($this->env, twig_date_format_filter($this->env, twig_get_attribute($this->env, $this->source, $context["user"], "lastLogin", [], "any", false, false, false, 39), "d-m-Y H:i"), "html", null, true);
+                echo twig_escape_filter($this->env, twig_get_attribute($this->env, $this->source, $context["user"], "email", [], "any", false, false, false, 39), "html", null, true);
+                echo "</td>
+            <td>";
+                // line 40
+                echo twig_escape_filter($this->env, twig_date_format_filter($this->env, twig_get_attribute($this->env, $this->source, $context["user"], "lastLogin", [], "any", false, false, false, 40), "d-m-Y H:i"), "html", null, true);
                 echo "</td>
             <td>
               ";
-                // line 41
-                if (twig_in_filter("ROLE_ADMIN", twig_get_attribute($this->env, $this->source, $context["user"], "roles", [], "any", false, false, false, 41))) {
+                // line 42
+                if (twig_in_filter("ROLE_ADMIN", twig_get_attribute($this->env, $this->source, $context["user"], "roles", [], "any", false, false, false, 42))) {
                     echo " <!-- Compruebo si ROLE_ADMIN se encuentra en el array de roles-->
                 <strong>Admin</strong>
               ";
                 } else {
-                    // line 44
+                    // line 45
                     echo "                <strong>User</strong>  
               ";
                 }
-                // line 45
+                // line 46
                 echo " 
             </td>
             <td>
               ";
-                // line 48
-                if ((0 === twig_compare(twig_get_attribute($this->env, $this->source, $context["user"], "isActive", [], "any", false, false, false, 48), 0))) {
+                // line 49
+                if ((0 === twig_compare(twig_get_attribute($this->env, $this->source, $context["user"], "isActive", [], "any", false, false, false, 49), 0))) {
                     echo " 
                 <strong>No</strong>
               ";
                 } else {
-                    // line 51
+                    // line 52
                     echo "                <strong>Yes</strong>  
               ";
                 }
-                // line 52
+                // line 53
                 echo " 
             </td> 
             <td>
               ";
-                // line 55
-                if ((0 === twig_compare(twig_get_attribute($this->env, $this->source, $context["user"], "isDeleted", [], "any", false, false, false, 55), 0))) {
+                // line 56
+                if ((0 === twig_compare(twig_get_attribute($this->env, $this->source, $context["user"], "isDeleted", [], "any", false, false, false, 56), 0))) {
                     echo " 
                 <strong>No</strong>
               ";
                 } else {
-                    // line 58
+                    // line 59
                     echo "                <strong>Yes</strong>  
               ";
                 }
-                // line 59
+                // line 60
                 echo " 
             </td> 
             <td>
-              <a id=\"upload-";
-                // line 62
-                echo twig_escape_filter($this->env, twig_get_attribute($this->env, $this->source, $context["loop"], "index", [], "any", false, false, false, 62), "html", null, true);
-                echo "\" href=\"";
-                echo twig_escape_filter($this->env, $this->extensions['Symfony\Bridge\Twig\Extension\RoutingExtension']->getPath("upload_onix", ["id" => twig_get_attribute($this->env, $this->source, $context["user"], "id", [], "any", false, false, false, 62)]), "html", null, true);
-                echo "\" class=\"btn btn-sm btn-success\">upload</a>
-              <a id=\"view-";
+              <a href=\"";
                 // line 63
-                echo twig_escape_filter($this->env, twig_get_attribute($this->env, $this->source, $context["loop"], "index", [], "any", false, false, false, 63), "html", null, true);
-                echo "\" href=\"";
-                echo twig_escape_filter($this->env, $this->extensions['Symfony\Bridge\Twig\Extension\RoutingExtension']->getPath("view_file", ["id" => twig_get_attribute($this->env, $this->source, $context["user"], "id", [], "any", false, false, false, 63)]), "html", null, true);
-                echo "\" class=\"btn btn-sm btn-info\">view files</a>
-              <a id=\"update-";
+                echo twig_escape_filter($this->env, $this->extensions['Symfony\Bridge\Twig\Extension\RoutingExtension']->getPath("create_catalog", ["id" => twig_get_attribute($this->env, $this->source, $context["user"], "id", [], "any", false, false, false, 63)]), "html", null, true);
+                echo "\" class=\"btn btn-sm btn-success\">create</a>
+              <a href=\"";
                 // line 64
-                echo twig_escape_filter($this->env, twig_get_attribute($this->env, $this->source, $context["loop"], "index", [], "any", false, false, false, 64), "html", null, true);
+                echo twig_escape_filter($this->env, $this->extensions['Symfony\Bridge\Twig\Extension\RoutingExtension']->getPath("view_catalog", ["user_id" => twig_get_attribute($this->env, $this->source, $context["user"], "id", [], "any", false, false, false, 64)]), "html", null, true);
+                echo "\" class=\"btn btn-sm btn-info\">view</a>
+            </td>
+            <td>
+              <a id=\"update-";
+                // line 67
+                echo twig_escape_filter($this->env, twig_get_attribute($this->env, $this->source, $context["loop"], "index", [], "any", false, false, false, 67), "html", null, true);
                 echo "\" href=\"";
-                echo twig_escape_filter($this->env, $this->extensions['Symfony\Bridge\Twig\Extension\RoutingExtension']->getPath("user_update", ["id" => twig_get_attribute($this->env, $this->source, $context["user"], "id", [], "any", false, false, false, 64)]), "html", null, true);
+                echo twig_escape_filter($this->env, $this->extensions['Symfony\Bridge\Twig\Extension\RoutingExtension']->getPath("user_update", ["id" => twig_get_attribute($this->env, $this->source, $context["user"], "id", [], "any", false, false, false, 67)]), "html", null, true);
                 echo "\" class=\"btn btn-sm btn-primary\">update</a>
               <a id=\"delete-";
-                // line 65
-                echo twig_escape_filter($this->env, twig_get_attribute($this->env, $this->source, $context["loop"], "index", [], "any", false, false, false, 65), "html", null, true);
+                // line 68
+                echo twig_escape_filter($this->env, twig_get_attribute($this->env, $this->source, $context["loop"], "index", [], "any", false, false, false, 68), "html", null, true);
                 echo "\" href=\"";
-                echo twig_escape_filter($this->env, $this->extensions['Symfony\Bridge\Twig\Extension\RoutingExtension']->getPath("user_delete", ["id" => twig_get_attribute($this->env, $this->source, $context["user"], "id", [], "any", false, false, false, 65)]), "html", null, true);
+                echo twig_escape_filter($this->env, $this->extensions['Symfony\Bridge\Twig\Extension\RoutingExtension']->getPath("user_delete", ["id" => twig_get_attribute($this->env, $this->source, $context["user"], "id", [], "any", false, false, false, 68)]), "html", null, true);
                 echo "\" class=\"btn btn-sm btn-danger\">delete</a>
             </td>
           </tr>
@@ -273,92 +272,94 @@ class __TwigTemplate_cac26a4b6021ac5347f37f4296f232d01adf2d30478888f843525c95c4b
             $_parent = $context['_parent'];
             unset($context['_seq'], $context['_iterated'], $context['_key'], $context['user'], $context['_parent'], $context['loop']);
             $context = array_intersect_key($context, $_parent) + $_parent;
-            // line 69
+            // line 72
             echo "      ";
         } else {
-            // line 70
+            // line 73
             echo "        <tr>
           <td>";
-            // line 71
-            echo twig_escape_filter($this->env, twig_get_attribute($this->env, $this->source, twig_get_attribute($this->env, $this->source, (isset($context["app"]) || array_key_exists("app", $context) ? $context["app"] : (function () { throw new RuntimeError('Variable "app" does not exist.', 71, $this->source); })()), "user", [], "any", false, false, false, 71), "id", [], "any", false, false, false, 71), "html", null, true);
-            echo "</td>
-          <td>";
-            // line 72
-            echo twig_escape_filter($this->env, twig_get_attribute($this->env, $this->source, twig_get_attribute($this->env, $this->source, (isset($context["app"]) || array_key_exists("app", $context) ? $context["app"] : (function () { throw new RuntimeError('Variable "app" does not exist.', 72, $this->source); })()), "user", [], "any", false, false, false, 72), "name", [], "any", false, false, false, 72), "html", null, true);
-            echo "</td>
-          <td>";
-            // line 73
-            echo twig_escape_filter($this->env, twig_get_attribute($this->env, $this->source, twig_get_attribute($this->env, $this->source, (isset($context["app"]) || array_key_exists("app", $context) ? $context["app"] : (function () { throw new RuntimeError('Variable "app" does not exist.', 73, $this->source); })()), "user", [], "any", false, false, false, 73), "email", [], "any", false, false, false, 73), "html", null, true);
-            echo "</td>
-          <td>";
             // line 74
-            echo twig_escape_filter($this->env, twig_date_format_filter($this->env, twig_get_attribute($this->env, $this->source, twig_get_attribute($this->env, $this->source, (isset($context["app"]) || array_key_exists("app", $context) ? $context["app"] : (function () { throw new RuntimeError('Variable "app" does not exist.', 74, $this->source); })()), "user", [], "any", false, false, false, 74), "lastLogin", [], "any", false, false, false, 74), "d-m-Y H:i"), "html", null, true);
+            echo twig_escape_filter($this->env, twig_get_attribute($this->env, $this->source, twig_get_attribute($this->env, $this->source, (isset($context["app"]) || array_key_exists("app", $context) ? $context["app"] : (function () { throw new RuntimeError('Variable "app" does not exist.', 74, $this->source); })()), "user", [], "any", false, false, false, 74), "id", [], "any", false, false, false, 74), "html", null, true);
+            echo "</td>
+          <td>";
+            // line 75
+            echo twig_escape_filter($this->env, twig_get_attribute($this->env, $this->source, twig_get_attribute($this->env, $this->source, (isset($context["app"]) || array_key_exists("app", $context) ? $context["app"] : (function () { throw new RuntimeError('Variable "app" does not exist.', 75, $this->source); })()), "user", [], "any", false, false, false, 75), "name", [], "any", false, false, false, 75), "html", null, true);
+            echo "</td>
+          <td>";
+            // line 76
+            echo twig_escape_filter($this->env, twig_get_attribute($this->env, $this->source, twig_get_attribute($this->env, $this->source, (isset($context["app"]) || array_key_exists("app", $context) ? $context["app"] : (function () { throw new RuntimeError('Variable "app" does not exist.', 76, $this->source); })()), "user", [], "any", false, false, false, 76), "email", [], "any", false, false, false, 76), "html", null, true);
+            echo "</td>
+          <td>";
+            // line 77
+            echo twig_escape_filter($this->env, twig_date_format_filter($this->env, twig_get_attribute($this->env, $this->source, twig_get_attribute($this->env, $this->source, (isset($context["app"]) || array_key_exists("app", $context) ? $context["app"] : (function () { throw new RuntimeError('Variable "app" does not exist.', 77, $this->source); })()), "user", [], "any", false, false, false, 77), "lastLogin", [], "any", false, false, false, 77), "d-m-Y H:i"), "html", null, true);
             echo "</td>  
           <td><strong>User</strong></td>
           <td>
               ";
-            // line 77
-            if ((0 === twig_compare(twig_get_attribute($this->env, $this->source, twig_get_attribute($this->env, $this->source, (isset($context["app"]) || array_key_exists("app", $context) ? $context["app"] : (function () { throw new RuntimeError('Variable "app" does not exist.', 77, $this->source); })()), "user", [], "any", false, false, false, 77), "isActive", [], "any", false, false, false, 77), 0))) {
+            // line 80
+            if ((0 === twig_compare(twig_get_attribute($this->env, $this->source, twig_get_attribute($this->env, $this->source, (isset($context["app"]) || array_key_exists("app", $context) ? $context["app"] : (function () { throw new RuntimeError('Variable "app" does not exist.', 80, $this->source); })()), "user", [], "any", false, false, false, 80), "isActive", [], "any", false, false, false, 80), 0))) {
                 echo " 
                 <strong>No</strong>
               ";
             } else {
-                // line 80
+                // line 83
                 echo "                <strong>Yes</strong>  
               ";
             }
-            // line 81
-            echo " 
-          </td>
-          <td>
-              ";
             // line 84
-            if ((0 === twig_compare(twig_get_attribute($this->env, $this->source, twig_get_attribute($this->env, $this->source, (isset($context["app"]) || array_key_exists("app", $context) ? $context["app"] : (function () { throw new RuntimeError('Variable "app" does not exist.', 84, $this->source); })()), "user", [], "any", false, false, false, 84), "isDeleted", [], "any", false, false, false, 84), 0))) {
+            echo " 
+          </td>
+          <td>
+              ";
+            // line 87
+            if ((0 === twig_compare(twig_get_attribute($this->env, $this->source, twig_get_attribute($this->env, $this->source, (isset($context["app"]) || array_key_exists("app", $context) ? $context["app"] : (function () { throw new RuntimeError('Variable "app" does not exist.', 87, $this->source); })()), "user", [], "any", false, false, false, 87), "isDeleted", [], "any", false, false, false, 87), 0))) {
                 echo " 
                 <strong>No</strong>
               ";
             } else {
-                // line 87
+                // line 90
                 echo "                <strong>Yes</strong>  
               ";
             }
-            // line 88
+            // line 91
             echo " 
           </td>
           <td>
             <a href=\"";
-            // line 91
-            echo twig_escape_filter($this->env, $this->extensions['Symfony\Bridge\Twig\Extension\RoutingExtension']->getPath("upload_onix", ["id" => twig_get_attribute($this->env, $this->source, twig_get_attribute($this->env, $this->source, (isset($context["app"]) || array_key_exists("app", $context) ? $context["app"] : (function () { throw new RuntimeError('Variable "app" does not exist.', 91, $this->source); })()), "user", [], "any", false, false, false, 91), "id", [], "any", false, false, false, 91)]), "html", null, true);
-            echo "\" class=\"btn btn-sm btn-success\">upload</a>
+            // line 94
+            echo twig_escape_filter($this->env, $this->extensions['Symfony\Bridge\Twig\Extension\RoutingExtension']->getPath("create_catalog", ["id" => twig_get_attribute($this->env, $this->source, (isset($context["user"]) || array_key_exists("user", $context) ? $context["user"] : (function () { throw new RuntimeError('Variable "user" does not exist.', 94, $this->source); })()), "id", [], "any", false, false, false, 94)]), "html", null, true);
+            echo "\" class=\"btn btn-sm btn-success\">create</a>
             <a href=\"";
-            // line 92
-            echo twig_escape_filter($this->env, $this->extensions['Symfony\Bridge\Twig\Extension\RoutingExtension']->getPath("view_file", ["id" => twig_get_attribute($this->env, $this->source, twig_get_attribute($this->env, $this->source, (isset($context["app"]) || array_key_exists("app", $context) ? $context["app"] : (function () { throw new RuntimeError('Variable "app" does not exist.', 92, $this->source); })()), "user", [], "any", false, false, false, 92), "id", [], "any", false, false, false, 92)]), "html", null, true);
-            echo "\" class=\"btn btn-sm btn-info\">view files</a>
+            // line 95
+            echo twig_escape_filter($this->env, $this->extensions['Symfony\Bridge\Twig\Extension\RoutingExtension']->getPath("view_catalog", ["id" => twig_get_attribute($this->env, $this->source, (isset($context["user"]) || array_key_exists("user", $context) ? $context["user"] : (function () { throw new RuntimeError('Variable "user" does not exist.', 95, $this->source); })()), "id", [], "any", false, false, false, 95)]), "html", null, true);
+            echo "\" class=\"btn btn-sm btn-info\">view</a>
+          </td>
+          <td>
             <a id=\"update\" href=\"";
-            // line 93
-            echo twig_escape_filter($this->env, $this->extensions['Symfony\Bridge\Twig\Extension\RoutingExtension']->getPath("user_update", ["id" => twig_get_attribute($this->env, $this->source, twig_get_attribute($this->env, $this->source, (isset($context["app"]) || array_key_exists("app", $context) ? $context["app"] : (function () { throw new RuntimeError('Variable "app" does not exist.', 93, $this->source); })()), "user", [], "any", false, false, false, 93), "id", [], "any", false, false, false, 93)]), "html", null, true);
+            // line 98
+            echo twig_escape_filter($this->env, $this->extensions['Symfony\Bridge\Twig\Extension\RoutingExtension']->getPath("user_update", ["id" => twig_get_attribute($this->env, $this->source, twig_get_attribute($this->env, $this->source, (isset($context["app"]) || array_key_exists("app", $context) ? $context["app"] : (function () { throw new RuntimeError('Variable "app" does not exist.', 98, $this->source); })()), "user", [], "any", false, false, false, 98), "id", [], "any", false, false, false, 98)]), "html", null, true);
             echo "\" class=\"btn btn-sm btn-primary\">update</a>
           </td>
         </tr>
       ";
         }
-        // line 97
+        // line 102
         echo "
   </table>
 
   ";
-        // line 100
+        // line 105
         if ($this->extensions['Symfony\Bridge\Twig\Extension\SecurityExtension']->isGranted("ROLE_ADMIN")) {
-            // line 101
+            // line 106
             echo "    <div class=\"navigation\">
       ";
-            // line 102
-            echo $this->extensions['Knp\Bundle\PaginatorBundle\Twig\Extension\PaginationExtension']->render($this->env, (isset($context["pagination"]) || array_key_exists("pagination", $context) ? $context["pagination"] : (function () { throw new RuntimeError('Variable "pagination" does not exist.', 102, $this->source); })()));
+            // line 107
+            echo $this->extensions['Knp\Bundle\PaginatorBundle\Twig\Extension\PaginationExtension']->render($this->env, (isset($context["pagination"]) || array_key_exists("pagination", $context) ? $context["pagination"] : (function () { throw new RuntimeError('Variable "pagination" does not exist.', 107, $this->source); })()));
             echo "
     </div>
   ";
         }
-        // line 105
+        // line 110
         echo "
 </div>
 
@@ -383,7 +384,7 @@ class __TwigTemplate_cac26a4b6021ac5347f37f4296f232d01adf2d30478888f843525c95c4b
 
     public function getDebugInfo()
     {
-        return array (  362 => 105,  356 => 102,  353 => 101,  351 => 100,  346 => 97,  339 => 93,  335 => 92,  331 => 91,  326 => 88,  322 => 87,  316 => 84,  311 => 81,  307 => 80,  301 => 77,  295 => 74,  291 => 73,  287 => 72,  283 => 71,  280 => 70,  277 => 69,  257 => 65,  251 => 64,  245 => 63,  239 => 62,  234 => 59,  230 => 58,  224 => 55,  219 => 52,  215 => 51,  209 => 48,  204 => 45,  200 => 44,  194 => 41,  189 => 39,  185 => 38,  181 => 37,  177 => 36,  174 => 35,  156 => 34,  154 => 33,  139 => 20,  130 => 17,  127 => 16,  123 => 15,  114 => 12,  111 => 11,  107 => 10,  98 => 7,  95 => 6,  91 => 5,  88 => 4,  78 => 3,  59 => 2,  36 => 1,);
+        return array (  363 => 110,  357 => 107,  354 => 106,  352 => 105,  347 => 102,  340 => 98,  334 => 95,  330 => 94,  325 => 91,  321 => 90,  315 => 87,  310 => 84,  306 => 83,  300 => 80,  294 => 77,  290 => 76,  286 => 75,  282 => 74,  279 => 73,  276 => 72,  256 => 68,  250 => 67,  244 => 64,  240 => 63,  235 => 60,  231 => 59,  225 => 56,  220 => 53,  216 => 52,  210 => 49,  205 => 46,  201 => 45,  195 => 42,  190 => 40,  186 => 39,  182 => 38,  178 => 37,  175 => 36,  157 => 35,  155 => 34,  139 => 20,  130 => 17,  127 => 16,  123 => 15,  114 => 12,  111 => 11,  107 => 10,  98 => 7,  95 => 6,  91 => 5,  88 => 4,  78 => 3,  59 => 2,  36 => 1,);
     }
 
     public function getSourceContext()
@@ -402,7 +403,7 @@ class __TwigTemplate_cac26a4b6021ac5347f37f4296f232d01adf2d30478888f843525c95c4b
         {{ message }}
     </div>
 {% endfor %}
-{% for message in app.flashes('messageUpload') %}
+{% for message in app.flashes('messageCatalog') %}
     <div class=\"alert alert-success\" role=\"alert\" style=\"width:50%; text-align:center; margin-left:23.5%; margin-top:1.5%;\">
         {{ message }}
     </div>
@@ -418,6 +419,7 @@ class __TwigTemplate_cac26a4b6021ac5347f37f4296f232d01adf2d30478888f843525c95c4b
         <th>Role</th> 
         <th>Active</th>
         <th>Deleted</th>
+        <th>Catalog</th>
         <th>Actions</th>
     </tr>
       {% if is_granted('ROLE_ADMIN') %}
@@ -449,8 +451,10 @@ class __TwigTemplate_cac26a4b6021ac5347f37f4296f232d01adf2d30478888f843525c95c4b
               {% endif %} 
             </td> 
             <td>
-              <a id=\"upload-{{loop.index}}\" href=\"{{ path('upload_onix', {'id': user.id}) }}\" class=\"btn btn-sm btn-success\">upload</a>
-              <a id=\"view-{{loop.index}}\" href=\"{{ path('view_file', {'id': user.id}) }}\" class=\"btn btn-sm btn-info\">view files</a>
+              <a href=\"{{ path('create_catalog', {'id': user.id}) }}\" class=\"btn btn-sm btn-success\">create</a>
+              <a href=\"{{ path('view_catalog', {'user_id': user.id}) }}\" class=\"btn btn-sm btn-info\">view</a>
+            </td>
+            <td>
               <a id=\"update-{{loop.index}}\" href=\"{{ path('user_update', {'id': user.id}) }}\" class=\"btn btn-sm btn-primary\">update</a>
               <a id=\"delete-{{loop.index}}\" href=\"{{ path('user_delete', {'id': user.id}) }}\" class=\"btn btn-sm btn-danger\">delete</a>
             </td>
@@ -478,8 +482,10 @@ class __TwigTemplate_cac26a4b6021ac5347f37f4296f232d01adf2d30478888f843525c95c4b
               {% endif %} 
           </td>
           <td>
-            <a href=\"{{ path('upload_onix', {'id': app.user.id}) }}\" class=\"btn btn-sm btn-success\">upload</a>
-            <a href=\"{{ path('view_file', {'id': app.user.id}) }}\" class=\"btn btn-sm btn-info\">view files</a>
+            <a href=\"{{ path('create_catalog', {'id': user.id}) }}\" class=\"btn btn-sm btn-success\">create</a>
+            <a href=\"{{ path('view_catalog', {'id': user.id}) }}\" class=\"btn btn-sm btn-info\">view</a>
+          </td>
+          <td>
             <a id=\"update\" href=\"{{ path('user_update', {'id': app.user.id }) }}\" class=\"btn btn-sm btn-primary\">update</a>
           </td>
         </tr>
@@ -495,6 +501,6 @@ class __TwigTemplate_cac26a4b6021ac5347f37f4296f232d01adf2d30478888f843525c95c4b
 
 </div>
 
-{% endblock %}", "list.html.twig", "/home/nuria/onixProject/templates/list.html.twig");
+{% endblock %}", "list.html.twig", "/home/nuria/SymfonyONIX/templates/list.html.twig");
     }
 }

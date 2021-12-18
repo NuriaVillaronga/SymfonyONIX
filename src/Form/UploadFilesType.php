@@ -2,30 +2,31 @@
 
 namespace App\Form;
 
-use App\Entity\File;
 use Symfony\Component\Form\AbstractType;
-use Symfony\Component\Form\Extension\Core\Type\ChoiceType;
 use Symfony\Component\Form\Extension\Core\Type\FileType;
 use Symfony\Component\Form\FormBuilderInterface;
 use Symfony\Component\OptionsResolver\OptionsResolver;
+use Symfony\Component\Validator\Constraints\File as ConstraintsFile;
+use App\Entity\File;
 
 class UploadFilesType extends AbstractType
 {
     public function buildForm(FormBuilderInterface $builder, array $options): void
     {
         $builder
-            ->add('catalog', ChoiceType::class, [
-                'choices'  => [
-                    'Tipo1' => 'Tipo 1',
-                    'Tipo2' => 'Tipo 2',
-                    'Tipo3' => 'Tipo 3',
-                    'Tipo4' => 'Tipo 4',
-                ],
-            ])
             ->add('files', FileType::class, [
                 'label' => 'Upload a Onix file', 
-                'mapped' => false, 
-                'required' => false
+                'mapped' => false,
+                'required' => true,
+                'constraints' => [
+                    new ConstraintsFile([
+                        'maxSize' => '4000000',
+                        'mimeTypes' => [
+                            'application/xml',
+                        ],
+                        'mimeTypesMessage' => 'Please upload a valid XML File. '
+                    ])
+                ]
             ])
         ;
     }

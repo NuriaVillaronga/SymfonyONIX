@@ -482,6 +482,6 @@ class __TwigTemplate_41d95929ef3484a946e3fef00c77c9b2d0a781b03dc8335b18e2a108b28
         {% endfor %}
     </table>
 {% endmacro %}
-", "@WebProfiler/Collector/events.html.twig", "/home/nuria/onixProject/vendor/symfony/web-profiler-bundle/Resources/views/Collector/events.html.twig");
+", "@WebProfiler/Collector/events.html.twig", "/home/nuria/SymfonyONIX/vendor/symfony/web-profiler-bundle/Resources/views/Collector/events.html.twig");
     }
 }

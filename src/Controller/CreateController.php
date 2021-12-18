@@ -34,6 +34,6 @@ class CreateController extends UserService
             return $this->redirectToRoute('user_list');
         }
 
-        return $this->render('create.html.twig', ['user' => $user, 'form' => $form->createView()]);
+        return $this->render('create.html.twig', ['form' => $form->createView()]);
     }
 } 

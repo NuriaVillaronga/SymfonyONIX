@@ -274,6 +274,6 @@ class __TwigTemplate_9cacbe29e09af7edc6dd95a8f4e2bc74d1d5b3ef1f6c68f2d18168d37aa
 
     </body>
 </html>
-", "base.html.twig", "/home/nuria/onixProject/templates/base.html.twig");
+", "base.html.twig", "/home/nuria/SymfonyONIX/templates/base.html.twig");
     }
 }

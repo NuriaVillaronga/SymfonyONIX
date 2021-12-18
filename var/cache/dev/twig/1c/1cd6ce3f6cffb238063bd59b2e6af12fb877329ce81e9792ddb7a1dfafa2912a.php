@@ -122,6 +122,6 @@ class __TwigTemplate_ed62d174973cc42c32c98d03354c35c8d10e319af3fe62057d23e99953b
         {% endfor %}
     </tbody>
 </table>
-", "@WebProfiler/Profiler/table.html.twig", "/home/nuria/onixProject/vendor/symfony/web-profiler-bundle/Resources/views/Profiler/table.html.twig");
+", "@WebProfiler/Profiler/table.html.twig", "/home/nuria/SymfonyONIX/vendor/symfony/web-profiler-bundle/Resources/views/Profiler/table.html.twig");
     }
 }

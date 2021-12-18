@@ -58,13 +58,13 @@ class User implements UserInterface, PasswordAuthenticatedUserInterface
     private $isDeleted;
 
     /**
-     * @ORM\OneToMany(targetEntity=File::class, mappedBy="user", orphanRemoval=true)
+     * @ORM\OneToMany(targetEntity=Catalog::class, mappedBy="user", orphanRemoval=true)
      */
-    private $files;
+    private $catalogs;
 
     public function __construct()
     {
-        $this->files = new ArrayCollection();
+        $this->catalogs = new ArrayCollection();
     }
 
     public function getId(): ?int
@@ -215,29 +215,29 @@ class User implements UserInterface, PasswordAuthenticatedUserInterface
     }
 
     /**
-     * @return Collection|File[]
+     * @return Collection|Catalog[]
      */
-    public function getFiles(): Collection
+    public function getCatalogs(): Collection
     {
-        return $this->files;
+        return $this->catalogs;
     }
 
-    public function addFile(File $file): self
+    public function addCatalog(Catalog $catalog): self
     {
-        if (!$this->files->contains($file)) {
-            $this->files[] = $file;
-            $file->setUser($this);
+        if (!$this->catalogs->contains($catalog)) {
+            $this->catalogs[] = $catalog;
+            $catalog->setUser($this);
         }
 
         return $this;
     }
 
-    public function removeFile(File $file): self
+    public function removeCatalog(Catalog $catalog): self
     {
-        if ($this->files->removeElement($file)) {
+        if ($this->catalogs->removeElement($catalog)) {
             // set the owning side to null (unless already changed)
-            if ($file->getUser() === $this) {
-                $file->setUser(null);
+            if ($catalog->getUser() === $this) {
+                $catalog->setUser(null);
             }
         }
 

@@ -141,6 +141,6 @@ class __TwigTemplate_b7bc1ab31ad9d69556a12670004dade0d856e37b7a0c3e87d877093f13d
     <button>{{ options.button }}</button>
 
 </form>
-", "@KnpPaginator/Pagination/filtration.html.twig", "/home/nuria/onixProject/vendor/knplabs/knp-paginator-bundle/templates/Pagination/filtration.html.twig");
+", "@KnpPaginator/Pagination/filtration.html.twig", "/home/nuria/SymfonyONIX/vendor/knplabs/knp-paginator-bundle/templates/Pagination/filtration.html.twig");
     }
 }

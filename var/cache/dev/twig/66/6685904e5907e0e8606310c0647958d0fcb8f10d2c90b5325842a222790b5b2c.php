@@ -1671,6 +1671,6 @@ class __TwigTemplate_47402e593b887394f139927b2605d839629ad5fca0287de23f7e4f65df8
         </tbody>
     </table>
 {% endmacro %}
-", "@Doctrine/Collector/db.html.twig", "/home/nuria/onixProject/vendor/doctrine/doctrine-bundle/Resources/views/Collector/db.html.twig");
+", "@Doctrine/Collector/db.html.twig", "/home/nuria/SymfonyONIX/vendor/doctrine/doctrine-bundle/Resources/views/Collector/db.html.twig");
     }
 }

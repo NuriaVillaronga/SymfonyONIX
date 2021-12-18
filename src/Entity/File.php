@@ -3,6 +3,8 @@
 namespace App\Entity;
 
 use App\Repository\FileRepository;
+use Doctrine\Common\Collections\ArrayCollection;
+use Doctrine\Common\Collections\Collection;
 use Doctrine\ORM\Mapping as ORM;
 use Symfony\Component\Validator\Constraints as Assert;
 
@@ -19,60 +21,83 @@ class File
     private $id;
 
     /**
-     * @ORM\Column(type="string", length=255, nullable=true)
+     * @ORM\Column(type="string", length=255)
+     * 
+     * @Assert\File(mimeTypes={"application/xml"})
+     */
+    private $file;
+
+    /**
+     * @ORM\ManyToOne(targetEntity=Catalog::class, inversedBy="files")
+     * @ORM\JoinColumn(nullable=false)
      */
     private $catalog;
 
     /**
-     * @ORM\Column(type="string", length=255, nullable=true)
-     * 
-     * @Assert\File(mimeTypes={"application/xml"})
+     * @ORM\OneToMany(targetEntity=Product::class, mappedBy="file", orphanRemoval=true)
      */
-    private $files;
+    private $products;
 
-    /**
-     * @ORM\ManyToOne(targetEntity=User::class, inversedBy="files")
-     * @ORM\JoinColumn(nullable=false)
-     */
-    private $user;
+    public function __construct()
+    {
+        $this->products = new ArrayCollection();
+    }
 
     public function getId(): ?int
     {
         return $this->id;
     }
 
-    public function getCatalog(): ?string
+    public function getFile(): ?string
+    {
+        return $this->file;
+    }
+
+    public function setFile(string $file): self
+    {
+        $this->file = $file;
+
+        return $this;
+    }
+
+    public function getCatalog(): ?Catalog
     {
         return $this->catalog;
     }
 
-    public function setCatalog(?string $catalog): self
+    public function setCatalog(?Catalog $catalog): self
     {
         $this->catalog = $catalog;
 
         return $this;
     }
 
-    public function getFiles(): ?string
+    /**
+     * @return Collection|Product[]
+     */
+    public function getProducts(): Collection
     {
-        return $this->files;
+        return $this->products;
     }
 
-    public function setFiles(?string $files): self
+    public function addProduct(Product $product): self
     {
-        $this->files = $files;
+        if (!$this->products->contains($product)) {
+            $this->products[] = $product;
+            $product->setFile($this);
+        }
 
         return $this;
     }
 
-    public function getUser(): ?User
+    public function removeProduct(Product $product): self
     {
-        return $this->user;
-    }
-
-    public function setUser(?User $user): self
-    {
-        $this->user = $user;
+        if ($this->products->removeElement($product)) {
+            // set the owning side to null (unless already changed)
+            if ($product->getFile() === $this) {
+                $product->setFile(null);
+            }
+        }
 
         return $this;
     }
